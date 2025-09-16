@@ -496,6 +496,7 @@
         align-items: center;
         gap: 10px;
         margin-bottom: 15px;
+        flex-wrap: wrap;
       }
 
       .current-price {
@@ -538,6 +539,7 @@
       .customization-image.animated {
         opacity: 1;
         transform: translateX(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
 
       .customization-details {
@@ -550,6 +552,7 @@
       .customization-details.animated {
         opacity: 1;
         transform: translateX(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
 
       .custom-options {
@@ -613,6 +616,7 @@
       .team-card.animated {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
       }
 
       .team-image {
@@ -729,6 +733,7 @@
       .testimonial-card.animated {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
       }
 
       .testimonial-text {
@@ -755,6 +760,7 @@
       .testimonial-text:after {
         bottom: -40px;
         right: 0;
+        line-height: 0;
       }
 
       .testimonial-author {
@@ -859,6 +865,7 @@
       .blog-card.animated {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
       }
 
       .blog-image {
@@ -973,6 +980,7 @@
         display: flex;
         gap: 15px;
         margin-top: 20px;
+        flex-wrap: wrap;
       }
 
       .social-icon {
@@ -1664,7 +1672,7 @@
             >
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
                   alt="Training Jersey"
                   class="product-img"
                 />
@@ -1938,19 +1946,19 @@
 
           <div class="countdown">
             <div class="countdown-item">
-              <div class="countdown-number">02</div>
+              <div class="countdown-number" id="days">00</div>
               <div class="countdown-label">Days</div>
             </div>
             <div class="countdown-item">
-              <div class="countdown-number">12</div>
+              <div class="countdown-number" id="hours">00</div>
               <div class="countdown-label">Hours</div>
             </div>
             <div class="countdown-item">
-              <div class="countdown-number">45</div>
+              <div class="countdown-number" id="minutes">00</div>
               <div class="countdown-label">Minutes</div>
             </div>
             <div class="countdown-item">
-              <div class="countdown-number">30</div>
+              <div class="countdown-number" id="seconds">00</div>
               <div class="countdown-label">Seconds</div>
             </div>
           </div>
@@ -2557,16 +2565,42 @@
       function handleOrderFormSubmit(event) {
         event.preventDefault();
 
-        // In a real implementation, you would send the form data to Formspree
-        // For this example, we'll just show the confirmation
-        document.getElementById("cartSummary").style.display = "none";
-        document.getElementById("orderConfirmation").style.display = "block";
+        // Get form data
+        const formData = new FormData(event.target);
 
-        // Clear the cart
-        cart = [];
-        saveCart();
+        // Send data to Formspree using fetch API
+        fetch(event.target.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Show confirmation message
+              document.getElementById("cartSummary").style.display = "none";
+              document.getElementById("orderConfirmation").style.display =
+                "block";
 
-        return true;
+              // Clear the cart
+              cart = [];
+              saveCart();
+            } else {
+              // Handle error
+              alert(
+                "There was an error submitting your order. Please try again."
+              );
+            }
+          })
+          .catch((error) => {
+            // Handle network error
+            alert(
+              "There was a network error. Please check your connection and try again."
+            );
+          });
+
+        return false;
       }
 
       // Initialize the page
@@ -2604,65 +2638,12 @@
           .getElementById("newsletterForm")
           .addEventListener("submit", function () {
             // Form will be submitted to Formspree automatically
-            // You could add a confirmation message here if needed
           });
 
-        // Fix countdown timer to work continuously
-        function updateCountdown() {
-          const days = document.querySelector(".countdown-number:nth-child(1)");
-          const hours = document.querySelector(
-            ".countdown-number:nth-child(2)"
-          );
-          const minutes = document.querySelector(
-            ".countdown-number:nth-child(3)"
-          );
-          const seconds = document.querySelector(
-            ".countdown-number:nth-child(4)"
-          );
+        // Initialize countdown timer
+        initializeCountdown();
 
-          // Always count down from the current values
-          let sec = parseInt(seconds.textContent);
-          let min = parseInt(minutes.textContent);
-          let hr = parseInt(hours.textContent);
-          let d = parseInt(days.textContent);
-
-          sec--;
-
-          if (sec < 0) {
-            sec = 59;
-            min--;
-
-            if (min < 0) {
-              min = 59;
-              hr--;
-
-              if (hr < 0) {
-                hr = 23;
-                d--;
-
-                if (d < 0) {
-                  // If the countdown ends, reset it to 7 days
-                  d = 7;
-                  hr = 0;
-                  min = 0;
-                  sec = 0;
-                }
-              }
-            }
-          }
-
-          seconds.textContent = sec.toString().padStart(2, "0");
-          minutes.textContent = min.toString().padStart(2, "0");
-          hours.textContent = hr.toString().padStart(2, "0");
-          days.textContent = d.toString().padStart(2, "0");
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-      });
-
-      // Animation on scroll functionality
-      document.addEventListener("DOMContentLoaded", function () {
+        // Animation on scroll functionality
         const animatedElements = document.querySelectorAll(
           ".product-card, .testimonial-card, .team-card, .service-card, .blog-card"
         );
@@ -2717,57 +2698,6 @@
           customizationObserver.observe(customizationImage);
         if (customizationDetails)
           customizationObserver.observe(customizationDetails);
-
-        // Countdown timer
-        function updateCountdown() {
-          const days = document.querySelector(".countdown-number:nth-child(1)");
-          const hours = document.querySelector(
-            ".countdown-number:nth-child(2)"
-          );
-          const minutes = document.querySelector(
-            ".countdown-number:nth-child(3)"
-          );
-          const seconds = document.querySelector(
-            ".countdown-number:nth-child(4)"
-          );
-
-          let sec = parseInt(seconds.textContent);
-          let min = parseInt(minutes.textContent);
-          let hr = parseInt(hours.textContent);
-          let d = parseInt(days.textContent);
-
-          sec--;
-
-          if (sec < 0) {
-            sec = 59;
-            min--;
-
-            if (min < 0) {
-              min = 59;
-              hr--;
-
-              if (hr < 0) {
-                hr = 23;
-                d--;
-
-                if (d < 0) {
-                  d = 0;
-                  hr = 0;
-                  min = 0;
-                  sec = 0;
-                  clearInterval(countdownInterval);
-                }
-              }
-            }
-          }
-
-          seconds.textContent = sec.toString().padStart(2, "0");
-          minutes.textContent = min.toString().padStart(2, "0");
-          hours.textContent = hr.toString().padStart(2, "0");
-          days.textContent = d.toString().padStart(2, "0");
-        }
-
-        const countdownInterval = setInterval(updateCountdown, 1000);
 
         // Mobile menu functionality
         const menuToggle = document.getElementById("menuToggle");
@@ -2861,6 +2791,64 @@
           });
         });
       });
+
+      // Countdown timer functionality
+      function initializeCountdown() {
+        // Set the end date for the sale (e.g., 7 days from now)
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 7);
+        endDate.setHours(23, 59, 59, 0);
+
+        // Store the end date in localStorage if not already set
+        if (!localStorage.getItem("saleEndDate")) {
+          localStorage.setItem("saleEndDate", endDate.getTime());
+        }
+
+        const saleEndDate = parseInt(localStorage.getItem("saleEndDate"));
+
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const distance = saleEndDate - now;
+
+          if (distance < 0) {
+            // Sale has ended, reset for next sale (e.g., in 30 days)
+            const newEndDate = new Date();
+            newEndDate.setDate(newEndDate.getDate() + 30);
+            localStorage.setItem("saleEndDate", newEndDate.getTime());
+            return;
+          }
+
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Update the countdown display
+          document.getElementById("days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        }
+
+        // Initial update
+        updateCountdown();
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+      }
     </script>
   </body>
 </html>
