@@ -3,7 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Social Media Meta Tags -->
+    <meta
+      property="og:title"
+      content="Strike Ghana Limited - Premium Football Apparel"
+    />
+    <meta
+      property="og:description"
+      content="Strike Ghana Limited is Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment. Official merchandise for Ghana Premier League teams with nationwide delivery since 2023."
+    />
+    <meta property="og:image" content="images/linkimage.png" />
+    <meta
+      property="og:url"
+      content="https://ahmedsayuti.github.io/Strike-Ghana/"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Strike Ghana Limited - Ghana's Premier Football Apparel Store"
+    />
+    <meta
+      name="twitter:description"
+      content="Official supplier of Ghana Premier League team jerseys, custom football kits, boots and equipment. Premium quality football apparel with fast delivery across Ghana."
+    />
+    <meta name="twitter:image" content="images/linkimage.png" />
     <title>Strike Ghana Limited - Premium Football Apparel</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png"
+    />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#7ed321" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#7ed321" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -168,6 +239,8 @@
       .nav-menu {
         display: flex;
         gap: 30px;
+        position: relative;
+        align-items: center; /* Ensure all items are centered */
       }
 
       .nav-link {
@@ -177,6 +250,9 @@
         position: relative;
         padding: 8px 0;
         transition: var(--transition);
+        cursor: pointer;
+        display: flex;
+        align-items: center; /* Center the text and icon vertically */
       }
 
       .nav-link:after {
@@ -196,6 +272,55 @@
 
       .nav-link:hover:after {
         width: 100%;
+      }
+
+      /* Products Dropdown */
+      .nav-item-with-dropdown {
+        position: relative;
+        display: flex;
+        align-items: center; /* Center the dropdown item vertically */
+        height: 100%;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--light);
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        padding: 15px;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+
+      .nav-item-with-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-link {
+        display: block;
+        padding: 10px 15px;
+        transition: var(--transition);
+        border-radius: var(--radius);
+      }
+
+      .dropdown-link:hover {
+        background-color: var(--gray);
+        color: var(--primary);
+        padding-left: 20px;
       }
 
       .header-actions {
@@ -489,6 +614,7 @@
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 10px;
+        cursor: pointer;
       }
 
       .product-price {
@@ -540,6 +666,7 @@
         opacity: 1;
         transform: translateX(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
+        cursor: pointer;
       }
 
       .customization-details {
@@ -669,6 +796,7 @@
       .promo-content {
         max-width: 800px;
         margin: 0 auto;
+        cursor: pointer;
       }
 
       .promo-title {
@@ -1114,6 +1242,35 @@
         font-size: 18px;
         padding: 10px 0;
         border-bottom: 1px solid #eee;
+        position: relative;
+      }
+
+      .mobile-dropdown-toggle {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        font-size: 16px;
+      }
+
+      .mobile-dropdown-menu {
+        display: none;
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      .mobile-dropdown-menu.active {
+        display: block;
+      }
+
+      .mobile-dropdown-link {
+        display: block;
+        padding: 8px 0;
+        font-size: 16px;
+        color: var(--gray-dark);
+      }
+
+      .mobile-dropdown-link:hover {
+        color: var(--primary);
       }
 
       .mobile-search {
@@ -1438,7 +1595,8 @@
         font-weight: 600;
       }
 
-      .form-input {
+      .form-input,
+      .form-select {
         width: 100%;
         padding: 12px 15px;
         border: 1px solid #ddd;
@@ -1446,9 +1604,54 @@
         font-size: 16px;
       }
 
-      .form-input:focus {
+      .form-input:focus,
+      .form-select:focus {
         outline: none;
         border-color: var(--primary);
+      }
+
+      /* Newsletter Popup */
+      .newsletter-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        z-index: 1002;
+        text-align: center;
+        display: none;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      .newsletter-popup.active {
+        display: block;
+      }
+
+      .newsletter-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1001;
+        display: none;
+      }
+
+      .newsletter-popup-overlay.active {
+        display: block;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -1474,12 +1677,27 @@
 
         <nav class="nav-menu">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="#featured" class="nav-link">Jerseys</a>
-          <a href="#teams" class="nav-link">Boots</a>
-          <!-- <a href="#customization" class="nav-link">Training</a> -->
-          <a href="#services" class="nav-link">Accessories</a>
+
+          <!-- Products Dropdown -->
+          <div class="nav-item-with-dropdown">
+            <a href="#" class="nav-link"
+              >Products
+              <i
+                class="fas fa-chevron-down"
+                style="font-size: 12px; margin-left: 5px"
+              ></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="#featured" class="dropdown-link">Jerseys</a>
+              <a href="#teams" class="dropdown-link">Boots</a>
+              <a href="#" class="dropdown-link">Training</a>
+              <a href="#services" class="dropdown-link">Accessories</a>
+            </div>
+          </div>
+
           <a href="#customization" class="nav-link">Custom Kits</a>
           <a href="#promotions" class="nav-link">Sale</a>
+          <a href="about.html" class="nav-link">About</a>
           <a href="#" class="nav-link" id="cartLink"
             >Cart (<span id="cartCount">0</span>)</a
           >
@@ -1514,13 +1732,22 @@
       </div>
 
       <nav class="mobile-nav">
-        <a href="#" class="mobile-nav-link">Home</a>
-        <a href="#featured" class="mobile-nav-link">Jerseys</a>
-        <a href="#teams" class="mobile-nav-link">Boots</a>
-        <a href="#customization" class="mobile-nav-link">Training</a>
-        <a href="#services" class="mobile-nav-link">Accessories</a>
+        <a href="index.html" class="mobile-nav-link">Home</a>
+
+        <!-- Products Dropdown for Mobile -->
+        <div class="mobile-nav-link" id="mobileProductsToggle">
+          Products <i class="fas fa-chevron-down mobile-dropdown-toggle"></i>
+        </div>
+        <div class="mobile-dropdown-menu" id="mobileProductsMenu">
+          <a href="#featured" class="mobile-dropdown-link">Jerseys</a>
+          <a href="#teams" class="mobile-dropdown-link">Boots</a>
+          <a href="#" class="mobile-dropdown-link">Training</a>
+          <a href="#services" class="mobile-dropdown-link">Accessories</a>
+        </div>
+
         <a href="#customization" class="mobile-nav-link">Custom Kits</a>
         <a href="#promotions" class="mobile-nav-link">Sale</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
         <a href="#" class="mobile-nav-link" id="mobileCartLink"
           >Cart (<span id="mobileCartCount">0</span>)</a
         >
@@ -1540,6 +1767,27 @@
     </div>
 
     <div class="overlay" id="overlay"></div>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletterPopup">
+      <div class="popup-close" id="newsletterPopupClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="popup-icon">
+        <i
+          class="fas fa-check-circle"
+          style="font-size: 48px; color: var(--primary); margin-bottom: 20px"
+        ></i>
+      </div>
+      <h3>Thank You for Subscribing!</h3>
+      <p>
+        You've been added to our newsletter list. Look out for exclusive offers
+        and updates in your inbox.
+      </p>
+      <button class="btn" id="newsletterPopupButton">Continue Shopping</button>
+    </div>
+
+    <div class="newsletter-popup-overlay" id="newsletterPopupOverlay"></div>
 
     <!-- Main Content (Homepage) -->
     <div id="mainContent">
@@ -2233,6 +2481,37 @@
             </div>
 
             <div class="form-group">
+              <label class="form-label" for="customerRegion"
+                >Delivery Region</label
+              >
+              <select
+                class="form-select"
+                id="customerRegion"
+                name="region"
+                required
+              >
+                <option value="">Select a region</option>
+                <option value="Greater Accra">Greater Accra</option>
+                <option value="Ashanti">Ashanti</option>
+                <option value="Western">Western</option>
+                <option value="Central">Central</option>
+                <option value="Eastern">Eastern</option>
+                <option value="Volta">Volta</option>
+                <option value="Northern">Northern</option>
+                <option value="Upper East">Upper East</option>
+                <option value="Upper West">Upper West</option>
+                <option value="Brong-Ahafo">Brong-Ahafo</option>
+                <option value="Bono East">Bono East</option>
+                <option value="Ahafo">Ahafo</option>
+                <option value="Savannah">Savannah</option>
+                <option value="North East">North East</option>
+                <option value="Oti">Oti</option>
+                <option value="Western North">Western North</option>
+                <option value="International">International</option>
+              </select>
+            </div>
+
+            <div class="form-group">
               <label class="form-label" for="customerAddress"
                 >Delivery Address</label
               >
@@ -2296,7 +2575,7 @@
           <div class="footer-column">
             <h3>Company Info</h3>
             <div class="footer-links">
-              <a href="#" class="footer-link">About Us</a>
+              <a href="about.html" class="footer-link">About Us</a>
               <a href="#" class="footer-link">Contact Us</a>
               <a href="#" class="footer-link">Store Locations</a>
               <a href="#" class="footer-link">Careers</a>
@@ -2603,6 +2882,60 @@
         return false;
       }
 
+      // Show newsletter popup
+      function showNewsletterPopup() {
+        document.getElementById("newsletterPopup").classList.add("active");
+        document
+          .getElementById("newsletterPopupOverlay")
+          .classList.add("active");
+      }
+
+      // Hide newsletter popup
+      function hideNewsletterPopup() {
+        document.getElementById("newsletterPopup").classList.remove("active");
+        document
+          .getElementById("newsletterPopupOverlay")
+          .classList.remove("active");
+      }
+
+      // Handle newsletter form submission
+      function handleNewsletterFormSubmit(event) {
+        event.preventDefault();
+
+        // Get form data
+        const formData = new FormData(event.target);
+
+        // Send data to Formspree using fetch API
+        fetch(event.target.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Show popup
+              showNewsletterPopup();
+              // Reset form
+              event.target.reset();
+            } else {
+              // Handle error
+              alert(
+                "There was an error subscribing to the newsletter. Please try again."
+              );
+            }
+          })
+          .catch((error) => {
+            // Handle network error
+            alert(
+              "There was a network error. Please check your connection and try again."
+            );
+          });
+
+        return false;
+      }
+
       // Initialize the page
       document.addEventListener("DOMContentLoaded", function () {
         initCart();
@@ -2636,8 +2969,26 @@
         // Newsletter form submission
         document
           .getElementById("newsletterForm")
-          .addEventListener("submit", function () {
-            // Form will be submitted to Formspree automatically
+          .addEventListener("submit", handleNewsletterFormSubmit);
+
+        // Newsletter popup events
+        document
+          .getElementById("newsletterPopupClose")
+          .addEventListener("click", hideNewsletterPopup);
+        document
+          .getElementById("newsletterPopupOverlay")
+          .addEventListener("click", hideNewsletterPopup);
+        document
+          .getElementById("newsletterPopupButton")
+          .addEventListener("click", hideNewsletterPopup);
+
+        // Mobile products dropdown toggle
+        document
+          .getElementById("mobileProductsToggle")
+          .addEventListener("click", function () {
+            document
+              .getElementById("mobileProductsMenu")
+              .classList.toggle("active");
           });
 
         // Initialize countdown timer
@@ -2724,8 +3075,10 @@
             document.body.style.overflow = "auto";
           });
 
-          // Close menu when clicking on links
-          const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+          // Close menu when clicking on links (excluding dropdown toggle)
+          const mobileLinks = document.querySelectorAll(
+            ".mobile-nav-link:not(#mobileProductsToggle)"
+          );
           mobileLinks.forEach((link) => {
             link.addEventListener("click", function () {
               mobileMenu.classList.remove("active");
