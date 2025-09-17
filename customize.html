@@ -350,6 +350,30 @@
         margin-top: 10px;
       }
 
+      /* Order Form Styles */
+      .order-form {
+        margin-top: 20px;
+        display: none;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: var(--radius);
+        font-family: var(--font-body);
+      }
+
       /* Footer */
       footer {
         background-color: var(--dark);
@@ -433,6 +457,10 @@
         .footer-content {
           grid-template-columns: repeat(2, 1fr);
         }
+
+        .main-header {
+          padding: 15px 20px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -447,6 +475,33 @@
         .footer-content {
           grid-template-columns: 1fr;
         }
+
+        .main-header {
+          padding: 15px 15px;
+        }
+
+        .logo img {
+          margin-left: 5px;
+        }
+
+        .header-actions {
+          margin-right: 5px;
+        }
+
+        .customization-options,
+        .preview-container {
+          width: 100%;
+          padding: 20px;
+        }
+
+        .kit-preview {
+          padding: 20px;
+        }
+
+        #preview-canvas {
+          width: 100%;
+          height: auto;
+        }
       }
 
       @media (max-width: 576px) {
@@ -456,6 +511,40 @@
 
         .action-buttons {
           flex-direction: column;
+        }
+
+        .color-options {
+          justify-content: center;
+        }
+
+        .kit-views {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      /* Mobile margin adjustments */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        .customizer-header h1 {
+          font-size: 28px;
+        }
+
+        .customizer-header p {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 15px;
+        }
+
+        .customization-options {
+          padding: 15px;
         }
       }
     </style>
@@ -682,7 +771,7 @@
 
           <div class="preview-container">
             <div class="kit-preview">
-              <canvas id="preview-canvas" width="400" height="400"></canvas>
+              <canvas id="preview-canvas" width="500" height="500"></canvas>
             </div>
 
             <div class="summary-box">
@@ -703,9 +792,70 @@
                 <span>Total</span>
                 <span>₵324.99</span>
               </div>
-              <button class="btn" style="width: 100%; margin-top: 15px">
-                Add to Cart
+
+              <button
+                class="btn"
+                id="add-to-cart-btn"
+                style="width: 100%; margin-top: 15px"
+              >
+                Add to Cart & Order Now
               </button>
+
+              <div class="order-form" id="order-form">
+                <h3 style="margin: 20px 0 15px; text-align: center">
+                  Complete Your Order
+                </h3>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-name"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="customer-name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-email">Email</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    id="customer-email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-phone"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-input"
+                    id="customer-phone"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-address"
+                    >Delivery Address</label
+                  >
+                  <textarea
+                    class="form-input"
+                    id="customer-address"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%">
+                  Submit Order
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -777,7 +927,10 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize Fabric.js canvas
-        const canvas = new fabric.Canvas("preview-canvas");
+        const canvas = new fabric.Canvas("preview-canvas", {
+          width: 500,
+          height: 500,
+        });
         canvas.selection = false;
 
         // Set background color
@@ -875,8 +1028,8 @@
                 fabric.Image.fromURL(event.target.result, function (img) {
                   img.scaleToWidth(80);
                   img.set({
-                    left: 200,
-                    top: 150,
+                    left: 250,
+                    top: 200,
                     originX: "center",
                     originY: "center",
                     selectable: true,
@@ -961,6 +1114,45 @@
             alert("Your design has been saved!");
           });
 
+        // Add to cart and order button
+        document
+          .getElementById("add-to-cart-btn")
+          .addEventListener("click", function () {
+            const orderForm = document.getElementById("order-form");
+            orderForm.style.display =
+              orderForm.style.display === "block" ? "none" : "block";
+          });
+
+        // Order form submission
+        document
+          .querySelector(".order-form button")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Validate form
+            const name = document.getElementById("customer-name").value;
+            const email = document.getElementById("customer-email").value;
+            const phone = document.getElementById("customer-phone").value;
+            const address = document.getElementById("customer-address").value;
+
+            if (!name || !email || !phone || !address) {
+              alert("Please fill in all fields");
+              return;
+            }
+
+            // In a real implementation, you would send this data to your server
+            alert(
+              "Order submitted successfully! We'll contact you for payment and delivery details."
+            );
+
+            // Reset form
+            document.getElementById("customer-name").value = "";
+            document.getElementById("customer-email").value = "";
+            document.getElementById("customer-phone").value = "";
+            document.getElementById("customer-address").value = "";
+            document.getElementById("order-form").style.display = "none";
+          });
+
         // Function to draw the kit based on current properties
         function drawKit() {
           canvas.clear();
@@ -987,11 +1179,11 @@
           canvas.renderAll();
         }
 
-        // Function to draw the jersey
+        // Function to draw the jersey with east-west sleeves
         function drawJersey() {
-          // Base jersey shape
+          // Base jersey shape - larger and with horizontal sleeves
           const jersey = new fabric.Path(
-            "M 150 100 Q 200 50 250 100 L 250 300 Q 200 350 150 300 Z",
+            "M 150 150 Q 200 100 250 150 L 250 350 Q 200 400 150 350 Z",
             {
               fill: kitProperties.baseColor,
               stroke: "#000000",
@@ -1000,82 +1192,157 @@
             }
           );
 
-          // Add pattern based on selection
-          if (kitProperties.pattern === "stripes") {
-            const stripe1 = new fabric.Rect({
-              left: 170,
-              top: 100,
-              width: 20,
-              height: 200,
-              fill: "#333333",
+          // Left sleeve - horizontal (east-west)
+          const leftSleeve = new fabric.Path(
+            "M 150 150 Q 130 170 130 200 L 130 250 Q 130 280 150 300 Z",
+            {
+              fill: kitProperties.baseColor,
+              stroke: "#000000",
+              strokeWidth: 2,
               selectable: false,
-            });
-
-            const stripe2 = new fabric.Rect({
-              left: 210,
-              top: 100,
-              width: 20,
-              height: 200,
-              fill: "#333333",
-              selectable: false,
-            });
-
-            canvas.add(stripe1, stripe2);
-          } else if (kitProperties.pattern === "hoops") {
-            for (let i = 0; i < 8; i++) {
-              const hoop = new fabric.Rect({
-                left: 150,
-                top: 100 + i * 25,
-                width: 100,
-                height: 12,
-                fill: i % 2 === 0 ? "#333333" : kitProperties.baseColor,
-                selectable: false,
-              });
-
-              canvas.add(hoop);
             }
+          );
+
+          // Right sleeve - horizontal (east-west)
+          const rightSleeve = new fabric.Path(
+            "M 250 150 Q 270 170 270 200 L 270 250 Q 270 280 250 300 Z",
+            {
+              fill: kitProperties.baseColor,
+              stroke: "#000000",
+              strokeWidth: 2,
+              selectable: false,
+            }
+          );
+
+          // Add pattern based on selection - applied to both jersey and sleeves
+          let patternFill = null;
+
+          switch (kitProperties.pattern) {
+            case "stripes":
+              patternFill = new fabric.Pattern({
+                source: function () {
+                  const patternCanvas = document.createElement("canvas");
+                  patternCanvas.width = 20;
+                  patternCanvas.height = 20;
+                  const ctx = patternCanvas.getContext("2d");
+
+                  ctx.fillStyle = kitProperties.baseColor;
+                  ctx.fillRect(0, 0, 20, 20);
+
+                  ctx.fillStyle = "#333333";
+                  ctx.fillRect(8, 0, 4, 20);
+
+                  return patternCanvas;
+                },
+                repeat: "repeat",
+              });
+              break;
+
+            case "hoops":
+              patternFill = new fabric.Pattern({
+                source: function () {
+                  const patternCanvas = document.createElement("canvas");
+                  patternCanvas.width = 20;
+                  patternCanvas.height = 20;
+                  const ctx = patternCanvas.getContext("2d");
+
+                  ctx.fillStyle = kitProperties.baseColor;
+                  ctx.fillRect(0, 0, 20, 20);
+
+                  ctx.fillStyle = "#333333";
+                  ctx.fillRect(0, 0, 20, 10);
+
+                  return patternCanvas;
+                },
+                repeat: "repeat",
+              });
+              break;
+
+            case "checks":
+              patternFill = new fabric.Pattern({
+                source: function () {
+                  const patternCanvas = document.createElement("canvas");
+                  patternCanvas.width = 20;
+                  patternCanvas.height = 20;
+                  const ctx = patternCanvas.getContext("2d");
+
+                  ctx.fillStyle = kitProperties.baseColor;
+                  ctx.fillRect(0, 0, 20, 20);
+
+                  ctx.fillStyle = "#333333";
+                  ctx.fillRect(0, 0, 10, 10);
+                  ctx.fillRect(10, 10, 10, 10);
+
+                  return patternCanvas;
+                },
+                repeat: "repeat",
+              });
+              break;
+
+            case "dots":
+              patternFill = new fabric.Pattern({
+                source: function () {
+                  const patternCanvas = document.createElement("canvas");
+                  patternCanvas.width = 20;
+                  patternCanvas.height = 20;
+                  const ctx = patternCanvas.getContext("2d");
+
+                  ctx.fillStyle = kitProperties.baseColor;
+                  ctx.fillRect(0, 0, 20, 20);
+
+                  ctx.fillStyle = "#333333";
+                  ctx.beginPath();
+                  ctx.arc(10, 10, 4, 0, Math.PI * 2);
+                  ctx.fill();
+
+                  return patternCanvas;
+                },
+                repeat: "repeat",
+              });
+              break;
+
+            case "gradient":
+              patternFill = new fabric.Gradient({
+                type: "linear",
+                coords: { x1: 0, y1: 0, x2: 200, y2: 0 },
+                colorStops: [
+                  { offset: 0, color: kitProperties.baseColor },
+                  { offset: 1, color: "#333333" },
+                ],
+              });
+              break;
+
+            default:
+              // Plain pattern - no additional styling needed
+              break;
           }
 
-          // Add sleeves
-          const leftSleeve = new fabric.Path(
-            "M 150 100 Q 140 110 145 130 L 145 200 Q 140 210 150 220 Z",
-            {
-              fill: kitProperties.baseColor,
-              stroke: "#000000",
-              strokeWidth: 2,
-              selectable: false,
-            }
-          );
-
-          const rightSleeve = new fabric.Path(
-            "M 250 100 Q 260 110 255 130 L 255 200 Q 260 210 250 220 Z",
-            {
-              fill: kitProperties.baseColor,
-              stroke: "#000000",
-              strokeWidth: 2,
-              selectable: false,
-            }
-          );
+          // Apply pattern if selected
+          if (patternFill) {
+            jersey.set("fill", patternFill);
+            leftSleeve.set("fill", patternFill);
+            rightSleeve.set("fill", patternFill);
+          }
 
           canvas.add(jersey, leftSleeve, rightSleeve);
         }
 
-        // Function to draw shorts
+        // Function to draw shorts - made larger
         function drawShorts() {
           const shortsTop = 350;
 
-          // Left short
+          // Left short - larger
           const leftShort = new fabric.Path(
-            "M 170 " +
+            "M 150 " +
               shortsTop +
-              " Q 160 " +
-              (shortsTop + 100) +
-              " 180 " +
-              (shortsTop + 150) +
+              " Q 130 " +
+              (shortsTop + 120) +
+              " 160 " +
+              (shortsTop + 200) +
               " L 200 " +
-              (shortsTop + 150) +
+              (shortsTop + 200) +
               " Q 200 " +
-              (shortsTop + 100) +
+              (shortsTop + 120) +
               " 200 " +
               shortsTop +
               " Z",
@@ -1087,18 +1354,18 @@
             }
           );
 
-          // Right short
+          // Right short - larger
           const rightShort = new fabric.Path(
-            "M 230 " +
+            "M 250 " +
               shortsTop +
-              " Q 240 " +
-              (shortsTop + 100) +
-              " 220 " +
-              (shortsTop + 150) +
+              " Q 270 " +
+              (shortsTop + 120) +
+              " 240 " +
+              (shortsTop + 200) +
               " L 200 " +
-              (shortsTop + 150) +
+              (shortsTop + 200) +
               " Q 200 " +
-              (shortsTop + 100) +
+              (shortsTop + 120) +
               " 200 " +
               shortsTop +
               " Z",
@@ -1109,6 +1376,112 @@
               selectable: false,
             }
           );
+
+          // Apply pattern if selected (same as jersey)
+          if (kitProperties.pattern !== "plain") {
+            let patternFill = null;
+
+            switch (kitProperties.pattern) {
+              case "stripes":
+                patternFill = new fabric.Pattern({
+                  source: function () {
+                    const patternCanvas = document.createElement("canvas");
+                    patternCanvas.width = 20;
+                    patternCanvas.height = 20;
+                    const ctx = patternCanvas.getContext("2d");
+
+                    ctx.fillStyle = kitProperties.baseColor;
+                    ctx.fillRect(0, 0, 20, 20);
+
+                    ctx.fillStyle = "#333333";
+                    ctx.fillRect(8, 0, 4, 20);
+
+                    return patternCanvas;
+                  },
+                  repeat: "repeat",
+                });
+                break;
+
+              case "hoops":
+                patternFill = new fabric.Pattern({
+                  source: function () {
+                    const patternCanvas = document.createElement("canvas");
+                    patternCanvas.width = 20;
+                    patternCanvas.height = 20;
+                    const ctx = patternCanvas.getContext("2d");
+
+                    ctx.fillStyle = kitProperties.baseColor;
+                    ctx.fillRect(0, 0, 20, 20);
+
+                    ctx.fillStyle = "#333333";
+                    ctx.fillRect(0, 0, 20, 10);
+
+                    return patternCanvas;
+                  },
+                  repeat: "repeat",
+                });
+                break;
+
+              case "checks":
+                patternFill = new fabric.Pattern({
+                  source: function () {
+                    const patternCanvas = document.createElement("canvas");
+                    patternCanvas.width = 20;
+                    patternCanvas.height = 20;
+                    const ctx = patternCanvas.getContext("2d");
+
+                    ctx.fillStyle = kitProperties.baseColor;
+                    ctx.fillRect(0, 0, 20, 20);
+
+                    ctx.fillStyle = "#333333";
+                    ctx.fillRect(0, 0, 10, 10);
+                    ctx.fillRect(10, 10, 10, 10);
+
+                    return patternCanvas;
+                  },
+                  repeat: "repeat",
+                });
+                break;
+
+              case "dots":
+                patternFill = new fabric.Pattern({
+                  source: function () {
+                    const patternCanvas = document.createElement("canvas");
+                    patternCanvas.width = 20;
+                    patternCanvas.height = 20;
+                    const ctx = patternCanvas.getContext("2d");
+
+                    ctx.fillStyle = kitProperties.baseColor;
+                    ctx.fillRect(0, 0, 20, 20);
+
+                    ctx.fillStyle = "#333333";
+                    ctx.beginPath();
+                    ctx.arc(10, 10, 4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    return patternCanvas;
+                  },
+                  repeat: "repeat",
+                });
+                break;
+
+              case "gradient":
+                patternFill = new fabric.Gradient({
+                  type: "linear",
+                  coords: { x1: 0, y1: 0, x2: 200, y2: 0 },
+                  colorStops: [
+                    { offset: 0, color: kitProperties.baseColor },
+                    { offset: 1, color: "#333333" },
+                  ],
+                });
+                break;
+            }
+
+            if (patternFill) {
+              leftShort.set("fill", patternFill);
+              rightShort.set("fill", patternFill);
+            }
+          }
 
           canvas.add(leftShort, rightShort);
         }
@@ -1127,9 +1500,9 @@
             const nameText = new fabric.Text(
               kitProperties.playerName.toUpperCase(),
               {
-                left: 200,
-                top: 250,
-                fontSize: 16,
+                left: 250,
+                top: 300,
+                fontSize: 20,
                 fontFamily: "Arial",
                 fill: kitProperties.textColor,
                 originX: "center",
@@ -1145,9 +1518,9 @@
           // Add player number if exists
           if (kitProperties.playerNumber) {
             const numberText = new fabric.Text(kitProperties.playerNumber, {
-              left: 200,
-              top: 180,
-              fontSize: 40,
+              left: 250,
+              top: 230,
+              fontSize: 48,
               fontFamily: "Arial",
               fill: kitProperties.textColor,
               originX: "center",
@@ -1164,9 +1537,9 @@
             const sponsorText = new fabric.Text(
               kitProperties.sponsor.toUpperCase(),
               {
-                left: 200,
-                top: 220,
-                fontSize: 14,
+                left: 250,
+                top: 270,
+                fontSize: 18,
                 fontFamily: "Arial",
                 fill: kitProperties.textColor,
                 originX: "center",
