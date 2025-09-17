@@ -747,15 +747,19 @@
             }
 
             .team-image {
-              height: 200px;
-              overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f8f8f8; /* Light background to see white logos */
+                padding: 15px;
             }
 
             .team-img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              transition: var(--transition);
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 150px; /* Adjust based on your needs */
+                object-fit: contain; /* Ensures full image is visible */
             }
 
             .team-card:hover .team-img {
@@ -1127,15 +1131,6 @@
               transform: translateY(-5px);
             }
 
-            .footer-newsletter p {
-              margin-bottom: 20px;
-            }
-
-            .newsletter-form {
-              display: flex;
-              gap: 10px;
-            }
-
             .newsletter-input {
               flex: 1;
               padding: 12px 15px;
@@ -1305,6 +1300,18 @@
 
             /* Responsive Styles */
             @media (max-width: 992px) {
+
+              .main-header {
+                padding: 15px 20px; /* Add horizontal padding */
+              }
+
+              .logo img {
+                margin-left: 10px; /* Move logo slightly right */
+              }
+
+              .menu-toggle {
+                margin-right: 10px; /* Move menu toggle slightly left */
+              }
               .footer-content {
                 grid-template-columns: repeat(2, 1fr);
               }
@@ -1365,10 +1372,20 @@
             }
 
             @media (max-width: 576px) {
+              .main-header {
+                padding: 15px 15px; /* Slightly less padding on very small screens */
+              }
+
+              .logo img {
+                margin-left: 5px;
+              }
+
+              .menu-toggle {
+                margin-right: 5px;
+              }
               .footer-content {
                 grid-template-columns: 1fr;
               }
-
               .countdown {
                 flex-wrap: wrap;
               }
@@ -1846,10 +1863,11 @@
             }
 
             .partner-logo {
-                height: 80px;
-                width: auto;
-                margin: 0 auto 15px;
-                filter: brightness(0) invert(1);
+              height: 80px;
+              width: auto;
+              margin: 0 auto 15px;
+              /* Remove the filter property to show original colors */
+              /* filter: brightness(0) invert(1); */
             }
 
             .partner-name {
@@ -2287,7 +2305,6 @@
           onclick="showHomepage(); closeMobileMenu();"
           >Home</a
         >
-
         <!-- Products Dropdown for Mobile -->
         <div class="mobile-nav-link" id="mobileProductsToggle">
           Products <i class="fas fa-chevron-down mobile-dropdown-toggle"></i>
@@ -2357,6 +2374,7 @@
     </div>
 
     <div class="overlay" id="overlay"></div>
+    <!-- End Mobile Menu -->
 
     <!-- Newsletter Popup -->
     <div class="newsletter-popup" id="newsletterPopup">
@@ -2634,7 +2652,7 @@
                 </div>
               </div>
 
-              <a href="#" class="btn">Start Designing</a>
+              <a href="customize.html" class="btn">Start Designing</a>
             </div>
           </div>
         </div>
@@ -2648,7 +2666,7 @@
             <div class="team-card">
               <div class="team-image">
                 <img
-                  src="https://images.unsplash.com/photo-1599669454699-248893623464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                  src="images/teams/Accra_hearts_of_oak.png"
                   alt="Hearts of Oak"
                   class="team-img"
                 />
@@ -2663,7 +2681,7 @@
             <div class="team-card">
               <div class="team-image">
                 <img
-                  src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80"
+                  src="images/teams/asante-kotoko.png"
                   alt="Asante Kotoko"
                   class="team-img"
                 />
@@ -2678,7 +2696,7 @@
             <div class="team-card">
               <div class="team-image">
                 <img
-                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                  src="images/teams/Medeama_SC.png"
                   alt="Medeama SC"
                   class="team-img"
                 />
@@ -2693,7 +2711,7 @@
             <div class="team-card">
               <div class="team-image">
                 <img
-                  src="https://images.unsplash.com/photo-1473976345543-9ffc928e648d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                  src="images/teams/aduana-stars-fc.png"
                   alt="Aduana Stars"
                   class="team-img"
                 />
@@ -2708,7 +2726,7 @@
             <div class="team-card">
               <div class="team-image">
                 <img
-                  src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80"
+                  src="images/teams/great-olympics.png"
                   alt="Great Olympics"
                   class="team-img"
                 />
@@ -2722,7 +2740,38 @@
           </div>
         </div>
       </section>
-
+      <!-- NEW: Company Summary Section on Homepage -->
+      <section class="company-summary" id="companySummary">
+        <div class="container">
+          <div class="summary-content">
+            <div class="summary-text">
+              <h2>Strike Ghana Ltd</h2>
+              <h3>Where Performance Meets Identity</h3>
+              <p>
+                Strike Ghana Ltd, a distinguished subsidiary of YAC Group
+                Holdings, stands at the forefront of the sports apparel and
+                equipment industry in Ghana. We provide premium-quality products
+                designed for African conditions, supporting clubs, athletes, and
+                sports enthusiasts in their athletic journey.
+              </p>
+              <p>
+                Through strategic international partnerships and local
+                expertise, we're transforming athlete performance and uplifting
+                the image of local sports clubs.
+              </p>
+              <a href="#" class="btn" onclick="showAboutPage()"
+                >Learn More About Us</a
+              >
+            </div>
+            <div class="summary-image">
+              <img
+                src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80"
+                alt="Strike Ghana - Premium Sports Apparel"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Services Section -->
       <section class="services" id="services">
         <div class="container">
@@ -2801,7 +2850,7 @@
             </div>
           </div>
 
-          <a href="#" class="btn pulse">Shop Sale Now</a>
+          <a href="#featured" class="btn pulse">Shop Sale Now</a>
         </div>
       </section>
 
@@ -2998,60 +3047,61 @@
 
     <!-- About Page -->
     <section class="about-page" id="aboutPage">
-      <!-- About Hero Section -->
+      <!-- About Hero Section (updated) -->
       <section class="about-hero">
         <div class="container about-hero-content">
           <h1 class="about-hero-title">ABOUT STRIKE GHANA</h1>
           <p class="about-hero-subtitle">
-            Ghana's Premier Football Apparel Brand
+            Ghana's Premier Football Apparel Brand - Where Performance Meets
+            Identity
           </p>
-          <a
-            href="#"
-            class="btn"
-            onclick="showHomepage(); scrollToSection('featured')"
-            >Shop Our Products</a
-          >
         </div>
       </section>
 
-      <!-- About Intro Section -->
+      <!-- About Intro Section (updated) -->
       <section class="about-intro">
         <div class="container">
           <div class="about-intro-content">
             <div class="about-intro-image">
               <img
-                src="https://images.unsplash.com/photo-1552066379-e7bfd22155c5?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1662096909687-7c64cde3524b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Strike Ghana Team"
               />
             </div>
             <div class="about-intro-text">
               <h2 class="section-title">Our Story</h2>
               <p>
-                Strike Ghana is a distinguished sports brand rooted in Ghana,
-                with manufacturing partners spread across Europe and Asia. We
-                specialize in designing and producing high-performance athletic
-                wear tailored for athletes and fitness enthusiasts.
+                Strike Ghana Ltd, a distinguished subsidiary of YAC Group
+                Holdings, stands at the forefront of the sports apparel and
+                equipment industry in Ghana. Headquartered in the vibrant heart
+                of the country, we take pride in our commitment to excellence.
               </p>
               <p>
-                Our commitment extends beyond mere apparel; we meticulously
-                craft our products to enhance comfort, style, and performance
-                during various physical activities. A key focus of our brand is
-                on elevating the professionalism and branding of local sports
-                clubs, ensuring they stand out in a competitive landscape.
+                Our strategic partnerships with reputable manufacturing
+                facilities in Europe and Asia enable us to merge international
+                expertise with a deep understanding of local needs. This unique
+                blend empowers us to create premium-quality products
+                specifically designed for the diverse weather conditions across
+                Africa.
               </p>
               <p>
-                As a household name in Ghana, Strike Ghana is proud to have
-                collaborated with some of the country's most esteemed teams,
-                including Asante Kotoko, Accra Great Olympics, Liberty
-                Professionals, Bechem United, Legon Cities FC, and Nsoatreman,
-                amongst others.
+                Our range of offerings includes performance-driven apparel,
+                cutting-edge sports equipment, and innovative accessories
+                tailored to enhance the training and competitive experiences of
+                clubs, athletes, and sports enthusiasts.
+              </p>
+              <p>
+                At Strike Ghana, we are dedicated to supporting every individual
+                in their athletic journey, ensuring they have the right gear to
+                achieve effective performance and reach their full potential in
+                their chosen sports.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Mission & Vision Section -->
+      <!-- Mission & Vision Section (updated) -->
       <section class="mission-vision">
         <div class="container">
           <h2 class="section-title">Our Mission & Vision</h2>
@@ -3062,12 +3112,10 @@
               </div>
               <h3 class="mv-title">Our Vision</h3>
               <p>
-                Our vision is to become synonymous with high-quality athletic
-                apparel that not only meets the functional needs of athletes but
-                also fosters a strong identity for local clubs. We aim to create
-                a lasting and positive impact on the community by enhancing the
-                professional image of these clubs, enabling them to thrive both
-                on and off the field.
+                To be Africa's most trusted sports apparel brand, celebrated for
+                quality, innovation, and impact—transforming athletes'
+                performance and uplifting the image of local sports clubs to
+                international standards.
               </p>
             </div>
             <div class="mv-card">
@@ -3076,41 +3124,40 @@
               </div>
               <h3 class="mv-title">Our Mission</h3>
               <p>
-                Our mission is clear: to bridge the existing gap between
-                professionalism and branding for local sports clubs in Ghana. We
-                endeavor to elevate the professional image of local sports
-                clubs, making them more recognizable and respected, cultivate
-                and promote a compelling brand identity for these clubs that
-                resonates with their target audiences, and identify and address
-                the discrepancies between the current and desired levels of
-                professionalism and branding.
+                We exist to inspire and empower through sports image by
+                providing high-performance, affordable, and durable apparel and
+                equipment, bridging the gap between professionalism and branding
+                for local sports clubs, collaborating with teams to build strong
+                identities that resonate with fans and communities, and
+                championing sustainable practices that support the long-term
+                growth of Ghana's sporting ecosystem.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Values Section -->
+      <!-- Values Section (updated) -->
       <section class="values">
         <div class="container">
           <h2 class="section-title">Our Core Values</h2>
           <div class="values-grid">
             <div class="value-card">
               <h3 class="value-title">
-                <i class="fas fa-medal value-icon"></i> Professionalism
+                <i class="fas fa-medal value-icon"></i> Excellence
               </h3>
               <p>
-                We are dedicated to excellence in every aspect of our work, from
-                product design to customer service.
+                We deliver nothing short of the best in every product and
+                service.
               </p>
             </div>
             <div class="value-card">
               <h3 class="value-title">
-                <i class="fas fa-trademark value-icon"></i> Branding
+                <i class="fas fa-lightbulb value-icon"></i> Innovation
               </h3>
               <p>
-                We believe in the importance of creating unique and powerful
-                brand identities that help clubs stand out in a crowded market.
+                Constantly evolving to meet the dynamic needs of athletes and
+                sports clubs.
               </p>
             </div>
             <div class="value-card">
@@ -3118,26 +3165,75 @@
                 <i class="fas fa-leaf value-icon"></i> Sustainability
               </h3>
               <p>
-                Our aim is to develop sustainable practices that support both
-                our brand and the local clubs we serve, ensuring they continue
-                to thrive in the long run.
+                Creating value responsibly, with a focus on long-term impact.
               </p>
             </div>
             <div class="value-card">
               <h3 class="value-title">
-                <i class="fas fa-award value-icon"></i> Quality & Durability
+                <i class="fas fa-handshake value-icon"></i> Integrity
               </h3>
               <p>
-                We prioritize high-quality materials and craftsmanship to ensure
-                that our products withstand rigorous use while being affordable
-                for our customers.
+                Building trust through transparency, quality, and commitment.
+              </p>
+            </div>
+            <div class="value-card">
+              <h3 class="value-title">
+                <i class="fas fa-users value-icon"></i> Community
+              </h3>
+              <p>
+                Supporting local clubs, athletes, and fans to nurture a vibrant
+                sporting culture.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Partners Section -->
+      <!-- What We Offer Section (new) -->
+      <section class="services">
+        <div class="container">
+          <h2 class="section-title">What We Offer</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h3>Sports Apparel</h3>
+              <p>
+                Jerseys, training kits, tracksuits, and lifestyle wear designed
+                for peak performance.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-futbol"></i>
+              </div>
+              <h3>Sports Equipment</h3>
+              <p>Premium gear and accessories for training and competition.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <h3>Club Branding Solutions</h3>
+              <p>
+                Customized apparel and merchandise to strengthen team identity.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h3>Community Support</h3>
+              <p>
+                Strategic partnerships to promote sports development in Ghana.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners Section (updated with team logos) -->
       <section class="partners">
         <div class="container">
           <h2 class="section-title">Our Partners</h2>
@@ -3147,52 +3243,104 @@
           </p>
           <div class="partners-grid">
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
+              <img
+                src="images/teams/asante-kotoko.png"
+                alt="Asante Kotoko"
+                class="partner-logo"
+              />
               <h3 class="partner-name">Asante Kotoko</h3>
             </div>
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
+              <img
+                src="images/teams/great-olympics.png"
+                alt="Accra Great Olympics"
+                class="partner-logo"
+              />
               <h3 class="partner-name">Accra Great Olympics</h3>
             </div>
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
+              <img
+                src="images/teams/Liberty_Professionals.png"
+                alt="Liberty Professionals"
+                class="partner-logo"
+              />
               <h3 class="partner-name">Liberty Professionals</h3>
             </div>
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
+              <img
+                src="images/teams/Bechem_United.png"
+                alt="Bechem United"
+                class="partner-logo"
+              />
               <h3 class="partner-name">Bechem United</h3>
             </div>
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
+              <img
+                src="images/teams/Legon-Cities.png"
+                alt="Legon Cities FC"
+                class="partner-logo"
+              />
               <h3 class="partner-name">Legon Cities FC</h3>
             </div>
             <div class="partner-card">
-              <div class="partner-logo">
-                <i class="fas fa-shield-alt" style="font-size: 50px"></i>
-              </div>
-              <h3 class="partner-name">Nsoatreman</h3>
+              <img
+                src="images/teams/nsoatreman_fc.png"
+                alt="Nsoatreman"
+                class="partner-logo"
+              />
+              <h3 class="partner-name">Nsoatreman FC</h3>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Leadership Section -->
+      <!-- Why Choose Us Section (new) -->
+      <section class="why-choose-us">
+        <div class="container">
+          <h2 class="section-title">Why Choose Strike Ghana?</h2>
+          <div class="reasons-grid">
+            <div class="reason-card">
+              <i class="fas fa-globe-africa"></i>
+              <h3>Locally Rooted, Globally Connected</h3>
+              <p>
+                We combine local expertise with international manufacturing
+                partnerships.
+              </p>
+            </div>
+            <div class="reason-card">
+              <i class="fas fa-trophy"></i>
+              <h3>Proven Excellence</h3>
+              <p>
+                Track record of excellence with our clients in the industry.
+              </p>
+            </div>
+            <div class="reason-card">
+              <i class="fas fa-star"></i>
+              <h3>Quality Commitment</h3>
+              <p>
+                Dedicated to quality, style, and durability in all our products.
+              </p>
+            </div>
+            <div class="reason-card">
+              <i class="fas fa-handshake"></i>
+              <h3>Growth Partnership</h3>
+              <p>A brand that grows with teams, athletes, and communities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Section (updated with CEO info) -->
       <section class="leadership">
         <div class="container">
           <h2 class="section-title">Our Leadership</h2>
           <div class="leader-card">
             <div class="leader-image">
-              <img src="" alt="Bernice Baiden - CEO" class="leader-img" />
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=461&q=80"
+                alt="CEO - Strike Ghana"
+                class="leader-img"
+              />
             </div>
             <div class="leader-info">
               <h3 class="leader-name">Bernice Baiden</h3>
@@ -3207,6 +3355,30 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      <!-- Newsletter Section -->
+      <section class="newsletter">
+        <div class="container newsletter-content">
+          <h2 class="section-title">Stay Updated</h2>
+          <p>
+            Subscribe to our newsletter to get updates on new products,
+            promotions, and football news in Ghana.
+          </p>
+          <form
+            id="newsletterForm"
+            action="https://formspree.io/f/xkgvbonb"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="email"
+              class="newsletter-input"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="btn">Subscribe</button>
+          </form>
         </div>
       </section>
     </section>
@@ -3394,7 +3566,9 @@
                   </div>
                   <div class="contact-text">
                     <h4>Address</h4>
-                    <p>Accra, Ghana</p>
+                    <p>
+                      Head Office: Tse Addo High Street, Tebibiiano-Accra, Ghana
+                    </p>
                   </div>
                 </div>
 
@@ -3404,7 +3578,7 @@
                   </div>
                   <div class="contact-text">
                     <h4>Phone</h4>
-                    <p>+233 24 XXX XXXX</p>
+                    <p>+233 54 152 1002</p>
                   </div>
                 </div>
 
@@ -3506,7 +3680,7 @@
           <div class="map-container">
             <!-- Embedded Google Map -->
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.828218585471!2d-0.19198398473415496!3d5.603979995925473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9c7d7ef594b7%3A0x4733e91732bad3db!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1641234567890!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7685312966087!2d-0.13367702656667513!3d5.6011745331969935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf85002c15cbbf%3A0xa1ba040430e91349!2sYAC%20GROUP!5e0!3m2!1sen!2sgh!4v1745158640118!5m2!1sen!2sgh"
               width="100%"
               height="450"
               style="border: 0"
@@ -3562,8 +3736,8 @@
 
           <div class="footer-column">
             <h3>Contact Information</h3>
-            <p>Accra, Ghana</p>
-            <p>+233 24 XXX XXXX</p>
+            <p>Head Office: Tse Addo High Street, Tebibiiano-Accra, Ghana</p>
+            <p>+233 54 152 1002</p>
             <p>strikeghana@gmail.com</p>
 
             <div class="footer-social">
@@ -3576,18 +3750,6 @@
               ></a>
               <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
             </div>
-
-            <div class="footer-newsletter">
-              <p>Subscribe to our newsletter for updates</p>
-              <form class="newsletter-form">
-                <input
-                  type="email"
-                  class="newsletter-input"
-                  placeholder="Your email"
-                />
-                <button type="submit" class="btn">Subscribe</button>
-              </form>
-            </div>
           </div>
         </div>
 
@@ -3597,6 +3759,130 @@
       </div>
     </footer>
     <!-- End of Footer -->
+
+    <style>
+      /* NEW: Company Summary Section on Homepage */
+      .company-summary {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .summary-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .summary-text {
+        flex: 1;
+      }
+
+      .summary-text h2 {
+        font-family: var(--font-heading);
+        font-size: 36px;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      .summary-text h3 {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        color: var(--dark);
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .summary-text p {
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .summary-image {
+        flex: 1;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .summary-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* NEW: Why Choose Us Section on About Page */
+      .why-choose-us {
+        padding: 80px 0;
+        background-color: var(--gray);
+      }
+
+      .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .reason-card {
+        background-color: var(--light);
+        padding: 30px;
+        border-radius: var(--radius);
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .reason-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .reason-card i {
+        font-size: 50px;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .reason-card h3 {
+        font-family: var(--font-heading);
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      /* Updated Partner Logos */
+      .partner-logo {
+        height: 80px;
+        width: auto;
+        margin: 0 auto 15px;
+        object-fit: contain;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .summary-content {
+          flex-direction: column;
+        }
+
+        .summary-text,
+        .summary-image {
+          flex: none;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .summary-text h2 {
+          font-size: 28px;
+        }
+
+        .summary-text h3 {
+          font-size: 20px;
+        }
+
+        .summary-text p {
+          font-size: 16px;
+        }
+      }
+    </style>
 
     <script>
       // Cart functionality
@@ -4205,6 +4491,29 @@
           });
         });
         initializeCountdown();
+      });
+
+      // Initialize animations for new elements
+      document.addEventListener("DOMContentLoaded", function () {
+        // ... (existing initialization code) ...
+
+        // Add new elements to the observer for animations
+        const newAnimatedElements = document.querySelectorAll(
+          ".reason-card, .company-summary"
+        );
+        newAnimatedElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Position the new company summary section on homepage
+        const featuredSection = document.getElementById("featured");
+        const companySummary = document.getElementById("companySummary");
+        if (featuredSection && companySummary) {
+          featuredSection.parentNode.insertBefore(
+            companySummary,
+            featuredSection
+          );
+        }
       });
     </script>
   </body>
