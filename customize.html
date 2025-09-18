@@ -158,6 +158,29 @@
         color: var(--light);
       }
 
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .back-btn:hover {
+        background-color: var(--primary);
+        color: var(--light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
       .section-title {
         font-family: var(--font-heading);
         font-size: 32px;
@@ -204,6 +227,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+
+      .top-bar-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .top-bar-links a {
+        transition: var(--transition);
+      }
+
+      .top-bar-links a:hover {
+        color: var(--secondary);
       }
 
       .main-header {
@@ -608,6 +644,11 @@
           flex-wrap: wrap;
           justify-content: center;
         }
+
+        .top-bar-content {
+          flex-direction: column;
+          gap: 10px;
+        }
       }
 
       /* Mobile margin adjustments */
@@ -657,7 +698,9 @@
         </a>
 
         <div class="header-actions">
-          <a href="index.html" class="btn btn-secondary">Back to Home</a>
+          <a href="index.html" class="back-btn" title="Back to Home">
+            <i class="fas fa-arrow-left"></i>
+          </a>
         </div>
       </div>
     </header>
