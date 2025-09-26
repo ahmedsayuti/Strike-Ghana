@@ -359,6 +359,87 @@
         color: var(--gray-dark);
         cursor: pointer;
       }
+      /* Search Results Display */
+      .search-results-container {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          z-index: 1000;
+          max-height: 400px;
+          overflow-y: auto;
+          display: none;
+      }
+
+      .search-results-container.active {
+          display: block;
+      }
+
+      .search-result-item {
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          border-bottom: 1px solid #eee;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .search-result-item:hover {
+          background-color: var(--gray);
+      }
+
+      .search-result-image {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: var(--radius);
+          margin-right: 15px;
+      }
+
+      .search-result-info {
+          flex: 1;
+      }
+
+      .search-result-name {
+          font-weight: 600;
+          margin-bottom: 5px;
+          color: var(--dark);
+      }
+
+      .search-result-price {
+          color: var(--primary);
+          font-weight: 700;
+      }
+
+      .search-result-category {
+          font-size: 12px;
+          color: var(--gray-dark);
+          text-transform: uppercase;
+      }
+
+      .no-results {
+          padding: 20px;
+          text-align: center;
+          color: var(--gray-dark);
+      }
+
+      .search-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.5);
+          z-index: 999;
+          display: none;
+      }
+
+      .search-overlay.active {
+          display: block;
+      }
 
       .cart-icon,
       .user-icon {
@@ -2766,10 +2847,21 @@
         </nav>
 
         <div class="header-actions">
+          <!-- Desktop Search -->
           <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search..." />
-            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Search products, teams, categories..."
+            />
+            <button class="search-btn" id="searchBtn">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-results-container" id="searchResults"></div>
           </div>
+          <div class="search-overlay" id="searchOverlay"></div>
+          <!-- Desktop Cart Icon -->
           <div class="cart-icon" id="cartIcon" onclick="showCartPage()">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="headerCartCount">0</span>
@@ -2859,8 +2951,10 @@
         <input
           type="text"
           class="mobile-search-input"
-          placeholder="Search..."
+          id="mobileSearchInput"
+          placeholder="Search products, teams, categories..."
         />
+        <div class="search-results-container" id="mobileSearchResults"></div>
       </div>
 
       <div class="mobile-actions">
@@ -2932,6 +3026,8 @@
               data-name="Hearts of Oak Home Jersey 2023/24"
               data-price="249.99"
               data-image="https://i.ebayimg.com/images/g/QEUAAOSw0xFiMQF3/s-l1600.jpg"
+              data-category="Jerseys"
+              data-team="Hearts of Oak"
             >
               <div class="product-image">
                 <img
@@ -2976,6 +3072,8 @@
               data-name="Nike Phantom GT2 Elite FG"
               data-price="599.99"
               data-image="https://i.ebayimg.com/images/g/VqcAAeSwWw5ouKer/s-l1600.jpg"
+              data-category="Boots"
+              data-team="General"
             >
               <div class="product-image">
                 <img
@@ -3020,6 +3118,8 @@
               data-name="Asante Kotoko Training Jersey"
               data-price="199.99"
               data-image="https://cdn.ghanasoccernet.com/2022/07/WhatsApp-Image-2022-07-26-at-3.11.59-PM.jpeg"
+              data-category="Jerseys"
+              data-team="Asante Kotoko"
             >
               <div class="product-image">
                 <img
@@ -3064,6 +3164,8 @@
               data-name="Adidas Official League Ball"
               data-price="149.99"
               data-image="https://i.ebayimg.com/images/g/4rkAAOSwRbxjz0U9/s-l1600.png"
+              data-category="Balls"
+              data-team="General"
             >
               <div class="product-image">
                 <img
@@ -5946,6 +6048,326 @@
       // Call this function when index.html loads
       document.addEventListener("DOMContentLoaded", function () {
         showSectionFromURL();
+      });
+
+      // Enhanced product data with more details
+      const products = [
+        {
+          id: 1,
+          name: "Hearts of Oak Home Jersey 2023/24",
+          price: 249.99,
+          image: "https://i.ebayimg.com/images/g/QEUAAOSw0xFiMQF3/s-l1600.jpg",
+          category: "Jerseys",
+          team: "Hearts of Oak",
+          description: "Official home jersey for Hearts of Oak 2023/24 season",
+          tags: ["hearts", "oak", "accra", "premier league", "jersey"],
+        },
+        {
+          id: 2,
+          name: "Nike Phantom GT2 Elite FG",
+          price: 599.99,
+          image: "https://i.ebayimg.com/images/g/VqcAAeSwWw5ouKer/s-l1600.jpg",
+          category: "Boots",
+          brand: "Nike",
+          description: "Professional football boots for firm ground surfaces",
+          tags: ["nike", "phantom", "boots", "elite", "fg"],
+        },
+        {
+          id: 3,
+          name: "Asante Kotoko Training Jersey",
+          price: 199.99,
+          image:
+            "https://cdn.ghanasoccernet.com/2022/07/WhatsApp-Image-2022-07-26-at-3.11.59-PM.jpeg",
+          category: "Training Wear",
+          team: "Asante Kotoko",
+          description: "Training jersey for Asante Kotoko supporters",
+          tags: ["kotoko", "asante", "kumasi", "training", "jersey"],
+        },
+        {
+          id: 4,
+          name: "Adidas Official League Ball",
+          price: 149.99,
+          image: "https://i.ebayimg.com/images/g/4rkAAOSwRbxjz0U9/s-l1600.png",
+          category: "Equipment",
+          brand: "Adidas",
+          description: "Official match ball for league games",
+          tags: ["adidas", "ball", "football", "match", "official"],
+        },
+        {
+          id: 5,
+          name: "Medeama SC Home Jersey",
+          price: 229.99,
+          image: "images/teams/Medeama_SC.png",
+          category: "Jerseys",
+          team: "Medeama SC",
+          description: "Official home jersey for Medeama SC",
+          tags: ["medeama", "tarkwa", "jersey", "home", "premier league"],
+        },
+        {
+          id: 6,
+          name: "Puma Future Football Boots",
+          price: 549.99,
+          image:
+            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+          category: "Boots",
+          brand: "Puma",
+          description: "Advanced football boots with innovative technology",
+          tags: ["puma", "future", "boots", "football", "cleats"],
+        },
+        {
+          id: 7,
+          name: "Ghana National Team Jersey",
+          price: 299.99,
+          image:
+            "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+          category: "Jerseys",
+          team: "Ghana National Team",
+          description: "Official Ghana Black Stars jersey",
+          tags: ["ghana", "black stars", "national", "jersey", "africa"],
+        },
+        {
+          id: 8,
+          name: "Goalkeeper Gloves",
+          price: 129.99,
+          image:
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+          category: "Equipment",
+          description: "Professional goalkeeper gloves with grip technology",
+          tags: ["goalkeeper", "gloves", "gk", "professional", "grip"],
+        },
+      ];
+
+      // Search functionality
+      function initializeSearch() {
+        const searchInput = document.getElementById("searchInput");
+        const mobileSearchInput = document.getElementById("mobileSearchInput");
+        const searchResults = document.getElementById("searchResults");
+        const mobileSearchResults = document.getElementById(
+          "mobileSearchResults"
+        );
+        const searchOverlay = document.getElementById("searchOverlay");
+
+        // Debounce function to limit search frequency
+        function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        }
+
+        // Perform search
+        function performSearch(searchTerm, resultsContainer) {
+          if (searchTerm.length < 2) {
+            resultsContainer.innerHTML = "";
+            resultsContainer.classList.remove("active");
+            searchOverlay.classList.remove("active");
+            return;
+          }
+
+          const searchTermLower = searchTerm.toLowerCase();
+
+          // Search through products
+          const results = products.filter((product) => {
+            return (
+              product.name.toLowerCase().includes(searchTermLower) ||
+              product.category.toLowerCase().includes(searchTermLower) ||
+              (product.team &&
+                product.team.toLowerCase().includes(searchTermLower)) ||
+              (product.brand &&
+                product.brand.toLowerCase().includes(searchTermLower)) ||
+              product.tags.some((tag) =>
+                tag.toLowerCase().includes(searchTermLower)
+              ) ||
+              product.description.toLowerCase().includes(searchTermLower)
+            );
+          });
+
+          displaySearchResults(results, searchTerm, resultsContainer);
+        }
+
+        // Display search results
+        function displaySearchResults(results, searchTerm, resultsContainer) {
+          if (results.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px;"></i>
+                    <p>No products found for "${searchTerm}"</p>
+                    <p style="font-size: 14px; margin-top: 10px;">Try searching for jerseys, boots, or team names</p>
+                </div>
+            `;
+          } else {
+            resultsContainer.innerHTML = results
+              .map(
+                (product) => `
+                <div class="search-result-item" onclick="selectSearchResult(${
+                  product.id
+                })">
+                    <img src="${product.image}" alt="${
+                  product.name
+                }" class="search-result-image" onerror="this.src='https://via.placeholder.com/60x60?text=No+Image'">
+                    <div class="search-result-info">
+                        <div class="search-result-name">${product.name}</div>
+                        <div class="search-result-price">₵${product.price.toFixed(
+                          2
+                        )}</div>
+                        <div class="search-result-category">${
+                          product.category
+                        } • ${product.team || product.brand || "Sports"}</div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: var(--gray-dark);"></i>
+                </div>
+            `
+              )
+              .join("");
+          }
+
+          resultsContainer.classList.add("active");
+          searchOverlay.classList.add("active");
+        }
+
+        // Handle search result selection
+        window.selectSearchResult = function (productId) {
+          const product = products.find((p) => p.id === productId);
+          if (product) {
+            // Hide search results
+            searchResults.classList.remove("active");
+            mobileSearchResults.classList.remove("active");
+            searchOverlay.classList.remove("active");
+
+            // Clear search inputs
+            searchInput.value = "";
+            mobileSearchInput.value = "";
+
+            // Show homepage and scroll to featured section
+            showHomepage();
+
+            // Highlight and focus on the product (you can implement smooth scroll to the product)
+            setTimeout(() => {
+              const productElement = document.querySelector(
+                `.product-card[data-id="${productId}"]`
+              );
+              if (productElement) {
+                productElement.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+                productElement.style.boxShadow = "0 0 0 3px var(--primary)";
+                setTimeout(() => {
+                  productElement.style.boxShadow = "";
+                }, 2000);
+              }
+            }, 100);
+          }
+        };
+
+        // Debounced search functions
+        const debouncedSearch = debounce((searchTerm, resultsContainer) => {
+          performSearch(searchTerm, resultsContainer);
+        }, 300);
+
+        const debouncedMobileSearch = debounce(
+          (searchTerm, resultsContainer) => {
+            performSearch(searchTerm, resultsContainer);
+          },
+          300
+        );
+
+        // Event listeners for desktop search
+        searchInput.addEventListener("input", (e) => {
+          debouncedSearch(e.target.value, searchResults);
+        });
+
+        searchInput.addEventListener("focus", () => {
+          if (searchInput.value.length >= 2) {
+            searchResults.classList.add("active");
+            searchOverlay.classList.add("active");
+          }
+        });
+
+        // Event listeners for mobile search
+        mobileSearchInput.addEventListener("input", (e) => {
+          debouncedMobileSearch(e.target.value, mobileSearchResults);
+        });
+
+        mobileSearchInput.addEventListener("focus", () => {
+          if (mobileSearchInput.value.length >= 2) {
+            mobileSearchResults.classList.add("active");
+          }
+        });
+
+        // Close search results when clicking overlay
+        searchOverlay.addEventListener("click", () => {
+          searchResults.classList.remove("active");
+          mobileSearchResults.classList.remove("active");
+          searchOverlay.classList.remove("active");
+        });
+
+        // Close search results when pressing Escape
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            searchResults.classList.remove("active");
+            mobileSearchResults.classList.remove("active");
+            searchOverlay.classList.remove("active");
+          }
+        });
+
+        // Search button functionality
+        document.getElementById("searchBtn").addEventListener("click", () => {
+          if (searchInput.value.length >= 2) {
+            performSearch(searchInput.value, searchResults);
+          }
+        });
+      }
+
+      // Advanced search function that can be called from anywhere
+      window.advancedSearch = function (searchTerm) {
+        const results = products.filter((product) => {
+          const searchTermLower = searchTerm.toLowerCase();
+          return (
+            product.name.toLowerCase().includes(searchTermLower) ||
+            product.category.toLowerCase().includes(searchTermLower) ||
+            (product.team &&
+              product.team.toLowerCase().includes(searchTermLower)) ||
+            (product.brand &&
+              product.brand.toLowerCase().includes(searchTermLower)) ||
+            product.tags.some((tag) =>
+              tag.toLowerCase().includes(searchTermLower)
+            )
+          );
+        });
+
+        return results;
+      };
+
+      // Initialize search when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeSearch();
+
+        // Add search suggestions to placeholder text
+        const searchInputs = document.querySelectorAll(
+          ".search-input, .mobile-search-input"
+        );
+        const suggestions = [
+          "Hearts of Oak jersey",
+          "Football boots",
+          "Training equipment",
+          "Ghana Premier League",
+          "Goalkeeper gloves",
+        ];
+
+        let currentSuggestion = 0;
+
+        setInterval(() => {
+          searchInputs.forEach((input) => {
+            input.placeholder = `Search for ${suggestions[currentSuggestion]}...`;
+          });
+          currentSuggestion = (currentSuggestion + 1) % suggestions.length;
+        }, 3000);
       });
     </script>
   </body>
