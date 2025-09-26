@@ -2698,7 +2698,7 @@
       <div class="container top-bar-content">
         <div class="top-bar-text">Free shipping on orders over ₵500</div>
         <div class="top-bar-links">
-          <a href="#" onclick="showContactPage(); return false;">Contact Us</a>
+          <a href="#" onclick="showContactPage()">Contact Us</a>
           <a href="#" onclick="showStoreLocatorPage()">Store Locator</a>
           <a href="#" onclick="showGhanaPremierLeaguePage()">GPL</a>
         </div>
@@ -4778,10 +4778,15 @@
 
       // Show cart page
       function showCartPage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "block";
         document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+
         renderCart();
         updateActiveNav("cart");
         window.scrollTo(0, 0);
@@ -4789,10 +4794,15 @@
 
       // Show homepage
       function showHomepage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "block";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
         document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+
         document.getElementById("orderConfirmation").style.display = "none";
         document.getElementById("cartSummary").style.display = "block";
         document.getElementById("orderForm").reset();
@@ -4801,20 +4811,30 @@
 
       // Show about page
       function showAboutPage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "block";
         document.getElementById("cartPage").style.display = "none";
         document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+
         updateActiveNav("about");
         window.scrollTo(0, 0);
       }
 
       // Show contact page
       function showContactPage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
         document.getElementById("contactPage").style.display = "block";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+
         updateActiveNav("contact");
         window.scrollTo(0, 0);
         setTimeout(initContactAnimations, 100);
@@ -5669,13 +5689,14 @@
 
       // Show Store Locator page
       function showStoreLocatorPage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
         document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "block";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
-        document.getElementById("storeLocatorPage").style.display = "block";
 
         updateActiveNav("storeLocator");
         renderStores();
@@ -5684,6 +5705,7 @@
 
       // Show Ghana Premier League page
       function showGhanaPremierLeaguePage() {
+        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
@@ -5883,6 +5905,47 @@
 
         // Add navigation items for the new pages
         // You would need to add these to your existing navigation
+      });
+      // Function to show specific section based on URL parameter
+      function showSectionFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get("section");
+
+        if (section) {
+          // Hide all sections first
+          document.querySelectorAll(".page-section").forEach((section) => {
+            section.style.display = "none";
+          });
+
+          // Show the requested section
+          switch (section) {
+            case "contact":
+              showContactPage();
+              break;
+            case "store-locator":
+              showStoreLocatorPage();
+              break;
+            case "gpl":
+              showGhanaPremierLeaguePage();
+              break;
+            case "home":
+            default:
+              showHomePage();
+              break;
+          }
+
+          // Clear the URL parameter without reloading
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
+        }
+      }
+
+      // Call this function when index.html loads
+      document.addEventListener("DOMContentLoaded", function () {
+        showSectionFromURL();
       });
     </script>
   </body>
