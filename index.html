@@ -517,7 +517,7 @@
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
           ),
-          url("https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+          url("https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=581&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
 
       .slide-2 {
@@ -536,6 +536,23 @@
           url("https://images.unsplash.com/photo-1596728602619-d6e7efccad28?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
 
+      .slide-4 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1007&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      }
+
+      .slide-5 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://plus.unsplash.com/premium_photo-1684820878202-52781d8e0ea9?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      }
+
+      .slide-6 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1600965962102-9d260a71890d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      }
       .hero-content {
         position: absolute;
         top: 50%;
@@ -2270,7 +2287,18 @@
         border-color: var(--primary);
         box-shadow: 0 0 0 2px rgba(0, 145, 63, 0.1);
       }
-
+      .contact-social .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      }
+      @media (max-width: 768px) {
+      .contact-social .social-icons {
+      justify-content: center;
+      }
+      }
       .map-section {
         padding: 80px 0;
         background-color: var(--light);
@@ -2321,15 +2349,23 @@
         }
 
         .contact-detail-item {
-          flex-direction: column;
-          text-align: center;
+          flex-direction: row; /* Change from column to row for better side-by-side alignment */
+          align-items: center; /* Vertically center icon and text */
+          justify-content: flex-start; /* Left-align the content */
+          text-align: left; /* Ensure text is left-aligned */
         }
-
         .contact-icon {
-          margin-right: 0;
-          margin-bottom: 15px;
+          margin-right: 15px; /* Restore right margin instead of bottom */
+          margin-bottom: 0;
+        }
+        .contact-text {
+          text-align: left; /* Explicit left alignment for h4 and p */
         }
       }
+      .contact-text {
+        flex: 1; /* Allow text to take remaining space for better alignment on desktop and mobile */
+      }
+
       .product-image {
       display: flex;
       justify-content: center;
@@ -2771,6 +2807,33 @@
           font-size: 14px;
         }
       }
+      /* Loading Spinner on Store Locator Page */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        font-size: 18px;
+        color: var(--primary);
+      }
+      .loading i {
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .no-stores-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px;
+        background: var(--gray);
+        border-radius: var(--radius);
+      }
+      .no-stores-message i {
+        font-size: 48px;
+        margin-bottom: 20px;
+        opacity: 0.3;
+      }
     </style>
   </head>
   <body>
@@ -2994,6 +3057,9 @@
           <div class="slide slide-1 active"></div>
           <div class="slide slide-2"></div>
           <div class="slide slide-3"></div>
+          <div class="slide slide-4"></div>
+          <div class="slide slide-5"></div>
+          <div class="slide slide-6"></div>
         </div>
 
         <div class="hero-content">
@@ -3009,9 +3075,12 @@
         </div>
 
         <div class="slide-indicators">
-          <div class="indicator active" data-slide="0"></div>
-          <div class="indicator" data-slide="1"></div>
+          <div class="indicator active" data-slide="1"></div>
           <div class="indicator" data-slide="2"></div>
+          <div class="indicator" data-slide="3"></div>
+          <div class="indicator" data-slide="4"></div>
+          <div class="indicator" data-slide="5"></div>
+          <div class="indicator" data-slide="6"></div>
         </div>
       </section>
 
@@ -3547,7 +3616,7 @@
             </div>
             <div class="summary-image">
               <img
-                src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80"
+                src="https://images.unsplash.com/photo-1708577907839-1240466aee53?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Strike Ghana - Premium Sports Apparel"
               />
             </div>
@@ -4534,15 +4603,14 @@
             <div class="store-locator-map-section">
               <div class="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7685312966087!2d-0.13367702656667513!3d5.6011745331969935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf85002c15cbbf%3A0xa1ba040430e91349!2sYAC%20GROUP!5e0!3m2!1sen!2sgh!4v1745158640118!5m2!1sen!2sgh"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7685312966087!2d-0.13367702656667513!3d5.6011745331969935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf85002c15cbbf%3A0xa1ba040430e91349!2sYAC+GROUP!5e0!3m2!1sen!2sgh!4v1727520000000!5m2!1sen!2sgh"
                   width="100%"
                   height="450"
                   style="border: 0"
                   allowfullscreen=""
                   loading="lazy"
-                  class="store-map"
-                >
-                </iframe>
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
 
@@ -5143,6 +5211,17 @@
             item.classList.add("animated");
           }, 200 * index);
         });
+      }
+
+      // Replace the existing initStoreLocatorAnimations function with this
+      function initStoreLocatorAnimations() {
+        const storePage = document.getElementById("storeLocatorPage");
+        if (storePage) {
+          const mapContainer = storePage.querySelector(".map-container");
+          if (mapContainer) {
+            mapContainer.classList.add("animated");
+          }
+        }
       }
 
       // Handle order form submission
@@ -5976,7 +6055,6 @@
 
       // Show Store Locator page
       function showStoreLocatorPage() {
-        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
@@ -5984,10 +6062,10 @@
         document.getElementById("storeLocatorPage").style.display = "block";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
-
         updateActiveNav("storeLocator");
         renderStores();
         window.scrollTo(0, 0);
+        setTimeout(initStoreLocatorAnimations, 100); // Add this line for animation trigger
       }
 
       // Show Ghana Premier League page
@@ -6124,21 +6202,31 @@
         const searchTerm = document
           .getElementById("storeSearch")
           .value.toLowerCase();
+        const storesGrid = document.getElementById("storesGrid");
 
-        if (searchTerm.trim() === "") {
-          renderStores();
-          return;
-        }
+        // Show loading feedback
+        storesGrid.innerHTML = `
+          <div class="loading">
+            <i class="fas fa-spinner"></i> Searching...
+          </div>
+        `;
 
-        const filteredStores = stores.filter((store) => {
-          return (
-            store.name.toLowerCase().includes(searchTerm) ||
-            store.address.toLowerCase().includes(searchTerm) ||
-            store.city.toLowerCase().includes(searchTerm)
-          );
-        });
+        // Simulate brief delay for feedback (remove if not wanted)
+        setTimeout(() => {
+          if (searchTerm.trim() === "") {
+            renderStores();
+            return;
+          }
 
-        renderStores(filteredStores);
+          const filteredStores = stores.filter((store) => {
+            return (
+              store.name.toLowerCase().includes(searchTerm) ||
+              store.address.toLowerCase().includes(searchTerm)
+            );
+          });
+
+          renderStores(filteredStores);
+        }, 500); // 500ms delay for loading feel; adjust or set to 0 for instant
       }
 
       // Show directions (placeholder function)
@@ -6553,6 +6641,32 @@
           });
           currentSuggestion = (currentSuggestion + 1) % suggestions.length;
         }, 3000);
+      });
+
+      // Add this after the existing placeholder cycling code in your <script> tag
+      document.addEventListener("DOMContentLoaded", function () {
+        // Existing main search cycling remains unchanged
+
+        // New: Location-specific suggestions for store locator search
+        const storeSearchInput = document.getElementById("storeSearch");
+        if (storeSearchInput) {
+          const locationSuggestions = [
+            "Accra or Greater Accra",
+            "Kumasi or Ashanti",
+            "Takoradi or Western",
+            "Tamale or Northern",
+            "Tarkwa or Western North",
+            "Cape Coast or Central",
+            "Ho or Volta",
+            "Sunyani or Bono",
+          ];
+          let currentLocationSuggestion = 0;
+          setInterval(() => {
+            storeSearchInput.placeholder = `Search for ${locationSuggestions[currentLocationSuggestion]}...`;
+            currentLocationSuggestion =
+              (currentLocationSuggestion + 1) % locationSuggestions.length;
+          }, 3000);
+        }
       });
     </script>
   </body>
