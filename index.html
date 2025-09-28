@@ -447,7 +447,40 @@
         position: relative;
         cursor: pointer;
       }
+        /* Favorites Icon Styles */
+      .favorites-icon {
+        font-size: 20px;
+        position: relative;
+        cursor: pointer;
+        color: var(--dark);
+        transition: var(--transition);
+      }
 
+      .favorites-icon:hover {
+        color: var(--accent);
+      }
+
+      .favorites-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: var(--accent);
+        color: var(--light);
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+      }
+
+      /* Product action button when favorited */
+      .product-action.favorited {
+        background-color: var(--accent);
+        color: var(--light);
+      }
       .cart-count {
         position: absolute;
         top: -8px;
@@ -1697,6 +1730,86 @@
         100% {
           box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
         }
+      }
+
+      /* Favorites Page Styles */
+      .favorites-page {
+        display: none;
+        padding: 80px 0;
+        background-color: var(--gray);
+      }
+
+      .favorites-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: inherit;
+      }
+
+      .favorites-items {
+        margin-bottom: 30px;
+      }
+
+      .favorite-item {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .favorite-item-image {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        margin-right: 20px;
+      }
+
+      .favorite-item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .favorite-item-details {
+        flex: 1;
+      }
+
+      .favorite-item-title {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .favorite-item-price {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .remove-item {
+        color: var(--accent);
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 20px;
+      }
+
+      .empty-favorites-message {
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .empty-favorites-message h3 {
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      .empty-favorites-message p {
+        margin-bottom: 25px;
+        color: var(--gray-dark);
       }
 
       /* Form styles */
@@ -3017,6 +3130,15 @@
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="headerCartCount">0</span>
           </div>
+          <!-- Inside the header-actions div, after the cart icon -->
+          <div
+            class="favorites-icon"
+            id="favoritesIcon"
+            onclick="showFavoritesPage()"
+          >
+            <i class="fas fa-heart"></i>
+            <span class="favorites-count" id="headerFavoritesCount">0</span>
+          </div>
           <div class="user-icon">
             <i class="fas fa-user"></i>
           </div>
@@ -3096,6 +3218,16 @@
           onclick="showCartPage(); closeMobileMenu();"
           >Cart (<span id="mobileCartCount">0</span>)</a
         >
+
+        <!-- Inside the mobile-nav, after the cart link -->
+        <a
+          href="#"
+          class="mobile-nav-link"
+          id="mobileFavoritesLink"
+          onclick="showFavoritesPage(); closeMobileMenu();"
+        >
+          Favorites (<span id="mobileFavoritesCount">0</span>)
+        </a>
       </nav>
 
       <div class="mobile-search">
@@ -4501,6 +4633,30 @@
     </section>
     <!-- End of Cart Page -->
 
+    <!-- Favorites Page (add after the Cart Page section) -->
+    <section class="favorites-page" id="favoritesPage" style="display: none">
+      <div class="container favorites-container">
+        <h2 class="section-title">Your Favorites</h2>
+        <div class="favorites-items" id="favoritesItems">
+          <!-- Favorite items will be dynamically inserted here -->
+        </div>
+        <div
+          class="empty-favorites-message"
+          id="emptyFavoritesMessage"
+          style="display: block"
+        >
+          <i
+            class="fas fa-heart"
+            style="font-size: 48px; margin-bottom: 20px; opacity: 0.3"
+          ></i>
+          <h3>Your favorites list is empty</h3>
+          <p>Add some products to your favorites and they will appear here.</p>
+          <a href="#" class="btn" onclick="showHomepage()">Continue Shopping</a>
+        </div>
+      </div>
+    </section>
+    <!-- End of Favorites Page -->
+
     <!-- Contact Us Page -->
     <section class="contact-page" id="contactPage" style="display: none">
       <div class="contact-hero">
@@ -5190,31 +5346,31 @@
           const itemTotal = item.price * item.quantity;
           subtotal += itemTotal;
           itemsHTML += `
-      <div class="cart-item">
-        <div class="cart-item-image">
-          <img src="${item.image}" alt="${item.name}">
-        </div>
-        <div class="cart-item-details">
-          <h3 class="cart-item-title">${item.name}</h3>
-          <div class="cart-item-price">₵${item.price.toFixed(2)}</div>
-          <div class="cart-item-quantity">
-            <button class="quantity-btn" onclick="updateQuantity(${
-              item.id
-            }, -1)">-</button>
-            <input type="number" class="quantity-input" value="${
-              item.quantity
-            }" min="1" onchange="setQuantity(${item.id}, this.value)">
-            <button class="quantity-btn" onclick="updateQuantity(${
-              item.id
-            }, 1)">+</button>
-            <button class="remove-item" onclick="removeFromCart(${item.id})">
-              <i class="fas fa-trash"></i>
-            </button>
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <img src="${item.image}" alt="${item.name}">
           </div>
+          <div class="cart-item-details">
+            <h3 class="cart-item-title">${item.name}</h3>
+            <div class="cart-item-price">₵${item.price.toFixed(2)}</div>
+            <div class="cart-item-quantity">
+              <button class="quantity-btn" onclick="updateQuantity(${
+                item.id
+              }, -1)">-</button>
+              <input type="number" class="quantity-input" value="${
+                item.quantity
+              }" min="1" onchange="setQuantity(${item.id}, this.value)">
+              <button class="quantity-btn" onclick="updateQuantity(${
+                item.id
+              }, 1)">+</button>
+              <button class="remove-item" onclick="removeFromCart(${item.id})">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div class="cart-item-total">₵${itemTotal.toFixed(2)}</div>
         </div>
-        <div class="cart-item-total">₵${itemTotal.toFixed(2)}</div>
-      </div>
-    `;
+      `;
         });
         const shipping = subtotal >= 500 ? 0 : 50;
         const total = subtotal + shipping;
@@ -5265,9 +5421,8 @@
         window.scrollTo(0, 0);
       }
 
-      // Show homepage
+      // Updated showHomepage()
       function showHomepage() {
-        // Hide all pages first
         document.getElementById("mainContent").style.display = "block";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
@@ -5275,16 +5430,12 @@
         document.getElementById("storeLocatorPage").style.display = "none";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
-
-        document.getElementById("orderConfirmation").style.display = "none";
-        document.getElementById("cartSummary").style.display = "block";
-        document.getElementById("orderForm").reset();
+        document.getElementById("favoritesPage").style.display = "none"; // Add this line
         updateActiveNav("home");
       }
 
-      // Show about page
+      // Updated showAboutPage()
       function showAboutPage() {
-        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "block";
         document.getElementById("cartPage").style.display = "none";
@@ -5292,14 +5443,28 @@
         document.getElementById("storeLocatorPage").style.display = "none";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
-
+        document.getElementById("favoritesPage").style.display = "none"; // Add this line
         updateActiveNav("about");
         window.scrollTo(0, 0);
       }
 
-      // Show contact page
+      // Updated showCartPage()
+      function showCartPage() {
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "block";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+        document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        renderCart();
+        updateActiveNav("cart");
+        window.scrollTo(0, 0);
+      }
+
+      // Updated showContactPage()
       function showContactPage() {
-        // Hide all pages first
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("aboutPage").style.display = "none";
         document.getElementById("cartPage").style.display = "none";
@@ -5307,12 +5472,45 @@
         document.getElementById("storeLocatorPage").style.display = "none";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
-
+        document.getElementById("favoritesPage").style.display = "none"; // Add this line
         updateActiveNav("contact");
         window.scrollTo(0, 0);
         setTimeout(initContactAnimations, 100);
       }
 
+      // Updated showStoreLocatorPage()
+      function showStoreLocatorPage() {
+        // Hide all pages
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "none";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "block";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+        document.getElementById("favoritesPage").style.display = "none";
+
+        updateActiveNav("storeLocator");
+        renderStores();
+        window.scrollTo(0, 0);
+        setTimeout(initStoreLocatorAnimations, 100);
+      }
+
+      // Updated showGhanaPremierLeaguePage()
+      function showGhanaPremierLeaguePage() {
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "none";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "block";
+        document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        updateActiveNav("gpl");
+        renderGPLTeams();
+        renderGPLStandings();
+        window.scrollTo(0, 0);
+      }
       // Initialize contact page animations
       function initContactAnimations() {
         const contactInfo = document.querySelector(".contact-info");
@@ -5454,8 +5652,10 @@
       function updateActiveNav(activePage) {
         const navLinks = document.querySelectorAll(".nav-link");
         navLinks.forEach((link) => link.classList.remove("active"));
+
         const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
         mobileNavLinks.forEach((link) => link.classList.remove("active"));
+
         if (activePage === "home") {
           document
             .querySelector('.nav-link[onclick="showHomepage()"]')
@@ -5477,6 +5677,10 @@
         } else if (activePage === "cart") {
           document.getElementById("cartLink").classList.add("active");
           document.getElementById("mobileCartLink").classList.add("active");
+        } else if (activePage === "favorites") {
+          document
+            .getElementById("mobileFavoritesLink")
+            .classList.add("active");
         } else if (activePage === "contact") {
           const contactLinks = document.querySelectorAll(
             '.nav-link[onclick="showContactPage()"]'
@@ -6209,12 +6413,12 @@
 
         if (filteredStores.length === 0) {
           storesGrid.innerHTML = `
-        <div class="no-stores-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-          <i class="fas fa-store-slash" style="font-size: 48px; margin-bottom: 20px; opacity: 0.3;"></i>
-          <h3>No stores found</h3>
-          <p>Try searching for a different location.</p>
-        </div>
-      `;
+          <div class="no-stores-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            <i class="fas fa-store-slash" style="font-size: 48px; margin-bottom: 20px; opacity: 0.3;"></i>
+            <h3>No stores found</h3>
+            <p>Try searching for a different location.</p>
+          </div>
+        `;
           return;
         }
 
@@ -6222,40 +6426,40 @@
 
         filteredStores.forEach((store) => {
           storesHTML += `
-        <div class="store-card">
-          <h3 class="store-name">${store.name}</h3>
-          <div class="store-details">
-            <div class="store-detail">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>${store.address}</span>
+          <div class="store-card">
+            <h3 class="store-name">${store.name}</h3>
+            <div class="store-details">
+              <div class="store-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${store.address}</span>
+              </div>
+              <div class="store-detail">
+                <i class="fas fa-phone"></i>
+                <span>${store.phone}</span>
+              </div>
+              <div class="store-detail">
+                <i class="fas fa-envelope"></i>
+                <span>${store.email}</span>
+              </div>
             </div>
-            <div class="store-detail">
-              <i class="fas fa-phone"></i>
-              <span>${store.phone}</span>
+            <div class="store-hours">
+              <div class="store-hours-title">Opening Hours</div>
+              <div class="store-detail">
+                <i class="fas fa-clock"></i>
+                <span>Mon-Fri: ${store.hours.weekdays}</span>
+              </div>
+              <div class="store-detail">
+                <i class="fas fa-clock"></i>
+                <span>Saturday: ${store.hours.saturday}</span>
+              </div>
+              <div class="store-detail">
+                <i class="fas fa-clock"></i>
+                <span>Sunday: ${store.hours.sunday}</span>
+              </div>
             </div>
-            <div class="store-detail">
-              <i class="fas fa-envelope"></i>
-              <span>${store.email}</span>
-            </div>
+            <a href="#" class="btn" style="margin-top: 15px;" onclick="showDirections(${store.coordinates.lat}, ${store.coordinates.lng})">Get Directions</a>
           </div>
-          <div class="store-hours">
-            <div class="store-hours-title">Opening Hours</div>
-            <div class="store-detail">
-              <i class="fas fa-clock"></i>
-              <span>Mon-Fri: ${store.hours.weekdays}</span>
-            </div>
-            <div class="store-detail">
-              <i class="fas fa-clock"></i>
-              <span>Saturday: ${store.hours.saturday}</span>
-            </div>
-            <div class="store-detail">
-              <i class="fas fa-clock"></i>
-              <span>Sunday: ${store.hours.sunday}</span>
-            </div>
-          </div>
-          <a href="#" class="btn" style="margin-top: 15px;" onclick="showDirections(${store.coordinates.lat}, ${store.coordinates.lng})">Get Directions</a>
-        </div>
-      `;
+        `;
         });
 
         storesGrid.innerHTML = storesHTML;
@@ -6268,14 +6472,14 @@
 
         gplTeams.forEach((team) => {
           teamsHTML += `
-        <div class="gpl-team-card" onclick="showTeamDetails(${team.id})">
-          <img src="${team.logo}" alt="${team.name}" class="gpl-team-logo">
-          <h3 class="gpl-team-name">${team.name}</h3>
-          <p class="gpl-team-stadium">${team.stadium}</p>
-          <p class="gpl-team-city">${team.city}</p>
-          <small>Founded: ${team.founded}</small>
-        </div>
-      `;
+          <div class="gpl-team-card" onclick="showTeamDetails(${team.id})">
+            <img src="${team.logo}" alt="${team.name}" class="gpl-team-logo">
+            <h3 class="gpl-team-name">${team.name}</h3>
+            <p class="gpl-team-stadium">${team.stadium}</p>
+            <p class="gpl-team-city">${team.city}</p>
+            <small>Founded: ${team.founded}</small>
+          </div>
+        `;
         });
 
         teamsGrid.innerHTML = teamsHTML;
@@ -6294,22 +6498,22 @@
             : "images/teams/karela-united.png";
 
           standingsHTML += `
-        <tr>
-          <td>${team.position}</td>
-          <td class="team-cell">
-            <img src="${teamLogo}" alt="${team.team}" class="team-logo-small">
-            ${team.team}
-          </td>
-          <td>${team.played}</td>
-          <td>${team.won}</td>
-          <td>${team.drawn}</td>
-          <td>${team.lost}</td>
-          <td>${team.goalsFor}</td>
-          <td>${team.goalsAgainst}</td>
-          <td>${team.goalDifference}</td>
-          <td><strong>${team.points}</strong></td>
-        </tr>
-      `;
+          <tr>
+            <td>${team.position}</td>
+            <td class="team-cell">
+              <img src="${teamLogo}" alt="${team.team}" class="team-logo-small">
+              ${team.team}
+            </td>
+            <td>${team.played}</td>
+            <td>${team.won}</td>
+            <td>${team.drawn}</td>
+            <td>${team.lost}</td>
+            <td>${team.goalsFor}</td>
+            <td>${team.goalsAgainst}</td>
+            <td>${team.goalDifference}</td>
+            <td><strong>${team.points}</strong></td>
+          </tr>
+        `;
         });
 
         standingsTable.innerHTML = standingsHTML;
@@ -6324,10 +6528,10 @@
 
         // Show loading feedback
         storesGrid.innerHTML = `
-          <div class="loading">
-            <i class="fas fa-spinner"></i> Searching...
-          </div>
-        `;
+            <div class="loading">
+              <i class="fas fa-spinner"></i> Searching...
+            </div>
+          `;
 
         // Simulate brief delay for feedback (remove if not wanted)
         setTimeout(() => {
@@ -6585,34 +6789,34 @@
         function displaySearchResults(results, searchTerm, resultsContainer) {
           if (results.length === 0) {
             resultsContainer.innerHTML = `
-                <div class="no-results">
-                    <i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px;"></i>
-                    <p>No products found for "${searchTerm}"</p>
-                    <p style="font-size: 14px; margin-top: 10px;">Try searching for jerseys, boots, or team names</p>
-                </div>
-            `;
+                  <div class="no-results">
+                      <i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px;"></i>
+                      <p>No products found for "${searchTerm}"</p>
+                      <p style="font-size: 14px; margin-top: 10px;">Try searching for jerseys, boots, or team names</p>
+                  </div>
+              `;
           } else {
             resultsContainer.innerHTML = results
               .map(
                 (product) => `
-                <div class="search-result-item" onclick="selectSearchResult(${
-                  product.id
-                })">
-                    <img src="${product.image}" alt="${
+                  <div class="search-result-item" onclick="selectSearchResult(${
+                    product.id
+                  })">
+                      <img src="${product.image}" alt="${
                   product.name
                 }" class="search-result-image" onerror="this.src='https://via.placeholder.com/60x60?text=No+Image'">
-                    <div class="search-result-info">
-                        <div class="search-result-name">${product.name}</div>
-                        <div class="search-result-price">₵${product.price.toFixed(
-                          2
-                        )}</div>
-                        <div class="search-result-category">${
-                          product.category
-                        } • ${product.team || product.brand || "Sports"}</div>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color: var(--gray-dark);"></i>
-                </div>
-            `
+                      <div class="search-result-info">
+                          <div class="search-result-name">${product.name}</div>
+                          <div class="search-result-price">₵${product.price.toFixed(
+                            2
+                          )}</div>
+                          <div class="search-result-category">${
+                            product.category
+                          } • ${product.team || product.brand || "Sports"}</div>
+                      </div>
+                      <i class="fas fa-chevron-right" style="color: var(--gray-dark);"></i>
+                  </div>
+              `
               )
               .join("");
           }
@@ -6909,40 +7113,40 @@
         const notification = document.createElement("div");
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
-        <i class="fas fa-${type === "success" ? "check" : "info"}"></i>
-        <span>${message}</span>
-    `;
+          <i class="fas fa-${type === "success" ? "check" : "info"}"></i>
+          <span>${message}</span>
+      `;
 
         // Add notification styles if not already present
         if (!document.querySelector("#notification-styles")) {
           const styles = document.createElement("style");
           styles.id = "notification-styles";
           styles.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: var(--light);
-                padding: 15px 20px;
-                border-radius: var(--radius);
-                box-shadow: var(--shadow);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 3000;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-            }
-            .notification.success {
-                border-left: 4px solid var(--primary);
-            }
-            .notification.info {
-                border-left: 4px solid var(--secondary);
-            }
-            .notification.show {
-                transform: translateX(0);
-            }
-        `;
+              .notification {
+                  position: fixed;
+                  top: 20px;
+                  right: 20px;
+                  background: var(--light);
+                  padding: 15px 20px;
+                  border-radius: var(--radius);
+                  box-shadow: var(--shadow);
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  z-index: 3000;
+                  transform: translateX(100%);
+                  transition: transform 0.3s ease;
+              }
+              .notification.success {
+                  border-left: 4px solid var(--primary);
+              }
+              .notification.info {
+                  border-left: 4px solid var(--secondary);
+              }
+              .notification.show {
+                  transform: translateX(0);
+              }
+          `;
           document.head.appendChild(styles);
         }
 
@@ -7001,6 +7205,116 @@
           }
         });
       });
+
+      // Favorites functionality (add after cart functions, around line ~4000)
+
+      // Load favorites on init (add to your existing initCart() or separately)
+      favorites =
+        JSON.parse(localStorage.getItem("strikeGhanaFavorites")) || [];
+      updateFavoriteCounts(); // Call this in DOMContentLoaded
+
+      // Update favorite counts in header and mobile
+      function updateFavoriteCounts() {
+        const count = favorites.length;
+        document.getElementById("headerFavoritesCount").textContent = count;
+        document.getElementById("mobileFavoritesCount").textContent = count;
+      }
+
+      // Render favorites page
+      function renderFavorites() {
+        const favoritesItems = document.getElementById("favoritesItems");
+        const emptyFavoritesMessage = document.getElementById(
+          "emptyFavoritesMessage"
+        );
+
+        if (favorites.length === 0) {
+          emptyFavoritesMessage.style.display = "block";
+          favoritesItems.innerHTML = ""; // Clear items
+          return;
+        }
+
+        emptyFavoritesMessage.style.display = "none";
+
+        let itemsHTML = "";
+        favorites.forEach((productId) => {
+          const product = products.find((p) => p.id === productId); // Fetch from products array
+          if (product) {
+            itemsHTML += `
+          <div class="favorite-item">
+            <div class="favorite-item-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="favorite-item-details">
+              <h3 class="favorite-item-title">${product.name}</h3>
+              <div class="favorite-item-price">₵${product.price.toFixed(
+                2
+              )}</div>
+              <button class="btn" onclick="addToCart(${
+                product.id
+              })">Add to Cart</button>
+              <button class="remove-item" onclick="removeFromFavorites(${
+                product.id
+              })">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        `;
+          }
+        });
+
+        favoritesItems.innerHTML = itemsHTML;
+      }
+
+      // Remove from favorites
+      function removeFromFavorites(productId) {
+        favorites = favorites.filter((id) => id !== productId);
+        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
+        updateFavoriteButtons(); // Your existing function to update heart icons
+        updateFavoriteCounts();
+        renderFavorites();
+        showNotification("Removed from favorites", "info"); // Optional, if you have notifications
+      }
+
+      // Show favorites page
+      function showFavoritesPage() {
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "none";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+        document.getElementById("favoritesPage").style.display = "block";
+        renderFavorites();
+        updateActiveNav("favorites");
+        window.scrollTo(0, 0);
+      }
+
+      // Edit your existing toggleFavorite function (replace the entire function)
+      function toggleFavorite(productId) {
+        const productElement = document.querySelector(
+          `.product-card[data-id="${productId}"]`
+        );
+        const favoriteBtn = productElement.querySelector(
+          ".product-action:nth-child(2)"
+        );
+        if (favorites.includes(productId)) {
+          favorites = favorites.filter((id) => id !== productId);
+          favoriteBtn.classList.remove("favorited");
+          showNotification("Removed from favorites", "info");
+        } else {
+          favorites.push(productId);
+          favoriteBtn.classList.add("favorited");
+          showNotification("Added to favorites!", "success");
+        }
+        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
+        updateFavoriteButtons();
+        updateFavoriteCounts(); // Add this call
+      }
+
+      // In your DOMContentLoaded listener, add:
+      updateFavoriteCounts();
     </script>
   </body>
 </html>
