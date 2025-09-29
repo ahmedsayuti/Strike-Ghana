@@ -4482,22 +4482,20 @@
     <section class="cart-page" id="cartPage">
       <div class="container cart-container">
         <h2 class="section-title">Your Cart</h2>
-
         <div class="cart-items" id="cartItems">
           <!-- Cart items will be dynamically inserted here -->
-          <div class="empty-cart-message" id="emptyCartMessage">
-            <i
-              class="fas fa-shopping-cart"
-              style="font-size: 48px; margin-bottom: 20px; opacity: 0.3"
-            ></i>
-            <h3>Your cart is empty</h3>
-            <p>Add some products to your cart and they will appear here.</p>
-            <a href="index.html" class="btn" onclick="showHomepage()"
-              >Continue Shopping</a
-            >
-          </div>
         </div>
-
+        <div class="empty-cart-message" id="emptyCartMessage">
+          <i
+            class="fas fa-shopping-cart"
+            style="font-size: 48px; margin-bottom: 20px; opacity: 0.3"
+          ></i>
+          <h3>Your cart is empty</h3>
+          <p>Add some products to your cart and they will appear here.</p>
+          <a href="index.html" class="btn" onclick="showHomepage()"
+            >Continue Shopping</a
+          >
+        </div>
         <div class="cart-summary" id="cartSummary" style="display: none">
           <div class="summary-row">
             <span>Subtotal:</span>
@@ -4511,7 +4509,6 @@
             <span>Total:</span>
             <span id="cartTotal">₵0.00</span>
           </div>
-
           <form
             id="orderForm"
             action="https://formspree.io/f/mvgakjww"
@@ -4519,7 +4516,6 @@
           >
             <input type="hidden" name="order_details" id="orderDetails" />
             <input type="hidden" name="order_total" id="orderTotal" />
-
             <div class="form-group">
               <label class="form-label" for="customerName">Full Name</label>
               <input
@@ -4530,7 +4526,6 @@
                 required
               />
             </div>
-
             <div class="form-group">
               <label class="form-label" for="customerEmail">Email</label>
               <input
@@ -4541,7 +4536,6 @@
                 required
               />
             </div>
-
             <div class="form-group">
               <label class="form-label" for="customerPhone">Phone Number</label>
               <input
@@ -4552,7 +4546,6 @@
                 required
               />
             </div>
-
             <div class="form-group">
               <label class="form-label" for="customerRegion"
                 >Delivery Region</label
@@ -4583,7 +4576,6 @@
                 <option value="International">International</option>
               </select>
             </div>
-
             <div class="form-group">
               <label class="form-label" for="customerAddress"
                 >Delivery Address</label
@@ -4596,11 +4588,9 @@
                 required
               ></textarea>
             </div>
-
             <button type="submit" class="send-order-btn">Send Order</button>
           </form>
         </div>
-
         <div class="order-confirmation" id="orderConfirmation">
           <svg
             class="checkmark"
@@ -5278,6 +5268,7 @@
         );
         const productImage = productElement.getAttribute("data-image");
         const existingItem = cart.find((item) => item.id === productId);
+
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
@@ -5289,7 +5280,10 @@
             quantity: 1,
           });
         }
+
         saveCart();
+
+        // Show confirmation message
         const confirmation = document.createElement("div");
         confirmation.style.position = "fixed";
         confirmation.style.bottom = "20px";
@@ -5302,9 +5296,15 @@
         confirmation.style.boxShadow = "var(--shadow)";
         confirmation.innerHTML = `<i class="fas fa-check"></i> Added to cart!`;
         document.body.appendChild(confirmation);
+
         setTimeout(() => {
           document.body.removeChild(confirmation);
         }, 3000);
+
+        // If we're on the cart page, update the display immediately
+        if (document.getElementById("cartPage").style.display === "block") {
+          renderCart();
+        }
       }
 
       // Remove item from cart
@@ -5333,48 +5333,60 @@
         const cartItems = document.getElementById("cartItems");
         const emptyCartMessage = document.getElementById("emptyCartMessage");
         const cartSummary = document.getElementById("cartSummary");
+
         if (cart.length === 0) {
           emptyCartMessage.style.display = "block";
           cartSummary.style.display = "none";
+          cartItems.innerHTML = ""; // Clear any existing items
           return;
         }
+
         emptyCartMessage.style.display = "none";
         cartSummary.style.display = "block";
+
         let itemsHTML = "";
         let subtotal = 0;
+
         cart.forEach((item) => {
           const itemTotal = item.price * item.quantity;
           subtotal += itemTotal;
+
           itemsHTML += `
-        <div class="cart-item">
-          <div class="cart-item-image">
-            <img src="${item.image}" alt="${item.name}">
-          </div>
-          <div class="cart-item-details">
-            <h3 class="cart-item-title">${item.name}</h3>
-            <div class="cart-item-price">₵${item.price.toFixed(2)}</div>
-            <div class="cart-item-quantity">
-              <button class="quantity-btn" onclick="updateQuantity(${
-                item.id
-              }, -1)">-</button>
-              <input type="number" class="quantity-input" value="${
-                item.quantity
-              }" min="1" onchange="setQuantity(${item.id}, this.value)">
-              <button class="quantity-btn" onclick="updateQuantity(${
-                item.id
-              }, 1)">+</button>
-              <button class="remove-item" onclick="removeFromCart(${item.id})">
-                <i class="fas fa-trash"></i>
-              </button>
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}">
+              </div>
+              <div class="cart-item-details">
+                <h3 class="cart-item-title">${item.name}</h3>
+                <div class="cart-item-price">₵${item.price.toFixed(2)}</div>
+                <div class="cart-item-quantity">
+                  <button class="quantity-btn" onclick="updateQuantity(${
+                    item.id
+                  }, -1)">-</button>
+                  <input type="number" class="quantity-input" value="${
+                    item.quantity
+                  }" min="1" onchange="setQuantity(${item.id}, this.value)">
+                  <button class="quantity-btn" onclick="updateQuantity(${
+                    item.id
+                  }, 1)">+</button>
+                  <button class="remove-item" onclick="removeFromCart(${
+                    item.id
+                  })">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="cart-item-total">₵${itemTotal.toFixed(2)}</div>
             </div>
-          </div>
-          <div class="cart-item-total">₵${itemTotal.toFixed(2)}</div>
-        </div>
-      `;
+          `;
         });
+
+        cartItems.innerHTML = itemsHTML;
+
+        // Update summary
         const shipping = subtotal >= 500 ? 0 : 50;
         const total = subtotal + shipping;
-        document.getElementById("cartItems").innerHTML = itemsHTML;
+
         document.getElementById(
           "cartSubtotal"
         ).textContent = `₵${subtotal.toFixed(2)}`;
@@ -5383,6 +5395,8 @@
         document.getElementById("cartTotal").textContent = `₵${total.toFixed(
           2
         )}`;
+
+        // Update order form hidden fields
         const orderDetails = cart
           .map(
             (item) =>
@@ -5391,12 +5405,19 @@
           .join("\n");
         document.getElementById("orderDetails").value = orderDetails;
         document.getElementById("orderTotal").value = `₵${total.toFixed(2)}`;
+
+        // Update cart count in header
+        updateCartCount();
       }
 
       // Set specific quantity for an item
       function setQuantity(productId, quantity) {
         const qty = parseInt(quantity);
-        if (isNaN(qty) || qty < 1) return;
+        if (isNaN(qty) || qty < 1) {
+          // If invalid quantity, re-render to reset to current value
+          renderCart();
+          return;
+        }
         const item = cart.find((item) => item.id === productId);
         if (item) {
           item.quantity = qty;
