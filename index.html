@@ -7107,6 +7107,48 @@
         document.getElementById("mobileFavoritesCount").textContent = count;
       }
 
+      // --- START: Favorites UI helpers (paste below updateFavoritesCount) ---
+
+      /**
+       * updateFavoriteButtons()
+       * Keep product-card heart icons in sync with the favorites stored in `favorites`.
+       * Works whether `favorites` is an array of ids (e.g. [1,2,3]) or objects (e.g. [{id:1,...}, {...}]).
+       */
+      function updateFavoriteButtons() {
+        const productCards = document.querySelectorAll(".product-card");
+        productCards.forEach((card) => {
+          const idAttr = card.getAttribute("data-id");
+          if (!idAttr) return;
+          const id = parseInt(idAttr, 10);
+          const heartIcon = card.querySelector(".product-action:nth-child(2)");
+          // determine if this product is favorited regardless of favorites representation
+          const isFavorited =
+            Array.isArray(favorites) &&
+            favorites.some((item) => {
+              if (typeof item === "number") return item === id;
+              if (item && typeof item === "object") return item.id === id;
+              return false;
+            });
+          if (heartIcon) {
+            heartIcon.classList.toggle("favorited", !!isFavorited);
+          }
+        });
+      }
+
+      /**
+       * Compatibility alias:
+       * Some places in the file call updateFavoriteCounts() while others call updateFavoritesCount().
+       * Ensure both exist and do the same thing.
+       */
+      function updateFavoriteCounts() {
+        // forward to the canonical function
+        if (typeof updateFavoritesCount === "function") {
+          updateFavoritesCount();
+        }
+      }
+
+      // --- END: Favorites UI helpers ---
+
       // Toggle product in favorites
       function toggleFavorite(productId) {
         const productElement = document.querySelector(
@@ -7451,13 +7493,43 @@
       }
 
       // Remove from favorites
+      // Unified removeFromFavorites - replaces the previous inconsistent definition
       function removeFromFavorites(productId) {
-        favorites = favorites.filter((id) => id !== productId);
-        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
-        updateFavoriteButtons(); // Your existing function to update heart icons
-        updateFavoriteCounts();
-        renderFavorites();
-        showNotification("Removed from favorites", "info"); // Optional, if you have notifications
+        // Ensure favorites is an array
+        if (!Array.isArray(favorites)) favorites = [];
+
+        // Support both favorites formats:
+        // - array of objects: [{id: 1, name:..., ...}, ...]
+        // - array of ids: [1, 2, 3]
+        if (favorites.length > 0 && typeof favorites[0] === "object") {
+          favorites = favorites.filter((item) => item.id !== productId);
+        } else {
+          favorites = favorites.filter((id) => id !== productId);
+        }
+
+        // Persist and update UI
+        if (typeof saveFavorites === "function") {
+          // saveFavorites updates localStorage and the visible favorites count
+          saveFavorites();
+        } else {
+          // fallback
+          localStorage.setItem(
+            "strikeGhanaFavorites",
+            JSON.stringify(favorites)
+          );
+          if (typeof updateFavoritesCount === "function")
+            updateFavoritesCount();
+        }
+
+        // Update heart icons on product cards and the favorites page
+        if (typeof updateFavoriteButtons === "function")
+          updateFavoriteButtons();
+        if (typeof renderFavorites === "function") renderFavorites();
+
+        // Optional: notify the user if notification helper exists
+        if (typeof showNotification === "function") {
+          showNotification("Removed from favorites", "info");
+        }
       }
 
       // Show favorites page
