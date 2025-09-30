@@ -7450,52 +7450,6 @@
         document.getElementById("mobileFavoritesCount").textContent = count;
       }
 
-      // Render favorites page
-      function renderFavorites() {
-        const favoritesItems = document.getElementById("favoritesItems");
-        const emptyFavoritesMessage = document.getElementById(
-          "emptyFavoritesMessage"
-        );
-
-        if (favorites.length === 0) {
-          emptyFavoritesMessage.style.display = "block";
-          favoritesItems.innerHTML = ""; // Clear items
-          return;
-        }
-
-        emptyFavoritesMessage.style.display = "none";
-
-        let itemsHTML = "";
-        favorites.forEach((productId) => {
-          const product = products.find((p) => p.id === productId); // Fetch from products array
-          if (product) {
-            itemsHTML += `
-          <div class="favorite-item">
-            <div class="favorite-item-image">
-              <img src="${product.image}" alt="${product.name}">
-            </div>
-            <div class="favorite-item-details">
-              <h3 class="favorite-item-title">${product.name}</h3>
-              <div class="favorite-item-price">₵${product.price.toFixed(
-                2
-              )}</div>
-              <button class="btn" onclick="addToCart(${
-                product.id
-              })">Add to Cart</button>
-              <button class="remove-item" onclick="removeFromFavorites(${
-                product.id
-              })">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          </div>
-        `;
-          }
-        });
-
-        favoritesItems.innerHTML = itemsHTML;
-      }
-
       // Remove from favorites
       function removeFromFavorites(productId) {
         favorites = favorites.filter((id) => id !== productId);
