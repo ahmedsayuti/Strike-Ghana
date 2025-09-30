@@ -1794,6 +1794,40 @@
         margin-bottom: 10px;
       }
 
+      .favorite-item-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 20px;
+      }
+
+      .favorite-item-actions .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+
+      .favorite-item-actions .remove-item {
+        padding: 8px 15px;
+        background: none;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .favorite-item-actions .remove-item:hover {
+        background-color: var(--accent);
+        color: var(--light);
+      }
+
+      .favorite-item-category {
+        font-size: 14px;
+        color: var(--gray-dark);
+        text-transform: uppercase;
+        margin-top: 5px;
+      }
+
       .remove-item {
         color: var(--accent);
         background: none;
@@ -7048,56 +7082,194 @@
         }
       });
 
-      // Favorite functionality
-      let favorites =
-        JSON.parse(localStorage.getItem("strikeGhanaFavorites")) || [];
+      // Favorites functionality
+      let favorites = [];
 
+      // Initialize favorites from localStorage
+      function initFavorites() {
+        const savedFavorites = localStorage.getItem("strikeGhanaFavorites");
+        if (savedFavorites) {
+          favorites = JSON.parse(savedFavorites);
+          updateFavoritesCount();
+        }
+      }
+
+      // Save favorites to localStorage
+      function saveFavorites() {
+        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
+        updateFavoritesCount();
+      }
+
+      // Update favorites count in header
+      function updateFavoritesCount() {
+        const count = favorites.length;
+        document.getElementById("headerFavoritesCount").textContent = count;
+        document.getElementById("mobileFavoritesCount").textContent = count;
+      }
+
+      // Toggle product in favorites
       function toggleFavorite(productId) {
         const productElement = document.querySelector(
           `.product-card[data-id="${productId}"]`
         );
-        const favoriteBtn = productElement.querySelector(
-          ".product-action:nth-child(2)"
-        ); // Second action button is favorite
+        if (!productElement) {
+          console.error("Product element not found:", productId);
+          return;
+        }
 
-        if (favorites.includes(productId)) {
+        const productName = productElement.getAttribute("data-name");
+        const productPrice = parseFloat(
+          productElement.getAttribute("data-price")
+        );
+        const productImage = productElement.getAttribute("data-image");
+        const productCategory = productElement.getAttribute("data-category");
+
+        const existingIndex = favorites.findIndex(
+          (item) => item.id === productId
+        );
+
+        if (existingIndex >= 0) {
           // Remove from favorites
-          favorites = favorites.filter((id) => id !== productId);
-          favoriteBtn.classList.remove("favorited");
-          favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
+          favorites.splice(existingIndex, 1);
+          // Remove favorited class from heart icon
+          const heartIcon = productElement.querySelector(
+            ".product-action:nth-child(2)"
+          );
+          if (heartIcon) {
+            heartIcon.classList.remove("favorited");
+          }
           showNotification("Removed from favorites", "info");
         } else {
           // Add to favorites
-          favorites.push(productId);
-          favoriteBtn.classList.add("favorited");
-          favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
+          favorites.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            category: productCategory,
+          });
+          // Add favorited class to heart icon
+          const heartIcon = productElement.querySelector(
+            ".product-action:nth-child(2)"
+          );
+          if (heartIcon) {
+            heartIcon.classList.add("favorited");
+          }
           showNotification("Added to favorites!", "success");
         }
 
-        // Save to localStorage
-        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
+        saveFavorites();
 
-        // Update favorite buttons state on page
-        updateFavoriteButtons();
+        // If we're on the favorites page, update the display immediately
+        if (
+          document.getElementById("favoritesPage").style.display === "block"
+        ) {
+          renderFavorites();
+        }
       }
 
-      function updateFavoriteButtons() {
-        document.querySelectorAll(".product-card").forEach((card) => {
-          const productId = parseInt(card.getAttribute("data-id"));
-          const favoriteBtn = card.querySelector(
+      // Remove item from favorites
+      function removeFromFavorites(productId) {
+        favorites = favorites.filter((item) => item.id !== productId);
+        saveFavorites();
+        renderFavorites();
+
+        // Also update the heart icon in the product card
+        const productElement = document.querySelector(
+          `.product-card[data-id="${productId}"]`
+        );
+        if (productElement) {
+          const heartIcon = productElement.querySelector(
             ".product-action:nth-child(2)"
           );
+          if (heartIcon) {
+            heartIcon.classList.remove("favorited");
+          }
+        }
+      }
 
-          if (favorites.includes(productId)) {
-            favoriteBtn.classList.add("favorited");
-            favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
-          } else {
-            favoriteBtn.classList.remove("favorited");
-            favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
+      // Render favorites items
+      function renderFavorites() {
+        const favoritesItems = document.getElementById("favoritesItems");
+        const emptyFavoritesMessage = document.getElementById(
+          "emptyFavoritesMessage"
+        );
+
+        if (favorites.length === 0) {
+          emptyFavoritesMessage.style.display = "block";
+          favoritesItems.innerHTML = "";
+          return;
+        }
+
+        emptyFavoritesMessage.style.display = "none";
+
+        let itemsHTML = "";
+
+        favorites.forEach((item) => {
+          itemsHTML += `
+                  <div class="favorite-item">
+                      <div class="favorite-item-image">
+                          <img src="${item.image}" alt="${item.name}">
+                      </div>
+                      <div class="favorite-item-details">
+                          <h3 class="favorite-item-title">${item.name}</h3>
+                          <div class="favorite-item-price">₵${item.price.toFixed(
+                            2
+                          )}</div>
+                          <div class="favorite-item-category">${
+                            item.category
+                          }</div>
+                      </div>
+                      <div class="favorite-item-actions">
+                          <button class="btn" onclick="addToCart(${
+                            item.id
+                          })">Add to Cart</button>
+                          <button class="remove-item" onclick="removeFromFavorites(${
+                            item.id
+                          })">
+                              <i class="fas fa-trash"></i> Remove
+                          </button>
+                      </div>
+                  </div>
+              `;
+        });
+
+        favoritesItems.innerHTML = itemsHTML;
+      }
+
+      // Show favorites page
+      function showFavoritesPage() {
+        // Hide all pages first
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "none";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+        document.getElementById("favoritesPage").style.display = "block";
+
+        renderFavorites();
+        updateActiveNav("favorites");
+        window.scrollTo(0, 0);
+      }
+
+      // Initialize favorite icons on page load
+      function initializeFavoriteIcons() {
+        favorites.forEach((item) => {
+          const productElement = document.querySelector(
+            `.product-card[data-id="${item.id}"]`
+          );
+          if (productElement) {
+            const heartIcon = productElement.querySelector(
+              ".product-action:nth-child(2)"
+            );
+            if (heartIcon) {
+              heartIcon.classList.add("favorited");
+            }
           }
         });
       }
-
       // Zoom functionality
       let currentZoomProductId = null;
       let zoomProducts = [];
@@ -7213,8 +7385,21 @@
 
       // Update your existing DOMContentLoaded function to include:
       document.addEventListener("DOMContentLoaded", function () {
-        // ... your existing initialization code ...
+        // Initialize favorites
+        initFavorites();
+        initializeFavoriteIcons();
 
+        // Add event listeners for favorites
+        document
+          .getElementById("favoritesIcon")
+          .addEventListener("click", showFavoritesPage);
+        document
+          .getElementById("mobileFavoritesLink")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showFavoritesPage();
+            closeMobileMenu();
+          });
         // Initialize favorites and zoom
         updateFavoriteButtons();
         initializeZoom();
