@@ -13,10 +13,7 @@
       content="Strike Ghana Limited is Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment. Official merchandise for Ghana Premier League teams with nationwide delivery since 2023."
     />
     <meta property="og:image" content="images/linkimage.png" />
-    <meta
-      property="og:url"
-      content="https://www.strikeghana.com"
-    />
+    <meta property="og:url" content="https://www.strikeghana.com" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -83,6 +80,42 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Canonical URL for homepage -->
+    <link rel="canonical" href="https://www.strikeghana.com/" />
+
+    <!-- Additional meta tags for SEO -->
+    <meta
+      name="description"
+      content="Strike Ghana Limited is Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment. Official merchandise for Ghana Premier League teams with nationwide delivery since 2023."
+    />
+    <meta
+      name="keywords"
+      content="football jerseys, Ghana Premier League, sports apparel, football equipment, custom kits, Ghana football, sports merchandise"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "Strike Ghana Limited",
+        "url": "https://www.strikeghana.com",
+        "logo": "https://www.strikeghana.com/images/logo.png",
+        "description": "Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tse Addo High Street",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra",
+          "addressCountry": "GH"
+        },
+        "telephone": "+233-50-399-9787",
+        "email": "strikeghana@gmail.com",
+        "sameAs": [
+          "https://facebook.com/strikeghana",
+          "https://twitter.com/strikeghana",
+          "https://instagram.com/strikeghana"
+        ]
+      }
+    </script>
     <style>
       * {
         margin: 0;
@@ -3113,9 +3146,15 @@
       <div class="container top-bar-content">
         <div class="top-bar-text">Free shipping on orders over ₵500</div>
         <div class="top-bar-links">
-          <a href="#" onclick="showContactPage()">Contact Us</a>
-          <a href="#" onclick="showStoreLocatorPage()">Store Locator</a>
-          <a href="#" onclick="showGhanaPremierLeaguePage()">GPL</a>
+          <a href="javascript:void(0)" onclick="showContactPage()"
+            >Contact Us</a
+          >
+          <a href="javascript:void(0)" onclick="showStoreLocatorPage()"
+            >Store Locator</a
+          >
+          <a href="javascript:void(0)" onclick="showGhanaPremierLeaguePage()"
+            >GPL</a
+          >
         </div>
       </div>
     </div>
@@ -3128,7 +3167,9 @@
         </a>
 
         <nav class="nav-menu">
-          <a href="#" class="nav-link" onclick="showHomepage()">Home</a>
+          <a href="javascript:void(0)" class="nav-link" onclick="showHomepage()"
+            >Home</a
+          >
 
           <!-- Products Dropdown -->
           <div class="nav-item-with-dropdown">
@@ -3174,8 +3215,17 @@
             onclick="showHomepage(); scrollToSection('promotions')"
             >Sale</a
           >
-          <a href="#" class="nav-link" onclick="showAboutPage()">About</a>
-          <a href="#" class="nav-link" id="cartLink" onclick="showCartPage()"
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            onclick="showAboutPage()"
+            >About</a
+          >
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            id="cartLink"
+            onclick="showCartPage()"
             >Cart (<span id="cartCount">0</span>)</a
           >
         </nav>
@@ -5522,6 +5572,9 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+
+        // Update browser history for SEO
+        history.pushState({ page: "home" }, "Home - Strike Ghana", "/");
         updateActiveNav("home");
       }
 
@@ -5535,6 +5588,13 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+
+        // Update browser history for SEO
+        history.pushState(
+          { page: "about" },
+          "About Us - Strike Ghana",
+          "/?section=about"
+        );
         updateActiveNav("about");
         window.scrollTo(0, 0);
       }
@@ -5550,6 +5610,7 @@
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
         renderCart();
+
         updateActiveNav("cart");
         window.scrollTo(0, 0);
       }
@@ -5564,6 +5625,12 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        // Update browser history for SEO
+        history.pushState(
+          { page: "contact" },
+          "Contact Us - Strike Ghana",
+          "/?section=contact"
+        );
         updateActiveNav("contact");
         window.scrollTo(0, 0);
         setTimeout(initContactAnimations, 100);
@@ -5580,7 +5647,12 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none";
-
+        // Update browser history for SEO
+        history.pushState(
+          { page: "store-locator" },
+          "Store Locator - Strike Ghana",
+          "/?section=store-locator"
+        );
         updateActiveNav("storeLocator");
         renderStores();
         window.scrollTo(0, 0);
@@ -5597,10 +5669,49 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "block";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        // Update browser history for SEO
+        history.pushState(
+          { page: "gpl" },
+          "Ghana Premier League - Strike Ghana",
+          "/?section=gpl"
+        );
         updateActiveNav("gpl");
         renderGPLTeams();
         renderGPLStandings();
         window.scrollTo(0, 0);
+      }
+
+      // Add this function to handle browser back/forward buttons
+      function handlePopState(event) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get("section");
+
+        if (!section) {
+          showHomepage();
+        } else {
+          switch (section) {
+            case "about":
+              showAboutPage();
+              break;
+            case "contact":
+              showContactPage();
+              break;
+            case "store-locator":
+              showStoreLocatorPage();
+              break;
+            case "gpl":
+              showGhanaPremierLeaguePage();
+              break;
+            case "cart":
+              showCartPage();
+              break;
+            case "favorites":
+              showFavoritesPage();
+              break;
+            default:
+              showHomepage();
+          }
+        }
       }
       // Initialize contact page animations
       function initContactAnimations() {
@@ -6017,6 +6128,11 @@
           });
         });
         initializeCountdown();
+
+        window.addEventListener("popstate", handlePopState);
+
+        // Check URL on initial load
+        handlePopState();
       });
 
       // Initialize animations for new elements
