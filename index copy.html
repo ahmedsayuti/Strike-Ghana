@@ -27,45 +27,8 @@
     <meta name="twitter:image" content="images/linkimage.png" />
     <title>Strike Ghana Limited - Premium Sports Products</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <!-- Apple Touch Icons -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="apple-touch-icon-180x180.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="apple-touch-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="apple-touch-icon-144x144.png"
-    />
-    <!-- Android Chrome -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="android-chrome-512x512.png"
-    />
-    <!-- Microsoft Tiles -->
-    <meta name="msapplication-TileColor" content="#7ed321" />
-    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-    <!-- Theme colors -->
-    <meta name="theme-color" content="#7ed321" />
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="images/logo2.png" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -74,12 +37,49 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Canonical URL for homepage -->
+    <link rel="canonical" href="https://www.strikeghana.com/" />
+
+    <!-- Additional meta tags for SEO -->
+    <meta
+      name="description"
+      content="Strike Ghana Limited is Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment. Official merchandise for Ghana Premier League teams with nationwide delivery since 2023."
+    />
+    <meta
+      name="keywords"
+      content="football jerseys, Ghana Premier League, sports apparel, football equipment, custom kits, Ghana football, sports merchandise"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "Strike Ghana Limited",
+        "url": "https://www.strikeghana.com",
+        "logo": "https://www.strikeghana.com/images/logo.png",
+        "description": "Ghana's premier supplier of official football jerseys, custom team kits, boots, and football equipment",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tse Addo High Street",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra",
+          "addressCountry": "GH"
+        },
+        "telephone": "+233-50-399-9787",
+        "email": "strikeghana@gmail.com",
+        "sameAs": [
+          "https://web.facebook.com/strikeghana/mentions/?_rdc=1&_rdr#",
+          "https://twitter.com/strikeghana",
+          "https://www.instagram.com/strikeghana/?hl=en"
+        ]
+      }
+    </script>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
       :root {
         --primary: #00913f;
         --secondary: #fcd116;
@@ -94,6 +94,7 @@
         --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         --radius: 4px;
       }
+
       body {
         font-family: var(--font-body);
         color: var(--dark);
@@ -102,23 +103,28 @@
         background-color: var(--light);
         scroll-behavior: smooth;
       }
+
       a {
         text-decoration: none;
         color: inherit;
       }
+
       ul {
         list-style: none;
       }
+
       img {
         max-width: 100%;
         height: auto;
       }
+
       .container {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 15px;
       }
+
       .btn {
         display: inline-block;
         padding: 12px 28px;
@@ -133,20 +139,24 @@
         font-size: 14px;
         letter-spacing: 0.5px;
       }
+
       .btn:hover {
         background-color: var(--accent);
         transform: translateY(-3px);
         box-shadow: var(--shadow);
       }
+
       .btn-secondary {
         background-color: transparent;
         border: 2px solid var(--primary);
         color: var(--primary);
       }
+
       .btn-secondary:hover {
         background-color: var(--primary);
         color: var(--light);
       }
+
       .section-title {
         font-family: var(--font-heading);
         font-size: 32px;
@@ -156,6 +166,7 @@
         position: relative;
         padding-bottom: 15px;
       }
+
       .section-title:after {
         content: "";
         position: absolute;
@@ -171,6 +182,7 @@
           var(--accent)
         );
       }
+
       /* Header Styles */
       header {
         background-color: var(--light);
@@ -179,40 +191,48 @@
         top: 0;
         z-index: 1000;
       }
+
       .top-bar {
         background-color: var(--dark);
         color: var(--light);
         padding: 8px 0;
         font-size: 14px;
       }
+
       .top-bar-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
+
       .top-bar-links {
         display: flex;
         gap: 20px;
       }
+
       .main-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 15px 0;
       }
+
       .logo {
         display: flex;
         align-items: center;
       }
+
       .logo img {
         height: 50px;
       }
+
       .nav-menu {
         display: flex;
         gap: 30px;
         position: relative;
         align-items: center; /* Ensure all items are centered */
       }
+
       .nav-link {
         font-family: var(--font-heading);
         font-weight: 600;
@@ -224,6 +244,7 @@
         display: flex;
         align-items: center; /* Center the text and icon vertically */
       }
+
       .nav-link:after {
         content: "";
         position: absolute;
@@ -234,12 +255,15 @@
         background-color: var(--primary);
         transition: var(--transition);
       }
+
       .nav-link:hover {
         color: var(--primary);
       }
+
       .nav-link:hover:after {
         width: 100%;
       }
+
       /* Products Dropdown */
       .nav-item-with-dropdown {
         position: relative;
@@ -247,6 +271,7 @@
         align-items: center; /* Center the dropdown item vertically */
         height: 100%;
       }
+
       .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -262,35 +287,42 @@
         transition: var(--transition);
         z-index: 1000;
       }
+
       .nav-item-with-dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
       }
+
       .dropdown-menu.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
       }
+
       .dropdown-link {
         display: block;
         padding: 10px 15px;
         transition: var(--transition);
         border-radius: var(--radius);
       }
+
       .dropdown-link:hover {
         background-color: var(--gray);
         color: var(--primary);
         padding-left: 20px;
       }
+
       .header-actions {
         display: flex;
         align-items: center;
         gap: 20px;
       }
+
       .search-box {
         position: relative;
       }
+
       .search-input {
         padding: 10px 15px;
         padding-right: 40px;
@@ -300,11 +332,13 @@
         width: 200px;
         transition: var(--transition);
       }
+
       .search-input:focus {
         outline: none;
         border-color: var(--primary);
         width: 250px;
       }
+
       .search-btn {
         position: absolute;
         right: 10px;
@@ -317,81 +351,93 @@
       }
       /* Search Results Display */
       .search-results-container {
-          position: inherit;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: white;
-          border-radius: var(--radius);
-          box-shadow: var(--shadow);
-          z-index: 1000;
-          max-height: 400px;
-          overflow-y: auto;
-          display: none;
+        position: inherit;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        max-height: 400px;
+        overflow-y: auto;
+        display: none;
       }
+
       .search-results-container.active {
-          display: block;
+        display: block;
       }
+
       .search-result-item {
-          display: flex;
-          align-items: center;
-          padding: 15px;
-          border-bottom: 1px solid #eee;
-          cursor: pointer;
-          transition: var(--transition);
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: var(--transition);
       }
+
       .search-result-item:hover {
-          background-color: var(--gray);
+        background-color: var(--gray);
       }
+
       .search-result-image {
-          width: 60px;
-          height: 60px;
-          object-fit: cover;
-          border-radius: var(--radius);
-          margin-right: 15px;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: var(--radius);
+        margin-right: 15px;
       }
+
       .search-result-info {
-          flex: 1;
+        flex: 1;
       }
+
       .search-result-name {
-          font-weight: 600;
-          margin-bottom: 5px;
-          color: var(--dark);
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--dark);
       }
+
       .search-result-price {
-          color: var(--primary);
-          font-weight: 700;
+        color: var(--primary);
+        font-weight: 700;
       }
+
       .search-result-category {
-          font-size: 12px;
-          color: var(--gray-dark);
-          text-transform: uppercase;
+        font-size: 12px;
+        color: var(--gray-dark);
+        text-transform: uppercase;
       }
+
       .no-results {
-          padding: 20px;
-          text-align: center;
-          color: var(--gray-dark);
+        padding: 20px;
+        text-align: center;
+        color: var(--gray-dark);
       }
+
       .search-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0,0,0,0.5);
-          z-index: 999;
-          display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
       }
+
       .search-overlay.active {
-          display: block;
+        display: block;
       }
+
       .cart-icon,
       .user-icon {
         font-size: 20px;
         position: relative;
         cursor: pointer;
       }
-        /* Favorites Icon Styles */
+      /* Favorites Icon Styles */
       .favorites-icon {
         font-size: 20px;
         position: relative;
@@ -399,9 +445,11 @@
         color: var(--dark);
         transition: var(--transition);
       }
+
       .favorites-icon:hover {
         color: var(--accent);
       }
+
       .favorites-count {
         position: absolute;
         top: -8px;
@@ -417,6 +465,7 @@
         align-items: center;
         font-weight: 600;
       }
+
       /* Product action button when favorited */
       .product-action.favorited {
         background-color: var(--accent);
@@ -437,6 +486,7 @@
         align-items: center;
         font-weight: 600;
       }
+
       .menu-toggle {
         display: none;
         flex-direction: column;
@@ -445,6 +495,7 @@
         height: 21px;
         cursor: pointer;
       }
+
       .menu-toggle span {
         height: 3px;
         width: 100%;
@@ -452,12 +503,14 @@
         border-radius: 3px;
         transition: var(--transition);
       }
+
       /* Hero Section with Slideshow */
       .hero {
         position: relative;
         height: 80vh;
         overflow: hidden;
       }
+
       .hero-slideshow {
         position: absolute;
         top: 0;
@@ -465,6 +518,7 @@
         width: 100%;
         height: 100%;
       }
+
       .slide {
         position: absolute;
         top: 0;
@@ -476,9 +530,11 @@
         background-size: cover;
         background-position: center;
       }
+
       .slide.active {
         opacity: 1;
       }
+
       .slide-1 {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.5),
@@ -486,6 +542,7 @@
           ),
           url("https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=581&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
+
       .slide-2 {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.5),
@@ -493,6 +550,7 @@
           ),
           url("https://images.unsplash.com/photo-1585925452553-03549ee41dc9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
+
       .slide-3 {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.5),
@@ -500,6 +558,7 @@
           ),
           url("https://images.unsplash.com/photo-1596728602619-d6e7efccad28?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
+
       .slide-4 {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.5),
@@ -507,12 +566,20 @@
           ),
           url("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1007&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
+
       .slide-5 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
           url("https://plus.unsplash.com/premium_photo-1684820878202-52781d8e0ea9?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
+
       .slide-6 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
           url("https://images.unsplash.com/photo-1600965962102-9d260a71890d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
       }
       .hero-content {
@@ -525,6 +592,7 @@
         width: 100%;
         padding: 0 20px;
       }
+
       .hero-title {
         font-family: var(--font-heading);
         font-size: 48px;
@@ -533,12 +601,14 @@
         opacity: 0;
         animation: fadeInUp 1s ease forwards 0.5s;
       }
+
       .hero-subtitle {
         font-size: 20px;
         margin-bottom: 30px;
         opacity: 0;
         animation: fadeInUp 1s ease forwards 0.8s;
       }
+
       .hero-cta {
         display: flex;
         justify-content: center;
@@ -546,6 +616,7 @@
         opacity: 0;
         animation: fadeInUp 1s ease forwards 1.1s;
       }
+
       .slide-indicators {
         position: absolute;
         bottom: 30px;
@@ -554,6 +625,7 @@
         display: flex;
         gap: 10px;
       }
+
       .indicator {
         width: 12px;
         height: 12px;
@@ -562,21 +634,24 @@
         cursor: pointer;
         transition: var(--transition);
       }
+
       .indicator.active {
         background-color: var(--light);
         transform: scale(1.2);
       }
+
       /* Featured Products */
       .featured-products {
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .products-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 30px;
-        overflow-x: hidden;
       }
+
       .product-card {
         background-color: var(--light);
         border-radius: var(--radius);
@@ -585,24 +660,27 @@
         transition: var(--transition);
         opacity: 0;
         transform: translateY(50px);
-        max-width: 100%;
       }
+
       .product-card.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .product-image {
         position: relative;
         height: 250px;
         overflow: hidden;
       }
+
       .product-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: var(--transition);
       }
+
       .product-overlay {
         position: absolute;
         top: 0;
@@ -616,10 +694,12 @@
         opacity: 0;
         transition: var(--transition);
       }
+
       .product-actions {
         display: flex;
         gap: 10px;
       }
+
       .product-action {
         width: 40px;
         height: 40px;
@@ -633,23 +713,29 @@
         transition: var(--transition);
         cursor: pointer;
       }
+
       .product-action:hover {
         background-color: var(--primary);
         color: var(--light);
       }
+
       .product-card:hover .product-img {
         transform: scale(1.1);
       }
+
       .product-card:hover .product-overlay {
         opacity: 1;
       }
+
       .product-card:hover .product-action {
         opacity: 1;
         transform: translateY(0);
       }
+
       .product-info {
         padding: 20px;
       }
+
       .product-title {
         font-family: var(--font-heading);
         font-size: 18px;
@@ -657,6 +743,7 @@
         margin-bottom: 10px;
         cursor: pointer;
       }
+
       .product-price {
         display: flex;
         align-items: center;
@@ -664,30 +751,36 @@
         margin-bottom: 15px;
         flex-wrap: wrap;
       }
+
       .current-price {
         font-weight: 700;
         font-size: 18px;
         color: var(--primary);
       }
+
       .old-price {
         font-size: 14px;
         color: var(--gray-dark);
         text-decoration: line-through;
       }
+
       .product-rating {
         color: var(--secondary);
         margin-bottom: 15px;
       }
+
       /* Customization Section */
       .customization {
         padding: 80px 0;
         background: linear-gradient(to right, #f5f5f5, #e0e0e0);
       }
+
       .customization-content {
         display: flex;
         align-items: center;
         gap: 50px;
       }
+
       .customization-image {
         flex: 1;
         position: relative;
@@ -695,29 +788,34 @@
         transform: translateX(-50px);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .customization-image.animated {
         opacity: 1;
         transform: translateX(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
         cursor: pointer;
       }
+
       .customization-details {
         flex: 1;
         opacity: 0;
         transform: translateX(50px);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .customization-details.animated {
         opacity: 1;
         transform: translateX(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .custom-options {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         margin-top: 30px;
       }
+
       .custom-option {
         background-color: var(--light);
         padding: 15px;
@@ -727,20 +825,24 @@
         transition: var(--transition);
         text-align: center;
       }
+
       .custom-option:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       }
+
       .option-icon {
         font-size: 24px;
         color: var(--primary);
         margin-bottom: 10px;
       }
+
       /* Teams Section */
       .teams {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .teams-slider {
         display: flex;
         overflow-x: auto;
@@ -749,9 +851,11 @@
         scrollbar-width: none;
         scroll-behavior: smooth;
       }
+
       .teams-slider::-webkit-scrollbar {
         display: none;
       }
+
       .team-card {
         flex: 0 0 300px;
         background-color: var(--gray);
@@ -762,32 +866,38 @@
         transform: translateY(50px);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .team-card.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .team-image {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #f8f8f8; /* Light background to see white logos */
-          padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8; /* Light background to see white logos */
+        padding: 15px;
       }
+
       .team-img {
-          width: auto;
-          height: auto;
-          max-width: 100%;
-          max-height: 150px; /* Adjust based on your needs */
-          object-fit: contain; /* Ensures full image is visible */
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 150px; /* Adjust based on your needs */
+        object-fit: contain; /* Ensures full image is visible */
       }
+
       .team-card:hover .team-img {
         transform: scale(1.1);
       }
+
       .team-info {
         padding: 20px;
         text-align: center;
       }
+
       .team-name {
         font-family: var(--font-heading);
         font-size: 20px;
@@ -795,11 +905,13 @@
         margin-bottom: 10px;
         color: var(--primary);
       }
+
       .team-league {
         font-size: 14px;
         color: var(--gray-dark);
         margin-bottom: 15px;
       }
+
       /* Promotions */
       .promotions {
         padding: 80px 0;
@@ -811,52 +923,62 @@
         color: var(--light);
         text-align: center;
       }
+
       .promo-content {
         max-width: 800px;
         margin: 0 auto;
         cursor: pointer;
       }
+
       .promo-title {
         font-family: var(--font-heading);
         font-size: 36px;
         font-weight: 700;
         margin-bottom: 20px;
       }
+
       .promo-text {
         font-size: 18px;
         margin-bottom: 30px;
       }
+
       .countdown {
         display: flex;
         justify-content: center;
         gap: 15px;
         margin-bottom: 40px;
       }
+
       .countdown-item {
         background-color: rgba(255, 255, 255, 0.2);
         padding: 15px;
         border-radius: var(--radius);
         min-width: 80px;
       }
+
       .countdown-number {
         font-size: 32px;
         font-weight: 700;
         margin-bottom: 5px;
       }
+
       .countdown-label {
         font-size: 14px;
         text-transform: uppercase;
       }
+
       /* Testimonials */
       .testimonials {
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .testimonials-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
       }
+
       .testimonial-card {
         background-color: var(--light);
         padding: 30px;
@@ -866,17 +988,20 @@
         transform: translateY(50px);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .testimonial-card.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .testimonial-text {
         font-style: italic;
         margin-bottom: 20px;
         position: relative;
         padding: 0 20px;
       }
+
       .testimonial-text:before,
       .testimonial-text:after {
         content: '"';
@@ -885,57 +1010,69 @@
         opacity: 0.2;
         position: absolute;
       }
+
       .testimonial-text:before {
         top: -20px;
         left: 0;
       }
+
       .testimonial-text:after {
         bottom: -40px;
         right: 0;
         line-height: 0;
       }
+
       .testimonial-author {
         display: flex;
         align-items: center;
         gap: 15px;
       }
+
       .author-image {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         overflow: hidden;
       }
+
       .author-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
+
       .author-details {
         display: flex;
         flex-direction: column;
       }
+
       .author-name {
         font-family: var(--font-heading);
         font-weight: 600;
       }
+
       .author-role {
         font-size: 14px;
         color: var(--gray-dark);
       }
+
       .testimonial-rating {
         color: var(--secondary);
         margin-top: 5px;
       }
+
       /* New Sections */
       .services {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 30px;
       }
+
       .service-card {
         text-align: center;
         padding: 40px 30px;
@@ -945,29 +1082,35 @@
         opacity: 0;
         transform: translateY(50px);
       }
+
       .service-card.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .service-card:hover {
         transform: translateY(-10px);
         box-shadow: var(--shadow);
       }
+
       .service-icon {
         font-size: 50px;
         color: var(--primary);
         margin-bottom: 20px;
       }
+
       .blog {
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .blog-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
       }
+
       .blog-card {
         background-color: var(--light);
         border-radius: var(--radius);
@@ -977,38 +1120,46 @@
         transform: translateY(50px);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .blog-card.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .blog-image {
         height: 200px;
         overflow: hidden;
       }
+
       .blog-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: var(--transition);
       }
+
       .blog-card:hover .blog-img {
         transform: scale(1.1);
       }
+
       .blog-info {
         padding: 20px;
       }
+
       .blog-date {
         font-size: 14px;
         color: var(--gray-dark);
         margin-bottom: 10px;
       }
+
       .blog-title {
         font-family: var(--font-heading);
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 15px;
       }
+
       /* Newsletter Section */
       .newsletter {
         padding: 80px 0;
@@ -1016,15 +1167,18 @@
         color: var(--light);
         text-align: center;
       }
+
       .newsletter-content {
         max-width: 600px;
         margin: 0 auto;
       }
+
       .newsletter-form {
         display: flex;
         gap: 10px;
         margin-top: 30px;
       }
+
       .newsletter-input {
         flex: 1;
         padding: 15px;
@@ -1032,18 +1186,21 @@
         border-radius: var(--radius);
         font-size: 16px;
       }
+
       /* Footer */
       footer {
         background-color: var(--dark);
         color: var(--light);
         padding: 60px 0 30px;
       }
+
       .footer-content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 40px;
         margin-bottom: 40px;
       }
+
       .footer-column h3 {
         font-family: var(--font-heading);
         font-size: 18px;
@@ -1052,6 +1209,7 @@
         position: relative;
         padding-bottom: 10px;
       }
+
       .footer-column h3:after {
         content: "";
         position: absolute;
@@ -1061,24 +1219,29 @@
         height: 2px;
         background-color: var(--primary);
       }
+
       .footer-links {
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
+
       .footer-link {
         transition: var(--transition);
       }
+
       .footer-link:hover {
         color: var(--primary);
         padding-left: 5px;
       }
+
       .footer-social {
         display: flex;
         gap: 15px;
         margin-top: 20px;
         flex-wrap: wrap;
       }
+
       .social-icon {
         width: 40px;
         height: 40px;
@@ -1089,10 +1252,12 @@
         align-items: center;
         transition: var(--transition);
       }
+
       .social-icon:hover {
         background-color: var(--primary);
         transform: translateY(-5px);
       }
+
       .newsletter-input {
         flex: 1;
         padding: 12px 15px;
@@ -1101,16 +1266,19 @@
         background-color: rgba(255, 255, 255, 0.1);
         color: var(--light);
       }
+
       .newsletter-input:focus {
         outline: none;
         background-color: rgba(255, 255, 255, 0.2);
       }
+
       .footer-bottom {
         text-align: center;
         padding-top: 30px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 14px;
       }
+
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -1122,6 +1290,7 @@
           transform: translateY(0);
         }
       }
+
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -1133,6 +1302,7 @@
           transform: scale(1);
         }
       }
+
       @keyframes float {
         0% {
           transform: translateY(0);
@@ -1144,12 +1314,15 @@
           transform: translateY(0);
         }
       }
+
       .pulse {
         animation: pulse 2s infinite;
       }
+
       .float {
         animation: float 3s ease-in-out infinite;
       }
+
       /* Mobile Menu */
       .mobile-menu {
         position: fixed;
@@ -1165,9 +1338,11 @@
         overflow-y: auto;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       }
+
       .mobile-menu.active {
         right: 0;
       }
+
       .mobile-menu-close {
         position: absolute;
         top: 20px;
@@ -1175,12 +1350,14 @@
         font-size: 24px;
         cursor: pointer;
       }
+
       .mobile-nav {
         display: flex;
         flex-direction: column;
         gap: 20px;
         margin-bottom: 30px;
       }
+
       .mobile-nav-link {
         font-family: var(--font-heading);
         font-weight: 600;
@@ -1189,32 +1366,39 @@
         border-bottom: 1px solid #eee;
         position: relative;
       }
+
       .mobile-dropdown-toggle {
         position: absolute;
         right: 0;
         top: 10px;
         font-size: 16px;
       }
+
       .mobile-dropdown-menu {
         display: none;
         padding-left: 20px;
         margin-top: 10px;
       }
+
       .mobile-dropdown-menu.active {
         display: block;
       }
+
       .mobile-dropdown-link {
         display: block;
         padding: 8px 0;
         font-size: 16px;
         color: var(--gray-dark);
       }
+
       .mobile-dropdown-link:hover {
         color: var(--primary);
       }
+
       .mobile-search {
         margin-bottom: 30px;
       }
+
       .mobile-search-input {
         width: 100%;
         padding: 12px 15px;
@@ -1222,6 +1406,7 @@
         border-radius: var(--radius);
         font-size: 16px;
       }
+
       .overlay {
         position: fixed;
         top: 0;
@@ -1234,74 +1419,93 @@
         visibility: hidden;
         transition: var(--transition);
       }
+
       .overlay.active {
         opacity: 1;
         visibility: visible;
       }
+
       /* Responsive Styles */
       @media (max-width: 992px) {
         .main-header {
           padding: 15px 20px; /* Add horizontal padding */
         }
+
         .logo img {
           margin-left: 10px; /* Move logo slightly right */
         }
+
         .menu-toggle {
           margin-right: 10px; /* Move menu toggle slightly left */
         }
         .footer-content {
           grid-template-columns: repeat(2, 1fr);
         }
+
         .customization-content {
           flex-direction: column;
         }
+
         .hero-title {
           font-size: 36px;
         }
+
         .nav-menu,
         .header-actions .search-box {
           display: none;
         }
+
         .menu-toggle {
           display: flex;
         }
       }
+
       @media (max-width: 768px) {
         .header-actions {
           gap: 15px;
         }
+
         .hero-title {
           font-size: 32px;
         }
+
         .hero-subtitle {
           font-size: 18px;
         }
+
         .hero-cta {
           flex-direction: column;
           align-items: center;
         }
+
         .section-title {
           font-size: 28px;
         }
+
         .testimonials-grid,
         .blog-grid,
         .services-grid {
           grid-template-columns: 1fr;
         }
+
         .custom-options {
           grid-template-columns: 1fr;
         }
+
         .newsletter-form {
           flex-direction: column;
         }
       }
+
       @media (max-width: 576px) {
         .main-header {
           padding: 15px 15px; /* Slightly less padding on very small screens */
         }
+
         .logo img {
           margin-left: 5px;
         }
+
         .menu-toggle {
           margin-right: 5px;
         }
@@ -1311,16 +1515,20 @@
         .countdown {
           flex-wrap: wrap;
         }
+
         .top-bar-content {
           flex-direction: column;
           gap: 10px;
         }
+
         .hero-title {
           font-size: 28px;
         }
+
         .products-grid {
           grid-template-columns: 1fr;
         }
+
         .mobile-menu {
           width: 85%;
         }
@@ -1331,6 +1539,7 @@
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .cart-container {
         max-width: 1000px;
         margin: 0 auto;
@@ -1339,43 +1548,52 @@
         border-radius: var(--radius);
         box-shadow: var(--shadow);
       }
+
       .cart-items {
         margin-bottom: 30px;
       }
+
       .cart-item {
         display: flex;
         align-items: center;
         padding: 20px 0;
         border-bottom: 1px solid #eee;
       }
+
       .cart-item-image {
         width: 100px;
         height: 100px;
         overflow: hidden;
         margin-right: 20px;
       }
+
       .cart-item-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
+
       .cart-item-details {
         flex: 1;
       }
+
       .cart-item-title {
         font-family: var(--font-heading);
         font-weight: 600;
         margin-bottom: 5px;
       }
+
       .cart-item-price {
         color: var(--primary);
         font-weight: 700;
         margin-bottom: 10px;
       }
+
       .cart-item-quantity {
         display: flex;
         align-items: center;
       }
+
       .quantity-btn {
         width: 30px;
         height: 30px;
@@ -1388,6 +1606,7 @@
         cursor: pointer;
         font-weight: bold;
       }
+
       .quantity-input {
         width: 50px;
         text-align: center;
@@ -1396,6 +1615,7 @@
         border: 1px solid #ddd;
         border-radius: var(--radius);
       }
+
       .remove-item {
         color: var(--accent);
         background: none;
@@ -1403,16 +1623,19 @@
         cursor: pointer;
         margin-left: 20px;
       }
+
       .cart-summary {
         background: #f9f9f9;
         padding: 20px;
         border-radius: var(--radius);
       }
+
       .summary-row {
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
       }
+
       .summary-total {
         font-weight: 700;
         font-size: 1.2em;
@@ -1420,6 +1643,7 @@
         padding-top: 10px;
         margin-top: 10px;
       }
+
       .send-order-btn {
         width: 100%;
         padding: 15px;
@@ -1433,19 +1657,23 @@
         margin-top: 20px;
         transition: var(--transition);
       }
+
       .send-order-btn:hover {
         background: var(--accent);
       }
+
       .empty-cart-message {
         text-align: center;
         padding: 40px 0;
       }
+
       /* Checkmark animation for order confirmation */
       .order-confirmation {
         display: none;
         text-align: center;
         padding: 40px 0;
       }
+
       .checkmark {
         width: 80px;
         height: 80px;
@@ -1459,6 +1687,7 @@
         animation: fill 0.4s ease-in-out 0.4s forwards,
           scale 0.3s ease-in-out 0.9s both;
       }
+
       .checkmark-circle {
         stroke-dasharray: 166;
         stroke-dashoffset: 166;
@@ -1468,17 +1697,20 @@
         fill: none;
         animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
       }
+
       .checkmark-check {
         transform-origin: 50% 50%;
         stroke-dasharray: 48;
         stroke-dashoffset: 48;
         animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
       }
+
       @keyframes stroke {
         100% {
           stroke-dashoffset: 0;
         }
       }
+
       @keyframes scale {
         0%,
         100% {
@@ -1488,17 +1720,20 @@
           transform: scale3d(1.1, 1.1, 1);
         }
       }
+
       @keyframes fill {
         100% {
           box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
         }
       }
+
       /* Favorites Page Styles */
       .favorites-page {
         display: none;
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .favorites-container {
         max-width: 1000px;
         margin: 0 auto;
@@ -1508,39 +1743,81 @@
         box-shadow: var(--shadow);
         text-align: inherit;
       }
+
       .favorites-items {
         margin-bottom: 30px;
       }
+
       .favorite-item {
         display: flex;
         align-items: center;
         padding: 20px 0;
         border-bottom: 1px solid #eee;
       }
+
       .favorite-item-image {
         width: 100px;
         height: 100px;
         overflow: hidden;
         margin-right: 20px;
       }
+
       .favorite-item-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
+
       .favorite-item-details {
         flex: 1;
       }
+
       .favorite-item-title {
         font-family: var(--font-heading);
         font-weight: 600;
         margin-bottom: 5px;
       }
+
       .favorite-item-price {
         color: var(--primary);
         font-weight: 700;
         margin-bottom: 10px;
       }
+
+      .favorite-item-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 20px;
+      }
+
+      .favorite-item-actions .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+
+      .favorite-item-actions .remove-item {
+        padding: 8px 15px;
+        background: none;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .favorite-item-actions .remove-item:hover {
+        background-color: var(--accent);
+        color: var(--light);
+      }
+
+      .favorite-item-category {
+        font-size: 14px;
+        color: var(--gray-dark);
+        text-transform: uppercase;
+        margin-top: 5px;
+      }
+
       .remove-item {
         color: var(--accent);
         background: none;
@@ -1548,27 +1825,33 @@
         cursor: pointer;
         margin-left: 20px;
       }
+
       .empty-favorites-message {
         text-align: center;
         padding: 40px 0;
       }
+
       .empty-favorites-message h3 {
         margin-bottom: 15px;
         color: var(--dark);
       }
+
       .empty-favorites-message p {
         margin-bottom: 25px;
         color: var(--gray-dark);
       }
+
       /* Form styles */
       .form-group {
         margin-bottom: 20px;
       }
+
       .form-label {
         display: block;
         margin-bottom: 5px;
         font-weight: 600;
       }
+
       .form-input,
       .form-select {
         width: 100%;
@@ -1577,11 +1860,13 @@
         border-radius: var(--radius);
         font-size: 16px;
       }
+
       .form-input:focus,
       .form-select:focus {
         outline: none;
         border-color: var(--primary);
       }
+
       /* Newsletter Popup */
       .newsletter-popup {
         position: fixed;
@@ -1598,9 +1883,11 @@
         max-width: 400px;
         width: 90%;
       }
+
       .newsletter-popup.active {
         display: block;
       }
+
       .newsletter-popup-overlay {
         position: fixed;
         top: 0;
@@ -1611,9 +1898,11 @@
         z-index: 1001;
         display: none;
       }
+
       .newsletter-popup-overlay.active {
         display: block;
       }
+
       .popup-close {
         position: absolute;
         top: 10px;
@@ -1621,325 +1910,17 @@
         font-size: 24px;
         cursor: pointer;
       }
+
       /* NEW: About Page Styles */
       .about-page {
-          display: none;
-      }
-      .about-hero {
-          position: relative;
-          height: 60vh;
-          background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-              url('https://plus.unsplash.com/premium_photo-1661963404614-74802f16a7a0?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-          background-size: cover;
-          background-position: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          color: var(--light);
-      }
-      .about-hero-content {
-          max-width: 800px;
-          padding: 0 20px;
-          opacity: 0;
-          transform: translateY(30px);
-          animation: fadeInUp 1s ease forwards;
-      }
-      .about-hero-title {
-          font-family: var(--font-heading);
-          font-size: 48px;
-          font-weight: 700;
-          margin-bottom: 20px;
-      }
-      .about-hero-subtitle {
-          font-size: 20px;
-          margin-bottom: 30px;
-      }
-      /* About Intro */
-      .about-intro {
-          padding: 80px 0;
-          background-color: var(--light);
-      }
-      .about-intro-content {
-          display: flex;
-          align-items: center;
-          gap: 50px;
-      }
-      .about-intro-image {
-          flex: 1;
-          border-radius: var(--radius);
-          overflow: hidden;
-          box-shadow: var(--shadow);
-          opacity: 0;
-          transform: translateX(-50px);
-      }
-      .about-intro-image.animated {
-          opacity: 1;
-          transform: translateX(0);
-          transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-      .about-intro-text {
-          flex: 1;
-          opacity: 0;
-          transform: translateX(50px);
-      }
-      .about-intro-text.animated {
-          opacity: 1;
-          transform: translateX(0);
-          transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-      /* Mission Vision Section */
-      .mission-vision {
-          padding: 80px 0;
-          background-color: var(--gray);
-      }
-      .mv-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px;
-      }
-      .mv-card {
-          background-color: var(--light);
-          padding: 40px;
-          border-radius: var(--radius);
-          box-shadow: var(--shadow);
-          text-align: center;
-          opacity: 0;
-          transform: translateY(50px);
-      }
-      .mv-card.animated {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .mv-icon {
-          font-size: 50px;
-          color: var(--primary);
-          margin-bottom: 20px;
-      }
-      .mv-title {
-          font-family: var(--font-heading);
-          font-size: 24px;
-          font-weight: 600;
-          margin-bottom: 20px;
-          color: var(--primary);
-      }
-      /* Values Section */
-      .values {
-          padding: 80px 0;
-          background-color: var(--light);
-      }
-      .values-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 30px;
-      }
-      .value-card {
-          padding: 30px;
-          background-color: var(--gray);
-          border-radius: var(--radius);
-          opacity: 0;
-          transform: translateY(50px);
-      }
-      .value-card.animated {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .value-title {
-          font-family: var(--font-heading);
-          font-size: 20px;
-          font-weight: 600;
-          margin-bottom: 15px;
-          color: var(--primary);
-          display: flex;
-          align-items: center;
-          gap: 10px;
-      }
-      .value-icon {
-          color: var(--primary);
-          font-size: 24px;
-      }
-      /* Partners Section */
-      .partners {
-          padding: 80px 0;
-          background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-          color: var(--light);
-      }
-      .partners-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 30px;
-      }
-      .partner-card {
-          background-color: rgba(255, 255, 255, 0.1);
-          padding: 20px;
-          border-radius: var(--radius);
-          text-align: center;
-          backdrop-filter: blur(10px);
-          opacity: 0;
-          transform: scale(0.8);
-      }
-      .partner-card.animated {
-          opacity: 1;
-          transform: scale(1);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .partner-logo {
-        height: 80px;
-        width: auto;
-        margin: 0 auto 15px;
-        /* Remove the filter property to show original colors */
-        /* filter: brightness(0) invert(1); */
-      }
-      .partner-name {
-          font-family: var(--font-heading);
-          font-weight: 600;
-      }
-      /* Leadership Section */
-      .leadership {
-          padding: 80px 0;
-          background-color: var(--gray);
-      }
-      .leader-card {
-          background-color: var(--light);
-          border-radius: var(--radius);
-          overflow: hidden;
-          box-shadow: var(--shadow);
-          max-width: 500px;
-          margin: 0 auto;
-          opacity: 0;
-          transform: translateY(50px);
-      }
-      .leader-card.animated {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .leader-image {
-          height: 300px;
-          overflow: hidden;
-      }
-      .leader-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-      }
-      .leader-info {
-          padding: 30px;
-          text-align: center;
-      }
-      .leader-name {
-          font-family: var(--font-heading);
-          font-size: 24px;
-          font-weight: 700;
-          margin-bottom: 5px;
-      }
-      .leader-role {
-          color: var(--primary);
-          font-weight: 600;
-          margin-bottom: 15px;
-      }
-      .leader-quote {
-          font-style: italic;
-          position: relative;
-          padding: 0 20px;
-      }
-      .leader-quote:before {
-          content: """;
-          position: absolute;
-          left: 0;
-          top: -20px;
-          font-size: 60px;
-          color: var(--primary);
-          opacity: 0.2;
-      }
-      /* Leader Social Media Styles */
-      .leader-social {
-          text-align: center;
-          padding: 20px 0;
-          background: rgba(0, 145, 63, 0.05);
-          border-top: 1px solid rgba(0, 145, 63, 0.1);
-      }
-      .leader-social h4 {
-          font-family: var(--font-heading);
-          margin-bottom: 15px;
-          color: var(--primary);
-          font-size: 18px;
-      }
-      .leader-social .social-icons {
-          display: flex;
-          justify-content: center;
-          gap: 15px;
-      }
-      .leader-social .social-icon {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 18px;
-          transition: var(--transition);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .leader-social .social-icon:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-      .leader-social .linkedin {
-          background-color: #0077b5;
-      }
-      .leader-social .twitter {
-          background-color: #1da1f2;
-      }
-      .leader-social .instagram {
-          background: linear-gradient(45deg, #405de6, #833ab4, #c13584, #e1306c);
-      }
-      .leader-social .email {
-          background-color: var(--primary);
-      }
-      /* Responsive Styles for About Page */
-      @media (max-width: 992px) {
-          .about-intro-content {
-              flex-direction: column;
-          }
-          .mv-grid {
-              grid-template-columns: 1fr;
-          }
-          .values-grid {
-              grid-template-columns: 1fr;
-          }
-      }
-      @media (max-width: 768px) {
-          .about-hero-title {
-              font-size: 36px;
-          }
-          .about-hero-subtitle {
-              font-size: 18px;
-          }
-          .partners-grid {
-              grid-template-columns: repeat(2, 1fr);
-          }
-      }
-      @media (max-width: 576px) {
-          .about-hero-title {
-              font-size: 32px;
-          }
-          .partners-grid {
-              grid-template-columns: 1fr;
-          }
-      }
-      /* Contact Page Styles */
-      .contact-page {
         display: none;
       }
-      .contact-hero {
+
+      .about-hero {
         position: relative;
-        height: 50vh;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+        height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://plus.unsplash.com/premium_photo-1661963404614-74802f16a7a0?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -1948,6 +1929,377 @@
         text-align: center;
         color: var(--light);
       }
+
+      .about-hero-content {
+        max-width: 800px;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      .about-hero-title {
+        font-family: var(--font-heading);
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .about-hero-subtitle {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      /* About Intro */
+      .about-intro {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .about-intro-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-intro-image {
+        flex: 1;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .about-intro-image.animated {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .about-intro-text {
+        flex: 1;
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      .about-intro-text.animated {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      /* Mission Vision Section */
+      .mission-vision {
+        padding: 80px 0;
+        background-color: var(--gray);
+      }
+
+      .mv-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .mv-card {
+        background-color: var(--light);
+        padding: 40px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .mv-card.animated {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .mv-icon {
+        font-size: 50px;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .mv-title {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      /* Values Section */
+      .values {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .value-card {
+        padding: 30px;
+        background-color: var(--gray);
+        border-radius: var(--radius);
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .value-card.animated {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .value-title {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .value-icon {
+        color: var(--primary);
+        font-size: 24px;
+      }
+
+      /* Partners Section */
+      .partners {
+        padding: 80px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+        color: var(--light);
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .partner-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: var(--radius);
+        text-align: center;
+        -webkit-backdrop-filter: blur(10px); /* For Safari support */
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      .partner-card.animated {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .partner-logo {
+        height: 80px;
+        width: auto;
+        margin: 0 auto 15px;
+        /* Remove the filter property to show original colors */
+        /* filter: brightness(0) invert(1); */
+      }
+
+      .partner-name {
+        font-family: var(--font-heading);
+        font-weight: 600;
+      }
+
+      /* Leadership Section */
+      .leadership {
+        padding: 80px 0;
+        background-color: var(--gray);
+      }
+
+      .leader-card {
+        background-color: var(--light);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        max-width: 500px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .leader-card.animated {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .leader-image {
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .leader-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .leader-info {
+        padding: 30px;
+        text-align: center;
+      }
+
+      .leader-name {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .leader-role {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .leader-quote {
+        font-style: italic;
+        position: relative;
+        padding: 0 20px;
+      }
+
+      .leader-quote:before {
+        content: '"';
+        position: absolute;
+        left: 0;
+        top: -20px;
+        font-size: 60px;
+        color: var(--primary);
+        opacity: 0.2;
+      }
+      /* Leader Social Media Styles */
+      .leader-social {
+        text-align: center;
+        padding: 20px 0;
+        background: rgba(0, 145, 63, 0.05);
+        border-top: 1px solid rgba(0, 145, 63, 0.1);
+      }
+
+      .leader-social h4 {
+        font-family: var(--font-heading);
+        margin-bottom: 15px;
+        color: var(--primary);
+        font-size: 18px;
+      }
+
+      .leader-social .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .leader-social .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        transition: var(--transition);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .leader-social .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .leader-social .linkedin {
+        background-color: #0077b5;
+      }
+
+      .leader-social .twitter {
+        background-color: #1da1f2;
+      }
+
+      .leader-social .instagram {
+        background: linear-gradient(45deg, #405de6, #833ab4, #c13584, #e1306c);
+      }
+
+      .leader-social .email {
+        background-color: var(--primary);
+      }
+
+      /* Responsive Styles for About Page */
+      @media (max-width: 992px) {
+        .about-intro-content {
+          flex-direction: column;
+        }
+
+        .mv-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .values-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-hero-title {
+          font-size: 36px;
+        }
+
+        .about-hero-subtitle {
+          font-size: 18px;
+        }
+
+        .partners-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .about-hero-title {
+          font-size: 32px;
+        }
+
+        .partners-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Contact Page Styles */
+      .contact-page {
+        display: none;
+      }
+
+      .contact-hero {
+        position: relative;
+        height: 50vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--light);
+      }
+
       .contact-hero-content {
         max-width: 800px;
         padding: 0 20px;
@@ -1955,37 +2307,45 @@
         transform: translateY(30px);
         animation: fadeInUp 1s ease forwards;
       }
+
       .contact-hero-title {
         font-family: var(--font-heading);
         font-size: 48px;
         font-weight: 700;
         margin-bottom: 20px;
       }
+
       .contact-hero-subtitle {
         font-size: 20px;
         margin-bottom: 30px;
       }
+
       .contact-main {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .contact-content {
         display: flex;
         gap: 50px;
       }
+
       .contact-info {
         flex: 1;
         opacity: 0;
         transform: translateX(-50px);
       }
+
       .contact-info.animated {
         opacity: 1;
         transform: translateX(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .contact-details {
         margin: 30px 0;
       }
+
       .contact-detail-item {
         display: flex;
         align-items: flex-start;
@@ -1993,11 +2353,13 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       .contact-detail-item.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
+
       .contact-icon {
         width: 50px;
         height: 50px;
@@ -2010,20 +2372,24 @@
         margin-right: 15px;
         font-size: 20px;
       }
+
       .contact-text h4 {
         font-family: var(--font-heading);
         font-weight: 600;
         margin-bottom: 5px;
         color: var(--primary);
       }
+
       .contact-social {
         margin-top: 40px;
       }
+
       .contact-social h4 {
         font-family: var(--font-heading);
         margin-bottom: 15px;
         color: var(--dark);
       }
+
       .contact-form-container {
         flex: 1;
         background-color: var(--gray);
@@ -2033,20 +2399,24 @@
         opacity: 0;
         transform: translateX(50px);
       }
+
       .contact-form-container.animated {
         opacity: 1;
         transform: translateX(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .contact-form-container h3 {
         font-family: var(--font-heading);
         margin-bottom: 25px;
         text-align: center;
         color: var(--primary);
       }
+
       .contact-form .form-group {
         margin-bottom: 20px;
       }
+
       .contact-form input,
       .contact-form textarea {
         width: 100%;
@@ -2057,6 +2427,7 @@
         font-size: 16px;
         transition: var(--transition);
       }
+
       .contact-form input:focus,
       .contact-form textarea:focus {
         outline: none;
@@ -2064,21 +2435,22 @@
         box-shadow: 0 0 0 2px rgba(0, 145, 63, 0.1);
       }
       .contact-social .social-icons {
-      display: flex;
-      gap: 15px;
-      justify-content: flex-start;
-      align-items: center;
-      flex-wrap: wrap;
+        display: flex;
+        gap: 15px;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
       }
       @media (max-width: 768px) {
-      .contact-social .social-icons {
-      justify-content: center;
-      }
+        .contact-social .social-icons {
+          justify-content: center;
+        }
       }
       .map-section {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .map-container {
         border-radius: var(--radius);
         overflow: hidden;
@@ -2086,35 +2458,43 @@
         opacity: 0;
         transform: translateY(50px);
       }
+
       .map-container.animated {
         opacity: 1;
         transform: translateY(0);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       /* Responsive Styles for Contact Page */
       @media (max-width: 992px) {
         .contact-content {
           flex-direction: column;
         }
+
         .contact-hero-title {
           font-size: 36px;
         }
       }
+
       @media (max-width: 768px) {
         .contact-hero-title {
           font-size: 32px;
         }
+
         .contact-hero-subtitle {
           font-size: 18px;
         }
+
         .contact-form-container {
           padding: 30px 20px;
         }
       }
+
       @media (max-width: 576px) {
         .contact-hero-title {
           font-size: 28px;
         }
+
         .contact-detail-item {
           flex-direction: row; /* Change from column to row for better side-by-side alignment */
           align-items: center; /* Vertically center icon and text */
@@ -2132,35 +2512,40 @@
       .contact-text {
         flex: 1; /* Allow text to take remaining space for better alignment on desktop and mobile */
       }
+
       .product-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f8f8f8; /* Light neutral background */
-      padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8; /* Light neutral background */
+        padding: 15px;
       }
+
       .product-img {
-          width: auto;
-          height: auto;
-          max-width: 100%;
-          max-height: 200px; /* Adjust based on your preference */
-          object-fit: contain; /* Ensures full image is visible */
-          transition: transform 0.3s ease;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 200px; /* Adjust based on your preference */
+        object-fit: contain; /* Ensures full image is visible */
+        transition: transform 0.3s ease;
       }
+
       /* Optional: Add a subtle border to define the image area */
       .product-image {
-          border: 1px solid #eee;
-          border-radius: 4px;
+        border: 1px solid #eee;
+        border-radius: 4px;
       }
+
       /* Store Locator Page Styles */
       .store-locator-page {
         display: none;
       }
+
       .store-locator-hero {
         position: relative;
         height: 50vh;
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=868&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+          url("https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=868&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -2169,6 +2554,7 @@
         text-align: center;
         color: var(--light);
       }
+
       .store-locator-hero-content {
         max-width: 800px;
         padding: 0 20px;
@@ -2176,30 +2562,36 @@
         transform: translateY(30px);
         animation: fadeInUp 1s ease forwards;
       }
+
       .store-locator-hero-title {
         font-family: var(--font-heading);
         font-size: 48px;
         font-weight: 700;
         margin-bottom: 20px;
       }
+
       .store-locator-hero-subtitle {
         font-size: 20px;
         margin-bottom: 30px;
       }
+
       .store-locator-main {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .store-search {
         text-align: center;
         margin-bottom: 50px;
       }
+
       .search-container {
         display: flex;
         max-width: 600px;
         margin: 0 auto;
         gap: 10px;
       }
+
       .search-container .search-input {
         flex: 1;
         padding: 15px;
@@ -2207,14 +2599,17 @@
         border-radius: var(--radius);
         font-size: 16px;
       }
+
       .store-locator-map-section {
         margin-bottom: 60px;
       }
+
       .stores-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
       }
+
       .store-card {
         background-color: var(--gray);
         border-radius: var(--radius);
@@ -2222,9 +2617,11 @@
         box-shadow: var(--shadow);
         transition: var(--transition);
       }
+
       .store-card:hover {
         transform: translateY(-5px);
       }
+
       .store-name {
         font-family: var(--font-heading);
         font-size: 22px;
@@ -2232,39 +2629,46 @@
         margin-bottom: 15px;
         color: var(--primary);
       }
+
       .store-details {
         margin-bottom: 20px;
       }
+
       .store-detail {
         display: flex;
         align-items: flex-start;
         margin-bottom: 10px;
       }
+
       .store-detail i {
         color: var(--primary);
         margin-right: 10px;
         margin-top: 3px;
       }
+
       .store-hours {
         background-color: rgba(0, 145, 63, 0.1);
         padding: 15px;
         border-radius: var(--radius);
         margin-top: 15px;
       }
+
       .store-hours-title {
         font-weight: 600;
         margin-bottom: 10px;
         color: var(--primary);
       }
+
       /* Ghana Premier League Page Styles */
       .ghana-premier-league-page {
         display: none;
       }
+
       .gpl-hero {
         position: relative;
         height: 60vh;
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+          url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -2273,6 +2677,7 @@
         text-align: center;
         color: var(--light);
       }
+
       .gpl-hero-content {
         max-width: 800px;
         padding: 0 20px;
@@ -2280,36 +2685,43 @@
         transform: translateY(30px);
         animation: fadeInUp 1s ease forwards;
       }
+
       .gpl-hero-title {
         font-family: var(--font-heading);
         font-size: 48px;
         font-weight: 700;
         margin-bottom: 20px;
       }
+
       .gpl-hero-subtitle {
         font-size: 20px;
         margin-bottom: 30px;
       }
+
       .gpl-main {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .gpl-intro {
         text-align: center;
         max-width: 800px;
         margin: 0 auto 60px;
       }
+
       .gpl-intro p {
         font-size: 18px;
         line-height: 1.6;
         margin-bottom: 20px;
       }
+
       .gpl-teams-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 30px;
         margin-bottom: 60px;
       }
+
       .gpl-team-card {
         background-color: var(--gray);
         border-radius: var(--radius);
@@ -2318,33 +2730,40 @@
         transition: var(--transition);
         cursor: pointer;
       }
+
       .gpl-team-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow);
       }
+
       .gpl-team-logo {
         height: 100px;
         width: auto;
         margin: 0 auto 15px;
         object-fit: contain;
       }
+
       .gpl-team-name {
         font-family: var(--font-heading);
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 5px;
       }
+
       .gpl-team-stadium {
         font-size: 14px;
         color: var(--gray-dark);
         margin-bottom: 10px;
       }
+
       .gpl-standings {
         margin-bottom: 60px;
       }
+
       .standings-table-container {
         overflow-x: auto;
       }
+
       .standings-table {
         width: 100%;
         border-collapse: collapse;
@@ -2353,39 +2772,47 @@
         border-radius: var(--radius);
         overflow: hidden;
       }
+
       .standings-table th,
       .standings-table td {
         padding: 15px;
         text-align: center;
         border-bottom: 1px solid #eee;
       }
+
       .standings-table th {
         background-color: var(--primary);
         color: var(--light);
         font-weight: 600;
       }
+
       .standings-table tr:nth-child(even) {
         background-color: #f9f9f9;
       }
+
       .standings-table tr:hover {
         background-color: #f0f0f0;
       }
+
       .team-cell {
         display: flex;
         align-items: center;
         justify-content: flex-start;
       }
+
       .team-logo-small {
         height: 30px;
         width: auto;
         margin-right: 10px;
       }
+
       .gpl-news-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
         margin-bottom: 60px;
       }
+
       .gpl-news-card {
         background-color: var(--gray);
         border-radius: var(--radius);
@@ -2393,107 +2820,134 @@
         box-shadow: var(--shadow);
         transition: var(--transition);
       }
+
       .gpl-news-card:hover {
         transform: translateY(-5px);
       }
+
       .gpl-news-image {
         height: 200px;
         overflow: hidden;
       }
+
       .gpl-news-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: var(--transition);
       }
+
       .gpl-news-card:hover .gpl-news-image img {
         transform: scale(1.05);
       }
+
       .gpl-news-content {
         padding: 20px;
       }
+
       .gpl-news-content h3 {
         font-family: var(--font-heading);
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 10px;
       }
+
       .gpl-news-content p {
         margin-bottom: 15px;
       }
+
       .gpl-partnership {
         background-color: var(--gray);
         padding: 60px;
         border-radius: var(--radius);
       }
+
       .partnership-content {
         display: flex;
         align-items: center;
         gap: 50px;
       }
+
       .partnership-text {
         flex: 1;
       }
+
       .partnership-text ul {
         margin: 20px 0;
         padding-left: 20px;
       }
+
       .partnership-text li {
         margin-bottom: 10px;
         position: relative;
       }
+
       .partnership-image {
         flex: 1;
         border-radius: var(--radius);
         overflow: hidden;
       }
+
       .partnership-image img {
         width: 100%;
         height: auto;
         display: block;
       }
+
       /* Responsive Styles */
       @media (max-width: 992px) {
         .partnership-content {
           flex-direction: column;
         }
+
         .gpl-hero-title {
           font-size: 36px;
         }
+
         .store-locator-hero-title {
           font-size: 36px;
         }
       }
+
       @media (max-width: 768px) {
         .search-container {
           flex-direction: column;
         }
+
         .gpl-hero-title {
           font-size: 32px;
         }
+
         .store-locator-hero-title {
           font-size: 32px;
         }
+
         .gpl-news-grid {
           grid-template-columns: 1fr;
         }
+
         .gpl-partnership {
           padding: 40px 20px;
         }
       }
+
       @media (max-width: 576px) {
         .gpl-hero-title {
           font-size: 28px;
         }
+
         .store-locator-hero-title {
           font-size: 28px;
         }
+
         .stores-grid {
           grid-template-columns: 1fr;
         }
+
         .gpl-teams-grid {
           grid-template-columns: repeat(2, 1fr);
         }
+
         .standings-table th,
         .standings-table td {
           padding: 10px 5px;
@@ -2512,8 +2966,12 @@
         margin-right: 10px;
       }
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
       .no-stores-message {
         grid-column: 1 / -1;
@@ -2529,81 +2987,113 @@
       }
       /* Favorite Button Styles */
       .product-action.favorited {
-          background-color: var(--accent);
-          color: var(--light);
+        background-color: var(--accent);
+        color: var(--light);
       }
+
       /* Zoom Modal Styles */
       .zoom-modal {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.9);
-          z-index: 2000;
-          justify-content: center;
-          align-items: center;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
       }
+
       .zoom-modal.active {
-          display: flex;
+        display: flex;
       }
+
       .zoom-modal-content {
-          max-width: 90%;
-          max-height: 90%;
-          position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        position: relative;
       }
+
       .zoom-modal-image {
-          width: 100%;
-          height: auto;
-          max-height: 80vh;
-          object-fit: contain;
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
       }
+
       .zoom-modal-close {
-          position: absolute;
-          top: -40px;
-          right: 0;
-          color: white;
-          font-size: 30px;
-          cursor: pointer;
-          background: none;
-          border: none;
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
       }
+
       .zoom-modal-nav {
-          position: absolute;
-          top: 50%;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          padding: 0 20px;
-          transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        transform: translateY(-50%);
       }
+
       .zoom-nav-btn {
-          background: rgba(255, 255, 255, 0.3);
-          border: none;
-          color: white;
-          font-size: 24px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          cursor: pointer;
-          transition: var(--transition);
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: white;
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
       }
+
       .zoom-nav-btn:hover {
-          background: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.6);
       }
+
       /* Loading spinner for zoom */
       .zoom-loading {
-          display: none;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: white;
-          font-size: 24px;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
       }
+
       .zoom-modal.loading .zoom-loading {
-          display: block;
+        display: block;
+      }
+      /* Popup Animations */
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOutRight {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(100%);
+          opacity: 0;
+        }
       }
     </style>
   </head>
@@ -2613,20 +3103,31 @@
       <div class="container top-bar-content">
         <div class="top-bar-text">Free shipping on orders over ₵500</div>
         <div class="top-bar-links">
-          <a href="#" onclick="showContactPage()">Contact Us</a>
-          <a href="#" onclick="showStoreLocatorPage()">Store Locator</a>
-          <a href="#" onclick="showGhanaPremierLeaguePage()">GPL</a>
+          <a href="javascript:void(0)" onclick="showContactPage()"
+            >Contact Us</a
+          >
+          <a href="javascript:void(0)" onclick="showStoreLocatorPage()"
+            >Store Locator</a
+          >
+          <a href="javascript:void(0)" onclick="showGhanaPremierLeaguePage()"
+            >GPL</a
+          >
         </div>
       </div>
     </div>
+
     <!-- Header -->
     <header>
       <div class="container main-header">
         <a href="index.html" class="logo">
           <img src="images/logo.png" alt="Strike Ghana Logo" />
         </a>
+
         <nav class="nav-menu">
-          <a href="#" class="nav-link" onclick="showHomepage()">Home</a>
+          <a href="javascript:void(0)" class="nav-link" onclick="showHomepage()"
+            >Home</a
+          >
+
           <!-- Products Dropdown -->
           <div class="nav-item-with-dropdown">
             <a href="#" class="nav-link"
@@ -2658,6 +3159,7 @@
               >
             </div>
           </div>
+
           <a
             href="#customization"
             class="nav-link"
@@ -2670,11 +3172,21 @@
             onclick="showHomepage(); scrollToSection('promotions')"
             >Sale</a
           >
-          <a href="#" class="nav-link" onclick="showAboutPage()">About</a>
-          <a href="#" class="nav-link" id="cartLink" onclick="showCartPage()"
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            onclick="showAboutPage()"
+            >About</a
+          >
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            id="cartLink"
+            onclick="showCartPage()"
             >Cart (<span id="cartCount">0</span>)</a
           >
         </nav>
+
         <div class="header-actions">
           <!-- Desktop Search -->
           <div class="search-box">
@@ -2684,8 +3196,14 @@
               id="searchInput"
               placeholder="Search products, teams, categories..."
             />
-            <button class="search-btn" id="searchBtn">
-              <i class="fas fa-search"></i>
+            <button
+              class="search-btn"
+              id="searchBtn"
+              type="button"
+              title="Search"
+            >
+              <i class="fas fa-search" aria-hidden="true"></i>
+              <span class="sr-only">Search</span>
             </button>
             <div class="search-results-container" id="searchResults"></div>
           </div>
@@ -2708,6 +3226,7 @@
             <i class="fas fa-user"></i>
           </div>
         </div>
+
         <div class="menu-toggle" id="menuToggle">
           <span></span>
           <span></span>
@@ -2715,11 +3234,13 @@
         </div>
       </div>
     </header>
+
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-close" id="menuClose">
         <i class="fas fa-times"></i>
       </div>
+
       <nav class="mobile-nav">
         <a
           href="#"
@@ -2754,6 +3275,7 @@
             >Accessories</a
           >
         </div>
+
         <a
           href="#customization"
           class="mobile-nav-link"
@@ -2779,6 +3301,7 @@
           onclick="showCartPage(); closeMobileMenu();"
           >Cart (<span id="mobileCartCount">0</span>)</a
         >
+
         <!-- Inside the mobile-nav, after the cart link -->
         <a
           href="#"
@@ -2789,6 +3312,7 @@
           Favorites (<span id="mobileFavoritesCount">0</span>)
         </a>
       </nav>
+
       <div class="mobile-search">
         <input
           type="text"
@@ -2798,12 +3322,15 @@
         />
         <div class="search-results-container" id="mobileSearchResults"></div>
       </div>
+
       <div class="mobile-actions">
         <a href="#" class="btn">My Account</a>
       </div>
     </div>
+
     <div class="overlay" id="overlay"></div>
     <!-- End Mobile Menu -->
+
     <!-- Newsletter Popup -->
     <div class="newsletter-popup" id="newsletterPopup">
       <div class="popup-close" id="newsletterPopupClose">
@@ -2822,7 +3349,9 @@
       </p>
       <button class="btn" id="newsletterPopupButton">Continue Shopping</button>
     </div>
+
     <div class="newsletter-popup-overlay" id="newsletterPopupOverlay"></div>
+
     <!-- Main Content (Homepage) -->
     <div id="mainContent">
       <!-- Hero Section -->
@@ -2835,6 +3364,7 @@
           <div class="slide slide-5"></div>
           <div class="slide slide-6"></div>
         </div>
+
         <div class="hero-content">
           <h1 class="hero-title">GHANA'S PREMIER SPORTS PRODUCTS</h1>
           <p class="hero-subtitle">
@@ -2846,6 +3376,7 @@
             <a href="customize.html" class="btn btn-secondary">Customize Kit</a>
           </div>
         </div>
+
         <div class="slide-indicators">
           <div class="indicator active" data-slide="1"></div>
           <div class="indicator" data-slide="2"></div>
@@ -2855,6 +3386,7 @@
           <div class="indicator" data-slide="6"></div>
         </div>
       </section>
+
       <!-- Featured Products -->
       <section class="featured-products" id="featured">
         <div class="container">
@@ -2905,6 +3437,7 @@
                 <button class="btn" onclick="addToCart(1)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="2"
@@ -2950,6 +3483,7 @@
                 <button class="btn" onclick="addToCart(2)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="3"
@@ -2995,6 +3529,7 @@
                 <button class="btn" onclick="addToCart(3)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="4"
@@ -3040,6 +3575,7 @@
                 <button class="btn" onclick="addToCart(4)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="5"
@@ -3085,6 +3621,7 @@
                 <button class="btn" onclick="addToCart(5)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="6"
@@ -3130,6 +3667,7 @@
                 <button class="btn" onclick="addToCart(6)">Add to Cart</button>
               </div>
             </div>
+
             <div
               class="product-card"
               data-id="7"
@@ -3225,6 +3763,7 @@
           </div>
         </div>
       </section>
+
       <!-- Customization Section -->
       <section class="customization" id="customization">
         <div class="container">
@@ -3243,6 +3782,7 @@
                 customization tool. Choose from a variety of templates, colors,
                 and add your own logos and text.
               </p>
+
               <div class="custom-options">
                 <div class="custom-option">
                   <div class="option-icon"><i class="fas fa-tshirt"></i></div>
@@ -3265,11 +3805,13 @@
                   <p>Ready in 7-10 working days</p>
                 </div>
               </div>
+
               <a href="customize.html" class="btn">Start Designing</a>
             </div>
           </div>
         </div>
       </section>
+
       <!-- Teams Section -->
       <section class="teams" id="teams">
         <div class="container">
@@ -3289,6 +3831,7 @@
                 <a href="#" class="btn">Shop Now</a>
               </div>
             </div>
+
             <div class="team-card">
               <div class="team-image">
                 <img
@@ -3303,6 +3846,7 @@
                 <a href="#" class="btn">Shop Now</a>
               </div>
             </div>
+
             <div class="team-card">
               <div class="team-image">
                 <img
@@ -3317,6 +3861,7 @@
                 <a href="#" class="btn">Shop Now</a>
               </div>
             </div>
+
             <div class="team-card">
               <div class="team-image">
                 <img
@@ -3331,6 +3876,7 @@
                 <a href="#" class="btn">Shop Now</a>
               </div>
             </div>
+
             <div class="team-card">
               <div class="team-image">
                 <img
@@ -3395,6 +3941,7 @@
                 design service.
               </p>
             </div>
+
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-print"></i>
@@ -3405,6 +3952,7 @@
                 apparel.
               </p>
             </div>
+
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-tools"></i>
@@ -3414,6 +3962,7 @@
                 Expert repair services for football boots and other equipment.
               </p>
             </div>
+
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-truck"></i>
@@ -3426,6 +3975,7 @@
           </div>
         </div>
       </section>
+
       <!-- Promotions Section -->
       <section class="promotions" id="promotions">
         <div class="container promo-content">
@@ -3434,6 +3984,7 @@
             Get up to 30% off on all jerseys and football equipment. Limited
             time offer!
           </p>
+
           <div class="countdown">
             <div class="countdown-item">
               <div class="countdown-number" id="days">00</div>
@@ -3452,9 +4003,11 @@
               <div class="countdown-label">Seconds</div>
             </div>
           </div>
+
           <a href="#featured" class="btn pulse">Shop Sale Now</a>
         </div>
       </section>
+
       <!-- Blog Section -->
       <section class="blog">
         <div class="container">
@@ -3480,6 +4033,7 @@
                 <a href="#" class="btn btn-secondary">Read More</a>
               </div>
             </div>
+
             <div class="blog-card">
               <div class="blog-image">
                 <img
@@ -3500,6 +4054,7 @@
                 <a href="#" class="btn btn-secondary">Read More</a>
               </div>
             </div>
+
             <div class="blog-card">
               <div class="blog-image">
                 <img
@@ -3524,6 +4079,7 @@
           </div>
         </div>
       </section>
+
       <!-- Testimonials Section -->
       <section class="testimonials">
         <div class="container">
@@ -3552,6 +4108,7 @@
                 </div>
               </div>
             </div>
+
             <div class="testimonial-card">
               <div class="testimonial-text">
                 Fast delivery and excellent customer service. The boots I
@@ -3575,6 +4132,7 @@
                 </div>
               </div>
             </div>
+
             <div class="testimonial-card">
               <div class="testimonial-text">
                 As a retailer, I've been partnering with Strike Ghana for 3
@@ -3601,6 +4159,7 @@
           </div>
         </div>
       </section>
+
       <!-- Newsletter Section -->
       <section class="newsletter">
         <div class="container newsletter-content">
@@ -3627,6 +4186,7 @@
       </section>
     </div>
     <!-- End of Main Content -->
+
     <!-- About Page -->
     <section class="about-page" id="aboutPage">
       <!-- About Hero Section (updated) -->
@@ -3639,6 +4199,7 @@
           </p>
         </div>
       </section>
+
       <!-- About Intro Section (updated) -->
       <section class="about-intro">
         <div class="container">
@@ -3681,6 +4242,7 @@
           </div>
         </div>
       </section>
+
       <!-- Mission & Vision Section (updated) -->
       <section class="mission-vision">
         <div class="container">
@@ -3716,6 +4278,7 @@
           </div>
         </div>
       </section>
+
       <!-- Values Section (updated) -->
       <section class="values">
         <div class="container">
@@ -3767,6 +4330,7 @@
           </div>
         </div>
       </section>
+
       <!-- What We Offer Section (new) -->
       <section class="services">
         <div class="container">
@@ -3810,6 +4374,7 @@
           </div>
         </div>
       </section>
+
       <!-- Partners Section (updated with team logos) -->
       <section class="partners">
         <div class="container">
@@ -3870,6 +4435,7 @@
           </div>
         </div>
       </section>
+
       <!-- Why Choose Us Section (new) -->
       <section class="why-choose-us">
         <div class="container">
@@ -3905,6 +4471,7 @@
           </div>
         </div>
       </section>
+
       <!-- Leadership Section (updated with CEO info) -->
       <section class="leadership">
         <div class="container">
@@ -3924,6 +4491,7 @@
                   href="https://www.linkedin.com/in/ms-b-baiden-737a15329/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                   class="social-icon linkedin"
                   target="_blank"
+                  rel="noopener noreferrer"
                   title="LinkedIn"
                 >
                   <i class="fab fa-linkedin-in"></i>
@@ -3932,6 +4500,7 @@
                   href="https://twitter.com/bernicebaiden"
                   class="social-icon twitter"
                   target="_blank"
+                  rel="noopener noreferrer"
                   title="Twitter"
                 >
                   <i class="fab fa-twitter"></i>
@@ -3940,6 +4509,7 @@
                   href="https://www.instagram.com/bernicebaiden"
                   class="social-icon instagram"
                   target="_blank"
+                  rel="noopener noreferrer"
                   title="Instagram"
                 >
                   <i class="fab fa-instagram"></i>
@@ -3993,6 +4563,7 @@
         </div>
       </section>
     </section>
+
     <!-- Cart Page -->
     <section class="cart-page" id="cartPage">
       <div class="container cart-container">
@@ -4137,6 +4708,7 @@
       </div>
     </section>
     <!-- End of Cart Page -->
+
     <!-- Favorites Page (add after the Cart Page section) -->
     <section class="favorites-page" id="favoritesPage" style="display: none">
       <div class="container favorites-container">
@@ -4160,6 +4732,7 @@
       </div>
     </section>
     <!-- End of Favorites Page -->
+
     <!-- Contact Us Page -->
     <section class="contact-page" id="contactPage" style="display: none">
       <div class="contact-hero">
@@ -4170,6 +4743,7 @@
           </p>
         </div>
       </div>
+
       <section class="contact-main">
         <div class="container">
           <div class="contact-content">
@@ -4179,6 +4753,7 @@
                 We're here to answer any questions you may have about our
                 products, services, or partnerships.
               </p>
+
               <div class="contact-details">
                 <div class="contact-detail-item">
                   <div class="contact-icon">
@@ -4191,6 +4766,7 @@
                     </p>
                   </div>
                 </div>
+
                 <div class="contact-detail-item">
                   <div class="contact-icon">
                     <i class="fas fa-phone"></i>
@@ -4202,6 +4778,7 @@
                     <p>WhatsApp Only: +1 480 370 7371</p>
                   </div>
                 </div>
+
                 <div class="contact-detail-item">
                   <div class="contact-icon">
                     <i class="fas fa-envelope"></i>
@@ -4211,6 +4788,7 @@
                     <p>strikeghana@gmail.com</p>
                   </div>
                 </div>
+
                 <div class="contact-detail-item">
                   <div class="contact-icon">
                     <i class="fas fa-clock"></i>
@@ -4222,16 +4800,25 @@
                   </div>
                 </div>
               </div>
+
               <div class="contact-social">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
-                  <a href="#" class="social-icon"
+                  <a
+                    href="https://web.facebook.com/strikeghana/mentions/?_rdc=1&_rdr#"
+                    class="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
                   <a href="#" class="social-icon"
                     ><i class="fab fa-twitter"></i
                   ></a>
-                  <a href="#" class="social-icon"
+                  <a
+                    href="https://www.instagram.com/strikeghana/?hl=en"
+                    class="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-instagram"></i
                   ></a>
                   <a href="#" class="social-icon"
@@ -4240,6 +4827,7 @@
                 </div>
               </div>
             </div>
+
             <div class="contact-form-container">
               <h3>Send us a Message</h3>
               <form
@@ -4256,6 +4844,7 @@
                     required
                   />
                 </div>
+
                 <div class="form-group">
                   <input
                     type="email"
@@ -4264,6 +4853,7 @@
                     required
                   />
                 </div>
+
                 <div class="form-group">
                   <input
                     type="text"
@@ -4272,6 +4862,7 @@
                     required
                   />
                 </div>
+
                 <div class="form-group">
                   <textarea
                     name="message"
@@ -4280,12 +4871,14 @@
                     required
                   ></textarea>
                 </div>
+
                 <button type="submit" class="btn">Send Message</button>
               </form>
             </div>
           </div>
         </div>
       </section>
+
       <section class="map-section">
         <div class="container">
           <h2 class="section-title">Our Location</h2>
@@ -4305,6 +4898,7 @@
       </section>
     </section>
     <!-- End of Contact Us Page -->
+
     <!-- Store Locator Page -->
     <section
       class="store-locator-page"
@@ -4319,6 +4913,7 @@
           </p>
         </div>
       </div>
+
       <section class="store-locator-main">
         <div class="container">
           <div class="store-locator-content">
@@ -4334,6 +4929,7 @@
                 <button class="btn" id="searchStores">Search</button>
               </div>
             </div>
+
             <div class="store-locator-map-section">
               <div class="map-container">
                 <iframe
@@ -4347,6 +4943,7 @@
                 ></iframe>
               </div>
             </div>
+
             <div class="stores-grid" id="storesGrid">
               <!-- Stores will be dynamically populated -->
             </div>
@@ -4355,6 +4952,7 @@
       </section>
     </section>
     <!-- End of Store Locator Page -->
+
     <!-- Ghana Premier League Page -->
     <section
       class="ghana-premier-league-page"
@@ -4369,6 +4967,7 @@
           </p>
         </div>
       </div>
+
       <section class="gpl-main">
         <div class="container">
           <div class="gpl-intro">
@@ -4384,12 +4983,14 @@
               high-quality kits and equipment to several GPL teams.
             </p>
           </div>
+
           <div class="gpl-teams-section">
             <h2 class="section-title">GPL Teams 2023/24 Season</h2>
             <div class="gpl-teams-grid" id="gplTeamsGrid">
               <!-- Teams will be dynamically populated -->
             </div>
           </div>
+
           <div class="gpl-standings">
             <h2 class="section-title">Current Standings</h2>
             <div class="standings-table-container">
@@ -4414,6 +5015,7 @@
               </table>
             </div>
           </div>
+
           <div class="gpl-news">
             <h2 class="section-title">Latest GPL News</h2>
             <div class="gpl-news-grid">
@@ -4469,6 +5071,7 @@
               </div>
             </div>
           </div>
+
           <div class="gpl-partnership">
             <h2 class="section-title">Our GPL Partnerships</h2>
             <div class="partnership-content">
@@ -4501,6 +5104,7 @@
       </section>
     </section>
     <!-- End of Ghana Premier League Page -->
+
     <!-- Zoom Modal (ADD THIS HERE) -->
     <div class="zoom-modal" id="zoomModal">
       <div class="zoom-loading">
@@ -4526,6 +5130,7 @@
         </div>
       </div>
     </div>
+
     <!-- Footer -->
     <footer>
       <div class="container">
@@ -4540,6 +5145,7 @@
               <a href="#" class="footer-link">Customization</a>
             </div>
           </div>
+
           <div class="footer-column">
             <h3>Company Info</h3>
             <div class="footer-links">
@@ -4554,6 +5160,7 @@
               <a href="#" class="footer-link">Terms & Conditions</a>
             </div>
           </div>
+
           <div class="footer-column">
             <h3>Customer Service</h3>
             <div class="footer-links">
@@ -4564,6 +5171,7 @@
               <a href="#" class="footer-link">Track Order</a>
             </div>
           </div>
+
           <div class="footer-column">
             <h3>Contact Information</h3>
             <p>Head Office: Tse Addo High Street, Tebibiiano-Accra, Ghana</p>
@@ -4571,44 +5179,59 @@
             <p>+233 54 152 1002</p>
             <p>WhatsApp Only: +1 480 370 7371</p>
             <p>strikeghana@gmail.com</p>
+
             <div class="footer-social">
-              <a href="#" class="social-icon"
+              <a
+                href="https://web.facebook.com/strikeghana/mentions/?_rdc=1&_rdr#"
+                class="social-icon"
+                target="_blank"
+                rel="noopener"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"
+              <a
+                href="https://www.instagram.com/strikeghana/?hl=en"
+                class="social-icon"
+                target="_blank"
+                rel="noopener"
                 ><i class="fab fa-instagram"></i
               ></a>
               <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
         </div>
+
         <div class="footer-bottom">
           <p>&copy; 2025 Strike Ghana Limited. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
     <!-- End of Footer -->
+
     <style>
       /* NEW: Company Summary Section on Homepage */
       .company-summary {
         padding: 80px 0;
         background-color: var(--light);
       }
+
       .summary-content {
         display: flex;
         align-items: center;
         gap: 50px;
       }
+
       .summary-text {
         flex: 1;
       }
+
       .summary-text h2 {
         font-family: var(--font-heading);
         font-size: 36px;
         color: var(--primary);
         margin-bottom: 10px;
       }
+
       .summary-text h3 {
         font-family: var(--font-heading);
         font-size: 24px;
@@ -4616,32 +5239,38 @@
         margin-bottom: 20px;
         font-style: italic;
       }
+
       .summary-text p {
         margin-bottom: 20px;
         font-size: 18px;
         line-height: 1.6;
       }
+
       .summary-image {
         flex: 1;
         border-radius: var(--radius);
         overflow: hidden;
         box-shadow: var(--shadow);
       }
+
       .summary-image img {
         width: 100%;
         height: auto;
         display: block;
       }
+
       /* NEW: Why Choose Us Section on About Page */
       .why-choose-us {
         padding: 80px 0;
         background-color: var(--gray);
       }
+
       .reasons-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
       }
+
       .reason-card {
         background-color: var(--light);
         padding: 30px;
@@ -4650,19 +5279,23 @@
         box-shadow: var(--shadow);
         transition: var(--transition);
       }
+
       .reason-card:hover {
         transform: translateY(-10px);
       }
+
       .reason-card i {
         font-size: 50px;
         color: var(--primary);
         margin-bottom: 20px;
       }
+
       .reason-card h3 {
         font-family: var(--font-heading);
         margin-bottom: 15px;
         color: var(--primary);
       }
+
       /* Updated Partner Logos */
       .partner-logo {
         height: 80px;
@@ -4670,32 +5303,39 @@
         margin: 0 auto 15px;
         object-fit: contain;
       }
+
       /* Responsive adjustments */
       @media (max-width: 992px) {
         .summary-content {
           flex-direction: column;
         }
+
         .summary-text,
         .summary-image {
           flex: none;
           width: 100%;
         }
       }
+
       @media (max-width: 768px) {
         .summary-text h2 {
           font-size: 28px;
         }
+
         .summary-text h3 {
           font-size: 20px;
         }
+
         .summary-text p {
           font-size: 16px;
         }
       }
     </style>
+
     <script>
       // Cart functionality
       let cart = [];
+
       // Initialize cart from localStorage
       function initCart() {
         const savedCart = localStorage.getItem("strikeGhanaCart");
@@ -4704,11 +5344,13 @@
           updateCartCount();
         }
       }
+
       // Save cart to localStorage
       function saveCart() {
         localStorage.setItem("strikeGhanaCart", JSON.stringify(cart));
         updateCartCount();
       }
+
       // Update cart count in header
       function updateCartCount() {
         const count = cart.reduce((total, item) => total + item.quantity, 0);
@@ -4716,17 +5358,25 @@
         document.getElementById("cartCount").textContent = count;
         document.getElementById("mobileCartCount").textContent = count;
       }
+
       // Add product to cart
       function addToCart(productId) {
         const productElement = document.querySelector(
           `.product-card[data-id="${productId}"]`
         );
+        if (!productElement) {
+          console.error("Product element not found:", productId);
+          return;
+        }
+
         const productName = productElement.getAttribute("data-name");
         const productPrice = parseFloat(
           productElement.getAttribute("data-price")
         );
         const productImage = productElement.getAttribute("data-image");
+
         const existingItem = cart.find((item) => item.id === productId);
+
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
@@ -4738,34 +5388,25 @@
             quantity: 1,
           });
         }
+
         saveCart();
-        // Show confirmation message
-        const confirmation = document.createElement("div");
-        confirmation.style.position = "fixed";
-        confirmation.style.bottom = "20px";
-        confirmation.style.right = "20px";
-        confirmation.style.backgroundColor = "var(--primary)";
-        confirmation.style.color = "white";
-        confirmation.style.padding = "10px 20px";
-        confirmation.style.borderRadius = "var(--radius)";
-        confirmation.style.zIndex = "1000";
-        confirmation.style.boxShadow = "var(--shadow)";
-        confirmation.innerHTML = `<i class="fas fa-check"></i> Added to cart!`;
-        document.body.appendChild(confirmation);
-        setTimeout(() => {
-          document.body.removeChild(confirmation);
-        }, 3000);
+
+        // Use the same notification function for consistency
+        showNotification("Added to cart!", "success");
+
         // If we're on the cart page, update the display immediately
         if (document.getElementById("cartPage").style.display === "block") {
           renderCart();
         }
       }
+
       // Remove item from cart
       function removeFromCart(productId) {
         cart = cart.filter((item) => item.id !== productId);
         saveCart();
         renderCart();
       }
+
       // Update item quantity in cart
       function updateQuantity(productId, change) {
         const item = cart.find((item) => item.id === productId);
@@ -4779,24 +5420,30 @@
           }
         }
       }
+
       // Render cart items
       function renderCart() {
         const cartItems = document.getElementById("cartItems");
         const emptyCartMessage = document.getElementById("emptyCartMessage");
         const cartSummary = document.getElementById("cartSummary");
+
         if (cart.length === 0) {
           emptyCartMessage.style.display = "block";
           cartSummary.style.display = "none";
           cartItems.innerHTML = ""; // Clear any existing items
           return;
         }
+
         emptyCartMessage.style.display = "none";
         cartSummary.style.display = "block";
+
         let itemsHTML = "";
         let subtotal = 0;
+
         cart.forEach((item) => {
           const itemTotal = item.price * item.quantity;
           subtotal += itemTotal;
+
           itemsHTML += `
             <div class="cart-item">
               <div class="cart-item-image">
@@ -4826,10 +5473,13 @@
             </div>
           `;
         });
+
         cartItems.innerHTML = itemsHTML;
+
         // Update summary
         const shipping = subtotal >= 500 ? 0 : 50;
         const total = subtotal + shipping;
+
         document.getElementById(
           "cartSubtotal"
         ).textContent = `₵${subtotal.toFixed(2)}`;
@@ -4838,6 +5488,7 @@
         document.getElementById("cartTotal").textContent = `₵${total.toFixed(
           2
         )}`;
+
         // Update order form hidden fields
         const orderDetails = cart
           .map(
@@ -4847,9 +5498,11 @@
           .join("\n");
         document.getElementById("orderDetails").value = orderDetails;
         document.getElementById("orderTotal").value = `₵${total.toFixed(2)}`;
+
         // Update cart count in header
         updateCartCount();
       }
+
       // Set specific quantity for an item
       function setQuantity(productId, quantity) {
         const qty = parseInt(quantity);
@@ -4865,6 +5518,7 @@
           renderCart();
         }
       }
+
       // Show cart page
       function showCartPage() {
         // Hide all pages first
@@ -4875,10 +5529,12 @@
         document.getElementById("storeLocatorPage").style.display = "none";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
+
         renderCart();
         updateActiveNav("cart");
         window.scrollTo(0, 0);
       }
+
       // Updated showHomepage()
       function showHomepage() {
         document.getElementById("mainContent").style.display = "block";
@@ -4889,8 +5545,12 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+
+        // Update browser history for SEO
+        history.pushState({ page: "home" }, "Home - Strike Ghana", "/");
         updateActiveNav("home");
       }
+
       // Updated showAboutPage()
       function showAboutPage() {
         document.getElementById("mainContent").style.display = "none";
@@ -4901,9 +5561,17 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+
+        // Update browser history for SEO
+        history.pushState(
+          { page: "about" },
+          "About Us - Strike Ghana",
+          "/?section=about"
+        );
         updateActiveNav("about");
         window.scrollTo(0, 0);
       }
+
       // Updated showCartPage()
       function showCartPage() {
         document.getElementById("mainContent").style.display = "none";
@@ -4915,9 +5583,11 @@
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
         renderCart();
+
         updateActiveNav("cart");
         window.scrollTo(0, 0);
       }
+
       // Updated showContactPage()
       function showContactPage() {
         document.getElementById("mainContent").style.display = "none";
@@ -4928,10 +5598,17 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        // Update browser history for SEO
+        history.pushState(
+          { page: "contact" },
+          "Contact Us - Strike Ghana",
+          "/?section=contact"
+        );
         updateActiveNav("contact");
         window.scrollTo(0, 0);
         setTimeout(initContactAnimations, 100);
       }
+
       // Updated showStoreLocatorPage()
       function showStoreLocatorPage() {
         // Hide all pages
@@ -4943,11 +5620,18 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "none";
         document.getElementById("favoritesPage").style.display = "none";
+        // Update browser history for SEO
+        history.pushState(
+          { page: "store-locator" },
+          "Store Locator - Strike Ghana",
+          "/?section=store-locator"
+        );
         updateActiveNav("storeLocator");
         renderStores();
         window.scrollTo(0, 0);
         setTimeout(initStoreLocatorAnimations, 100);
       }
+
       // Updated showGhanaPremierLeaguePage()
       function showGhanaPremierLeaguePage() {
         document.getElementById("mainContent").style.display = "none";
@@ -4958,10 +5642,49 @@
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "block";
         document.getElementById("favoritesPage").style.display = "none"; // Add this line
+        // Update browser history for SEO
+        history.pushState(
+          { page: "gpl" },
+          "Ghana Premier League - Strike Ghana",
+          "/?section=gpl"
+        );
         updateActiveNav("gpl");
         renderGPLTeams();
         renderGPLStandings();
         window.scrollTo(0, 0);
+      }
+
+      // Add this function to handle browser back/forward buttons
+      function handlePopState(event) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get("section");
+
+        if (!section) {
+          showHomepage();
+        } else {
+          switch (section) {
+            case "about":
+              showAboutPage();
+              break;
+            case "contact":
+              showContactPage();
+              break;
+            case "store-locator":
+              showStoreLocatorPage();
+              break;
+            case "gpl":
+              showGhanaPremierLeaguePage();
+              break;
+            case "cart":
+              showCartPage();
+              break;
+            case "favorites":
+              showFavoritesPage();
+              break;
+            default:
+              showHomepage();
+          }
+        }
       }
       // Initialize contact page animations
       function initContactAnimations() {
@@ -4980,6 +5703,7 @@
           }, 200 * index);
         });
       }
+
       // Replace the existing initStoreLocatorAnimations function with this
       function initStoreLocatorAnimations() {
         const storePage = document.getElementById("storeLocatorPage");
@@ -4990,6 +5714,7 @@
           }
         }
       }
+
       // Handle order form submission
       function handleOrderFormSubmit(event) {
         event.preventDefault();
@@ -5021,6 +5746,7 @@
           });
         return false;
       }
+
       // Handle contact form submission
       function handleContactFormSubmit(event) {
         event.preventDefault();
@@ -5051,6 +5777,7 @@
           });
         return false;
       }
+
       // Show newsletter popup
       function showNewsletterPopup() {
         document.getElementById("newsletterPopup").classList.add("active");
@@ -5058,6 +5785,7 @@
           .getElementById("newsletterPopupOverlay")
           .classList.add("active");
       }
+
       // Hide newsletter popup
       function hideNewsletterPopup() {
         document.getElementById("newsletterPopup").classList.remove("active");
@@ -5065,6 +5793,7 @@
           .getElementById("newsletterPopupOverlay")
           .classList.remove("active");
       }
+
       // Handle newsletter form submission
       function handleNewsletterFormSubmit(event) {
         event.preventDefault();
@@ -5093,12 +5822,15 @@
           });
         return false;
       }
+
       // Update active navigation state
       function updateActiveNav(activePage) {
         const navLinks = document.querySelectorAll(".nav-link");
         navLinks.forEach((link) => link.classList.remove("active"));
+
         const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
         mobileNavLinks.forEach((link) => link.classList.remove("active"));
+
         if (activePage === "home") {
           document
             .querySelector('.nav-link[onclick="showHomepage()"]')
@@ -5135,12 +5867,14 @@
           mobileContactLinks.forEach((link) => link.classList.add("active"));
         }
       }
+
       // Close mobile menu
       function closeMobileMenu() {
         document.getElementById("mobileMenu").classList.remove("active");
         document.getElementById("overlay").classList.remove("active");
         document.body.style.overflow = "auto";
       }
+
       // Scroll to section
       function scrollToSection(sectionId) {
         const section = document.getElementById(sectionId);
@@ -5155,6 +5889,7 @@
           });
         }
       }
+
       // Initialize countdown timer
       function initializeCountdown() {
         const endDate = new Date();
@@ -5197,6 +5932,7 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
       }
+
       // Initialize the page
       document.addEventListener("DOMContentLoaded", function () {
         initCart();
@@ -5322,6 +6058,30 @@
             });
           });
         }
+        const slides = document.querySelectorAll(".slide");
+        const indicators = document.querySelectorAll(".indicator");
+        let currentSlide = 0;
+        function showSlide(index) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          indicators.forEach((indicator) =>
+            indicator.classList.remove("active")
+          );
+          slides[index].classList.add("active");
+          indicators[index].classList.add("active");
+          currentSlide = index;
+        }
+        function nextSlide() {
+          let next = currentSlide + 1;
+          if (next >= slides.length) next = 0;
+          showSlide(next);
+        }
+        const slideInterval = setInterval(nextSlide, 5000);
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener("click", function () {
+            clearInterval(slideInterval);
+            showSlide(index);
+          });
+        });
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -5341,10 +6101,17 @@
           });
         });
         initializeCountdown();
+
+        window.addEventListener("popstate", handlePopState);
+
+        // Check URL on initial load
+        handlePopState();
       });
+
       // Initialize animations for new elements
       document.addEventListener("DOMContentLoaded", function () {
         // ... (existing initialization code) ...
+
         // Add new elements to the observer for animations
         const newAnimatedElements = document.querySelectorAll(
           ".reason-card, .company-summary"
@@ -5352,6 +6119,7 @@
         newAnimatedElements.forEach((element) => {
           observer.observe(element);
         });
+
         // Position the new company summary section on homepage
         const featuredSection = document.getElementById("featured");
         const companySummary = document.getElementById("companySummary");
@@ -5362,6 +6130,7 @@
           );
         }
       });
+
       // Store data
       const stores = [
         {
@@ -5417,6 +6186,7 @@
           coordinates: { lat: 9.4008, lng: -0.8393 },
         },
       ];
+
       // GPL teams data
       const gplTeams = [
         {
@@ -5564,6 +6334,7 @@
           logo: "images/teams/accra-lions.png",
         },
       ];
+
       // GPL standings data (sample)
       const gplStandings = [
         {
@@ -5783,6 +6554,7 @@
           points: 3,
         },
       ];
+
       // Show Store Locator page
       function showStoreLocatorPage() {
         document.getElementById("mainContent").style.display = "none";
@@ -5795,8 +6567,9 @@
         updateActiveNav("storeLocator");
         renderStores();
         window.scrollTo(0, 0);
-        setTimeout(initStoreLocatorAnimations, 100);
+        setTimeout(initStoreLocatorAnimations, 100); // Add this line for animation trigger
       }
+
       // Show Ghana Premier League page
       function showGhanaPremierLeaguePage() {
         // Hide all pages first
@@ -5807,14 +6580,17 @@
         document.getElementById("storeLocatorPage").style.display = "none";
         document.getElementById("ghanaPremierLeaguePage").style.display =
           "block";
+
         updateActiveNav("gpl");
         renderGPLTeams();
         renderGPLStandings();
         window.scrollTo(0, 0);
       }
+
       // Render stores
       function renderStores(filteredStores = stores) {
         const storesGrid = document.getElementById("storesGrid");
+
         if (filteredStores.length === 0) {
           storesGrid.innerHTML = `
           <div class="no-stores-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
@@ -5825,7 +6601,9 @@
         `;
           return;
         }
+
         let storesHTML = "";
+
         filteredStores.forEach((store) => {
           storesHTML += `
           <div class="store-card">
@@ -5863,12 +6641,15 @@
           </div>
         `;
         });
+
         storesGrid.innerHTML = storesHTML;
       }
+
       // Render GPL teams
       function renderGPLTeams() {
         const teamsGrid = document.getElementById("gplTeamsGrid");
         let teamsHTML = "";
+
         gplTeams.forEach((team) => {
           teamsHTML += `
           <div class="gpl-team-card" onclick="showTeamDetails(${team.id})">
@@ -5880,18 +6661,22 @@
           </div>
         `;
         });
+
         teamsGrid.innerHTML = teamsHTML;
       }
+
       // Render GPL standings
       function renderGPLStandings() {
         const standingsTable = document.getElementById("standingsTable");
         let standingsHTML = "";
+
         gplStandings.forEach((team) => {
           // Find team logo
           const teamData = gplTeams.find((t) => t.name === team.team);
           const teamLogo = teamData
             ? teamData.logo
             : "images/teams/karela-united.png";
+
           standingsHTML += `
           <tr>
             <td>${team.position}</td>
@@ -5910,35 +6695,42 @@
           </tr>
         `;
         });
+
         standingsTable.innerHTML = standingsHTML;
       }
+
       // Search stores
       function searchStores() {
         const searchTerm = document
           .getElementById("storeSearch")
           .value.toLowerCase();
         const storesGrid = document.getElementById("storesGrid");
+
         // Show loading feedback
         storesGrid.innerHTML = `
             <div class="loading">
               <i class="fas fa-spinner"></i> Searching...
             </div>
           `;
+
         // Simulate brief delay for feedback (remove if not wanted)
         setTimeout(() => {
           if (searchTerm.trim() === "") {
             renderStores();
             return;
           }
+
           const filteredStores = stores.filter((store) => {
             return (
               store.name.toLowerCase().includes(searchTerm) ||
               store.address.toLowerCase().includes(searchTerm)
             );
           });
+
           renderStores(filteredStores);
         }, 500); // 500ms delay for loading feel; adjust or set to 0 for instant
       }
+
       // Show directions (placeholder function)
       function showDirections(lat, lng) {
         alert(
@@ -5946,6 +6738,7 @@
         );
         // In a real implementation, this would open Google Maps with the coordinates
       }
+
       // Show team details (placeholder function)
       function showTeamDetails(teamId) {
         const team = gplTeams.find((t) => t.id === teamId);
@@ -5954,12 +6747,15 @@
           // In a real implementation, this would show a detailed team page
         }
       }
+
       // Update active navigation
       function updateActiveNav(activePage) {
         const navLinks = document.querySelectorAll(".nav-link");
         navLinks.forEach((link) => link.classList.remove("active"));
+
         const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
         mobileNavLinks.forEach((link) => link.classList.remove("active"));
+
         if (activePage === "storeLocator") {
           // Add active class to store locator link
           // You would need to add these links to your navigation
@@ -5968,12 +6764,14 @@
           // You would need to add these links to your navigation
         }
       }
+
       // Initialize the new pages when DOM is loaded
       document.addEventListener("DOMContentLoaded", function () {
         // Add event listeners for the new pages
         document
           .getElementById("searchStores")
           .addEventListener("click", searchStores);
+
         document
           .getElementById("storeSearch")
           .addEventListener("keyup", function (event) {
@@ -5981,6 +6779,7 @@
               searchStores();
             }
           });
+
         // Add navigation items for the new pages
         // You would need to add these to your existing navigation
       });
@@ -5988,11 +6787,13 @@
       function showSectionFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         const section = urlParams.get("section");
+
         if (section) {
           // Hide all sections first
           document.querySelectorAll(".page-section").forEach((section) => {
             section.style.display = "none";
           });
+
           // Show the requested section
           switch (section) {
             case "contact":
@@ -6009,6 +6810,7 @@
               showHomePage();
               break;
           }
+
           // Clear the URL parameter without reloading
           window.history.replaceState(
             {},
@@ -6017,10 +6819,12 @@
           );
         }
       }
+
       // Call this function when index.html loads
       document.addEventListener("DOMContentLoaded", function () {
         showSectionFromURL();
       });
+
       // Enhanced product data with more details
       const products = [
         {
@@ -6107,6 +6911,7 @@
           tags: ["goalkeeper", "gloves", "gk", "professional", "grip"],
         },
       ];
+
       // Search functionality
       function initializeSearch() {
         const searchInput = document.getElementById("searchInput");
@@ -6116,6 +6921,7 @@
           "mobileSearchResults"
         );
         const searchOverlay = document.getElementById("searchOverlay");
+
         // Debounce function to limit search frequency
         function debounce(func, wait) {
           let timeout;
@@ -6128,6 +6934,7 @@
             timeout = setTimeout(later, wait);
           };
         }
+
         // Perform search
         function performSearch(searchTerm, resultsContainer) {
           if (searchTerm.length < 2) {
@@ -6136,7 +6943,9 @@
             searchOverlay.classList.remove("active");
             return;
           }
+
           const searchTermLower = searchTerm.toLowerCase();
+
           // Search through products
           const results = products.filter((product) => {
             return (
@@ -6152,8 +6961,10 @@
               product.description.toLowerCase().includes(searchTermLower)
             );
           });
+
           displaySearchResults(results, searchTerm, resultsContainer);
         }
+
         // Display search results
         function displaySearchResults(results, searchTerm, resultsContainer) {
           if (results.length === 0) {
@@ -6189,9 +7000,11 @@
               )
               .join("");
           }
+
           resultsContainer.classList.add("active");
           searchOverlay.classList.add("active");
         }
+
         // Handle search result selection
         window.selectSearchResult = function (productId) {
           const product = products.find((p) => p.id === productId);
@@ -6200,11 +7013,14 @@
             searchResults.classList.remove("active");
             mobileSearchResults.classList.remove("active");
             searchOverlay.classList.remove("active");
+
             // Clear search inputs
             searchInput.value = "";
             mobileSearchInput.value = "";
+
             // Show homepage and scroll to featured section
             showHomepage();
+
             // Highlight and focus on the product (you can implement smooth scroll to the product)
             setTimeout(() => {
               const productElement = document.querySelector(
@@ -6223,41 +7039,49 @@
             }, 100);
           }
         };
+
         // Debounced search functions
         const debouncedSearch = debounce((searchTerm, resultsContainer) => {
           performSearch(searchTerm, resultsContainer);
         }, 300);
+
         const debouncedMobileSearch = debounce(
           (searchTerm, resultsContainer) => {
             performSearch(searchTerm, resultsContainer);
           },
           300
         );
+
         // Event listeners for desktop search
         searchInput.addEventListener("input", (e) => {
           debouncedSearch(e.target.value, searchResults);
         });
+
         searchInput.addEventListener("focus", () => {
           if (searchInput.value.length >= 2) {
             searchResults.classList.add("active");
             searchOverlay.classList.add("active");
           }
         });
+
         // Event listeners for mobile search
         mobileSearchInput.addEventListener("input", (e) => {
           debouncedMobileSearch(e.target.value, mobileSearchResults);
         });
+
         mobileSearchInput.addEventListener("focus", () => {
           if (mobileSearchInput.value.length >= 2) {
             mobileSearchResults.classList.add("active");
           }
         });
+
         // Close search results when clicking overlay
         searchOverlay.addEventListener("click", () => {
           searchResults.classList.remove("active");
           mobileSearchResults.classList.remove("active");
           searchOverlay.classList.remove("active");
         });
+
         // Close search results when pressing Escape
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") {
@@ -6266,6 +7090,7 @@
             searchOverlay.classList.remove("active");
           }
         });
+
         // Search button functionality
         document.getElementById("searchBtn").addEventListener("click", () => {
           if (searchInput.value.length >= 2) {
@@ -6273,6 +7098,7 @@
           }
         });
       }
+
       // Advanced search function that can be called from anywhere
       window.advancedSearch = function (searchTerm) {
         const results = products.filter((product) => {
@@ -6289,11 +7115,14 @@
             )
           );
         });
+
         return results;
       };
+
       // Initialize search when DOM is loaded
       document.addEventListener("DOMContentLoaded", function () {
         initializeSearch();
+
         // Add search suggestions to placeholder text
         const searchInputs = document.querySelectorAll(
           ".search-input, .mobile-search-input"
@@ -6305,7 +7134,9 @@
           "Ghana Premier League",
           "Goalkeeper gloves",
         ];
+
         let currentSuggestion = 0;
+
         setInterval(() => {
           searchInputs.forEach((input) => {
             input.placeholder = `Search for ${suggestions[currentSuggestion]}...`;
@@ -6313,9 +7144,11 @@
           currentSuggestion = (currentSuggestion + 1) % suggestions.length;
         }, 3000);
       });
+
       // Add this after the existing placeholder cycling code in your <script> tag
       document.addEventListener("DOMContentLoaded", function () {
         // Existing main search cycling remains unchanged
+
         // New: Location-specific suggestions for store locator search
         const storeSearchInput = document.getElementById("storeSearch");
         if (storeSearchInput) {
@@ -6337,52 +7170,241 @@
           }, 3000);
         }
       });
-      // Favorite functionality
-      let favorites =
-        JSON.parse(localStorage.getItem("strikeGhanaFavorites")) || [];
+
+      // Favorites functionality
+      let favorites = [];
+
+      // Initialize favorites from localStorage
+      function initFavorites() {
+        const savedFavorites = localStorage.getItem("strikeGhanaFavorites");
+        if (savedFavorites) {
+          favorites = JSON.parse(savedFavorites);
+          updateFavoritesCount();
+        }
+      }
+
+      // Save favorites to localStorage
+      function saveFavorites() {
+        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
+        updateFavoritesCount();
+      }
+
+      // Update favorites count in header
+      function updateFavoritesCount() {
+        const count = favorites.length;
+        document.getElementById("headerFavoritesCount").textContent = count;
+        document.getElementById("mobileFavoritesCount").textContent = count;
+      }
+
+      // --- START: Favorites UI helpers (paste below updateFavoritesCount) ---
+
+      /**
+       * updateFavoriteButtons()
+       * Keep product-card heart icons in sync with the favorites stored in `favorites`.
+       * Works whether `favorites` is an array of ids (e.g. [1,2,3]) or objects (e.g. [{id:1,...}, {...}]).
+       */
+      function updateFavoriteButtons() {
+        const productCards = document.querySelectorAll(".product-card");
+        productCards.forEach((card) => {
+          const idAttr = card.getAttribute("data-id");
+          if (!idAttr) return;
+          const id = parseInt(idAttr, 10);
+          const heartIcon = card.querySelector(".product-action:nth-child(2)");
+          // determine if this product is favorited regardless of favorites representation
+          const isFavorited =
+            Array.isArray(favorites) &&
+            favorites.some((item) => {
+              if (typeof item === "number") return item === id;
+              if (item && typeof item === "object") return item.id === id;
+              return false;
+            });
+          if (heartIcon) {
+            heartIcon.classList.toggle("favorited", !!isFavorited);
+          }
+        });
+      }
+
+      /**
+       * Compatibility alias:
+       * Some places in the file call updateFavoriteCounts() while others call updateFavoritesCount().
+       * Ensure both exist and do the same thing.
+       */
+      function updateFavoriteCounts() {
+        // forward to the canonical function
+        if (typeof updateFavoritesCount === "function") {
+          updateFavoritesCount();
+        }
+      }
+
+      // --- END: Favorites UI helpers ---
+
+      // Toggle product in favorites
       function toggleFavorite(productId) {
         const productElement = document.querySelector(
           `.product-card[data-id="${productId}"]`
         );
-        const favoriteBtn = productElement.querySelector(
-          ".product-action:nth-child(2)"
-        ); // Second action button is favorite
-        if (favorites.includes(productId)) {
+        if (!productElement) {
+          console.error("Product element not found:", productId);
+          return;
+        }
+
+        const productName = productElement.getAttribute("data-name");
+        const productPrice = parseFloat(
+          productElement.getAttribute("data-price")
+        );
+        const productImage = productElement.getAttribute("data-image");
+        const productCategory = productElement.getAttribute("data-category");
+
+        const existingIndex = favorites.findIndex(
+          (item) => item.id === productId
+        );
+
+        if (existingIndex >= 0) {
           // Remove from favorites
-          favorites = favorites.filter((id) => id !== productId);
-          favoriteBtn.classList.remove("favorited");
-          favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
+          favorites.splice(existingIndex, 1);
+          // Remove favorited class from heart icon
+          const heartIcon = productElement.querySelector(
+            ".product-action:nth-child(2)"
+          );
+          if (heartIcon) {
+            heartIcon.classList.remove("favorited");
+          }
           showNotification("Removed from favorites", "info");
         } else {
           // Add to favorites
-          favorites.push(productId);
-          favoriteBtn.classList.add("favorited");
-          favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
-          showNotification("Added to favorites!", "success");
-        }
-        // Save to localStorage
-        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
-        // Update favorite buttons state on page
-        updateFavoriteButtons();
-      }
-      function updateFavoriteButtons() {
-        document.querySelectorAll(".product-card").forEach((card) => {
-          const productId = parseInt(card.getAttribute("data-id"));
-          const favoriteBtn = card.querySelector(
+          favorites.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            category: productCategory,
+          });
+          // Add favorited class to heart icon
+          const heartIcon = productElement.querySelector(
             ".product-action:nth-child(2)"
           );
-          if (favorites.includes(productId)) {
-            favoriteBtn.classList.add("favorited");
-            favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
-          } else {
-            favoriteBtn.classList.remove("favorited");
-            favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
+          if (heartIcon) {
+            heartIcon.classList.add("favorited");
+          }
+          showNotification("Added to favorites!", "success");
+        }
+
+        saveFavorites();
+
+        // If we're on the favorites page, update the display immediately
+        if (
+          document.getElementById("favoritesPage").style.display === "block"
+        ) {
+          renderFavorites();
+        }
+      }
+
+      // Remove item from favorites
+      function removeFromFavorites(productId) {
+        favorites = favorites.filter((item) => item.id !== productId);
+        saveFavorites();
+        renderFavorites();
+
+        // Also update the heart icon in the product card
+        const productElement = document.querySelector(
+          `.product-card[data-id="${productId}"]`
+        );
+        if (productElement) {
+          const heartIcon = productElement.querySelector(
+            ".product-action:nth-child(2)"
+          );
+          if (heartIcon) {
+            heartIcon.classList.remove("favorited");
+          }
+        }
+      }
+
+      // Render favorites items
+      function renderFavorites() {
+        const favoritesItems = document.getElementById("favoritesItems");
+        const emptyFavoritesMessage = document.getElementById(
+          "emptyFavoritesMessage"
+        );
+
+        if (favorites.length === 0) {
+          emptyFavoritesMessage.style.display = "block";
+          favoritesItems.innerHTML = "";
+          return;
+        }
+
+        emptyFavoritesMessage.style.display = "none";
+
+        let itemsHTML = "";
+
+        favorites.forEach((item) => {
+          itemsHTML += `
+                  <div class="favorite-item">
+                      <div class="favorite-item-image">
+                          <img src="${item.image}" alt="${item.name}">
+                      </div>
+                      <div class="favorite-item-details">
+                          <h3 class="favorite-item-title">${item.name}</h3>
+                          <div class="favorite-item-price">₵${item.price.toFixed(
+                            2
+                          )}</div>
+                          <div class="favorite-item-category">${
+                            item.category
+                          }</div>
+                      </div>
+                      <div class="favorite-item-actions">
+                          <button class="btn" onclick="addToCart(${
+                            item.id
+                          })">Add to Cart</button>
+                          <button class="remove-item" onclick="removeFromFavorites(${
+                            item.id
+                          })">
+                              <i class="fas fa-trash"></i> Remove
+                          </button>
+                      </div>
+                  </div>
+              `;
+        });
+
+        favoritesItems.innerHTML = itemsHTML;
+      }
+
+      // Show favorites page
+      function showFavoritesPage() {
+        // Hide all pages first
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("aboutPage").style.display = "none";
+        document.getElementById("cartPage").style.display = "none";
+        document.getElementById("contactPage").style.display = "none";
+        document.getElementById("storeLocatorPage").style.display = "none";
+        document.getElementById("ghanaPremierLeaguePage").style.display =
+          "none";
+        document.getElementById("favoritesPage").style.display = "block";
+
+        renderFavorites();
+        updateActiveNav("favorites");
+        window.scrollTo(0, 0);
+      }
+
+      // Initialize favorite icons on page load
+      function initializeFavoriteIcons() {
+        favorites.forEach((item) => {
+          const productElement = document.querySelector(
+            `.product-card[data-id="${item.id}"]`
+          );
+          if (productElement) {
+            const heartIcon = productElement.querySelector(
+              ".product-action:nth-child(2)"
+            );
+            if (heartIcon) {
+              heartIcon.classList.add("favorited");
+            }
           }
         });
       }
       // Zoom functionality
       let currentZoomProductId = null;
       let zoomProducts = [];
+
       function initializeZoom() {
         // Collect all products for zoom navigation
         zoomProducts = Array.from(
@@ -6393,93 +7415,97 @@
           name: card.getAttribute("data-name"),
         }));
       }
+
       function zoomProduct(productId) {
         const product = zoomProducts.find((p) => p.id === productId);
         if (!product) return;
+
         currentZoomProductId = productId;
         const zoomModal = document.getElementById("zoomModal");
         const zoomImage = document.getElementById("zoomImage");
+
         // Show loading
         zoomModal.classList.add("loading");
         zoomModal.classList.add("active");
         document.body.style.overflow = "hidden";
+
         // Load image
         zoomImage.onload = function () {
           zoomModal.classList.remove("loading");
         };
+
         zoomImage.onerror = function () {
           zoomModal.classList.remove("loading");
           zoomImage.src =
             "https://via.placeholder.com/500x500?text=Image+Not+Found";
         };
+
         zoomImage.src = product.image;
         zoomImage.alt = product.name;
       }
+
       function closeZoom() {
         document.getElementById("zoomModal").classList.remove("active");
         document.body.style.overflow = "auto";
         currentZoomProductId = null;
       }
+
       function navigateZoom(direction) {
         if (!currentZoomProductId || zoomProducts.length === 0) return;
+
         const currentIndex = zoomProducts.findIndex(
           (p) => p.id === currentZoomProductId
         );
         let newIndex;
+
         if (direction === "next") {
           newIndex = (currentIndex + 1) % zoomProducts.length;
         } else {
           newIndex =
             (currentIndex - 1 + zoomProducts.length) % zoomProducts.length;
         }
+
         zoomProduct(zoomProducts[newIndex].id);
       }
+
       // Notification system
-      function showNotification(message, type = "info") {
+      // Unified notification function for both cart and favorites
+      function showNotification(message, type = "success") {
         const notification = document.createElement("div");
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-          <i class="fas fa-${type === "success" ? "check" : "info"}"></i>
-          <span>${message}</span>
-      `;
-        // Add notification styles if not already present
-        if (!document.querySelector("#notification-styles")) {
-          const styles = document.createElement("style");
-          styles.id = "notification-styles";
-          styles.textContent = `
-              .notification {
-                  position: fixed;
-                  bottom: 20px;
-                  right: 20px;
-                  background: var(--light);
-                  padding: 15px 20px;
-                  border-radius: var(--radius);
-                  box-shadow: var(--shadow);
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                  z-index: 3000;
-                  transform: translateX(100%);
-                  transition: transform 0.3s ease;
-              }
-              .notification.success {
-                  border-left: 4px solid var(--primary);
-              }
-              .notification.info {
-                  border-left: 4px solid var(--secondary);
-              }
-              .notification.show {
-                  transform: translateX(0);
-              }
+        notification.style.cssText = `
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              background: ${
+                type === "success"
+                  ? "var(--primary)"
+                  : type === "info"
+                  ? "var(--accent)"
+                  : "var(--secondary)"
+              };
+              color: white;
+              padding: 15px 20px;
+              border-radius: var(--radius);
+              z-index: 10000;
+              box-shadow: var(--shadow);
+              animation: slideInRight 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              max-width: 300px;
           `;
-          document.head.appendChild(styles);
-        }
+
+        // Choose appropriate icon based on type
+        let icon = "check";
+        if (type === "info") icon = "info-circle";
+        if (type === "warning") icon = "exclamation-triangle";
+
+        notification.innerHTML = `<i class="fas fa-${icon}"></i> ${message}`;
         document.body.appendChild(notification);
-        // Animate in
-        setTimeout(() => notification.classList.add("show"), 100);
+
         // Remove after 3 seconds
         setTimeout(() => {
-          notification.classList.remove("show");
+          notification.style.animation = "slideOutRight 0.3s ease";
           setTimeout(() => {
             if (notification.parentNode) {
               notification.parentNode.removeChild(notification);
@@ -6487,12 +7513,28 @@
           }, 300);
         }, 3000);
       }
+
       // Update your existing DOMContentLoaded function to include:
       document.addEventListener("DOMContentLoaded", function () {
-        // ... your existing initialization code ...
+        // Initialize favorites
+        initFavorites();
+        initializeFavoriteIcons();
+
+        // Add event listeners for favorites
+        document
+          .getElementById("favoritesIcon")
+          .addEventListener("click", showFavoritesPage);
+        document
+          .getElementById("mobileFavoritesLink")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showFavoritesPage();
+            closeMobileMenu();
+          });
         // Initialize favorites and zoom
         updateFavoriteButtons();
         initializeZoom();
+
         // Zoom modal event listeners
         document
           .getElementById("zoomClose")
@@ -6503,6 +7545,7 @@
         document
           .getElementById("zoomNext")
           .addEventListener("click", () => navigateZoom("next"));
+
         // Close zoom modal when clicking outside image
         document
           .getElementById("zoomModal")
@@ -6511,6 +7554,7 @@
               closeZoom();
             }
           });
+
         // Keyboard navigation for zoom
         document.addEventListener("keydown", function (e) {
           if (
@@ -6522,66 +7566,61 @@
           }
         });
       });
+
+      // Favorites functionality (add after cart functions, around line ~4000)
+
       // Load favorites on init (add to your existing initCart() or separately)
       favorites =
         JSON.parse(localStorage.getItem("strikeGhanaFavorites")) || [];
       updateFavoriteCounts(); // Call this in DOMContentLoaded
+
       // Update favorite counts in header and mobile
       function updateFavoriteCounts() {
         const count = favorites.length;
         document.getElementById("headerFavoritesCount").textContent = count;
         document.getElementById("mobileFavoritesCount").textContent = count;
       }
-      // Render favorites page
-      function renderFavorites() {
-        const favoritesItems = document.getElementById("favoritesItems");
-        const emptyFavoritesMessage = document.getElementById(
-          "emptyFavoritesMessage"
-        );
-        if (favorites.length === 0) {
-          emptyFavoritesMessage.style.display = "block";
-          favoritesItems.innerHTML = ""; // Clear items
-          return;
-        }
-        emptyFavoritesMessage.style.display = "none";
-        let itemsHTML = "";
-        favorites.forEach((productId) => {
-          const product = products.find((p) => p.id === productId); // Fetch from products array
-          if (product) {
-            itemsHTML += `
-          <div class="favorite-item">
-            <div class="favorite-item-image">
-              <img src="${product.image}" alt="${product.name}">
-            </div>
-            <div class="favorite-item-details">
-              <h3 class="favorite-item-title">${product.name}</h3>
-              <div class="favorite-item-price">₵${product.price.toFixed(
-                2
-              )}</div>
-              <button class="btn" onclick="addToCart(${
-                product.id
-              })">Add to Cart</button>
-              <button class="remove-item" onclick="removeFromFavorites(${
-                product.id
-              })">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          </div>
-        `;
-          }
-        });
-        favoritesItems.innerHTML = itemsHTML;
-      }
+
       // Remove from favorites
+      // Unified removeFromFavorites - replaces the previous inconsistent definition
       function removeFromFavorites(productId) {
-        favorites = favorites.filter((id) => id !== productId);
-        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
-        updateFavoriteButtons(); // Your existing function to update heart icons
-        updateFavoriteCounts();
-        renderFavorites();
-        showNotification("Removed from favorites", "info"); // Optional, if you have notifications
+        // Ensure favorites is an array
+        if (!Array.isArray(favorites)) favorites = [];
+
+        // Support both favorites formats:
+        // - array of objects: [{id: 1, name:..., ...}, ...]
+        // - array of ids: [1, 2, 3]
+        if (favorites.length > 0 && typeof favorites[0] === "object") {
+          favorites = favorites.filter((item) => item.id !== productId);
+        } else {
+          favorites = favorites.filter((id) => id !== productId);
+        }
+
+        // Persist and update UI
+        if (typeof saveFavorites === "function") {
+          // saveFavorites updates localStorage and the visible favorites count
+          saveFavorites();
+        } else {
+          // fallback
+          localStorage.setItem(
+            "strikeGhanaFavorites",
+            JSON.stringify(favorites)
+          );
+          if (typeof updateFavoritesCount === "function")
+            updateFavoritesCount();
+        }
+
+        // Update heart icons on product cards and the favorites page
+        if (typeof updateFavoriteButtons === "function")
+          updateFavoriteButtons();
+        if (typeof renderFavorites === "function") renderFavorites();
+
+        // Optional: notify the user if notification helper exists
+        if (typeof showNotification === "function") {
+          showNotification("Removed from favorites", "info");
+        }
       }
+
       // Show favorites page
       function showFavoritesPage() {
         document.getElementById("mainContent").style.display = "none";
@@ -6596,27 +7635,52 @@
         updateActiveNav("favorites");
         window.scrollTo(0, 0);
       }
-      // Edit your existing toggleFavorite function (replace the entire function)
+
       function toggleFavorite(productId) {
         const productElement = document.querySelector(
           `.product-card[data-id="${productId}"]`
         );
-        const favoriteBtn = productElement.querySelector(
+        const productName = productElement.getAttribute("data-name");
+        const productPrice = parseFloat(
+          productElement.getAttribute("data-price")
+        );
+        const productImage = productElement.getAttribute("data-image");
+
+        const existingIndex = favorites.findIndex(
+          (item) => item.id === productId
+        );
+        const favoriteButton = productElement.querySelector(
           ".product-action:nth-child(2)"
         );
-        if (favorites.includes(productId)) {
-          favorites = favorites.filter((id) => id !== productId);
-          favoriteBtn.classList.remove("favorited");
-          showNotification("Removed from favorites", "info");
+
+        if (existingIndex >= 0) {
+          // Remove from favorites
+          favorites.splice(existingIndex, 1);
+          favoriteButton.classList.remove("favorited");
+          showNotification("Removed from favorites", "info"); // This will now appear in bottom-right
         } else {
-          favorites.push(productId);
-          favoriteBtn.classList.add("favorited");
-          showNotification("Added to favorites!", "success");
+          // Add to favorites
+          favorites.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+          });
+          favoriteButton.classList.add("favorited");
+          showNotification("Added to favorites!", "success"); // This will now appear in bottom-right
         }
-        localStorage.setItem("strikeGhanaFavorites", JSON.stringify(favorites));
-        updateFavoriteButtons();
-        updateFavoriteCounts(); // Add this call
+
+        saveFavorites();
+        updateFavoritesCount();
+
+        // If we're on the favorites page, update the display
+        if (
+          document.getElementById("favoritesPage").style.display === "block"
+        ) {
+          renderFavorites();
+        }
       }
+
       // In your DOMContentLoaded listener, add:
       updateFavoriteCounts();
     </script>
